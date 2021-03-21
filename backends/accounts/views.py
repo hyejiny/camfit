@@ -12,7 +12,7 @@ from .serializers import UserSerializer
 @api_view(['POST'])
 def signup(request):
     password = request.data.get('password')
-    password2 = request.data.get('passwordcheck')
+    passwordcheck = request.data.get('passwordcheck')
 
     if password != passwordcheck:
         message = {
