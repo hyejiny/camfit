@@ -12,11 +12,11 @@ from .serializers import UserSerializer
 @api_view(['POST'])
 def signup(request):
     password = request.data.get('password')
-    password2 = request.data.get('password2')
+    password2 = request.data.get('passwordcheck')
 
-    if password != password2:
+    if password != passwordcheck:
         message = {
-            'error': '비밀번호가 틀립니다.'
+            'error': '비밀번호와 다릅니다.'
         }
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
