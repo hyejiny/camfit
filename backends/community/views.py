@@ -18,7 +18,7 @@ from .models import Article, Comment
 def article_list_create(request):
     if request.method == 'GET':
         articles = Article.objects.order_by('-pk')
-        serializer = ArticleSerializer(araticles, many =True)
+        serializer = ArticleSerializer(articles, many =True)
         return Response(serializer.data)
     else:
         serializer = ArticleSerializer(data=request.data)
