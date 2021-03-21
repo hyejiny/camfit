@@ -13,12 +13,12 @@ from .models import Article, Comment
 
 # Create your views here.
 @api_view(['GET','POST'])
-# @authentication_classes([JSONWebTokenAuthentication])
-# @permission_classes([IsAuthenticated])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
 def article_list_create(request):
     if request.method == 'GET':
         articles = Article.objects.order_by('-pk')
-        serializer = ArticleSerializer(araticles, many =True)
+        serializer = ArticleSerializer(articles, many =True)
         return Response(serializer.data)
     else:
         serializer = ArticleSerializer(data=request.data)
@@ -28,8 +28,8 @@ def article_list_create(request):
 
 
 @api_view(['GET'])
-# @authentication_classes([JSONWebTokenAuthentication])
-# @permission_classes([IsAuthenticated])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
 def article_detail(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
     serializer = ArticleDetailSerializer(article)
@@ -37,8 +37,8 @@ def article_detail(request, article_pk):
 
 
 @api_view(['PUT','DELETE'])
-# @authentication_classes([JSONWebTokenAuthentication])
-# @permission_classes([IsAuthenticated])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
 def article_update_delete(request,article_pk):
     article = get_object_or_404(Article, pk=article_pk)
 
@@ -56,8 +56,8 @@ def article_update_delete(request,article_pk):
 
 
 @api_view(['GET', 'POST'])
-# @authentication_classes([JSONWebTokenAuthentication])
-# @permission_classes([IsAuthenticated])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
 def comment_list_create(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
 
@@ -73,8 +73,8 @@ def comment_list_create(request, article_pk):
 
 
 @api_view(['PUT', 'DELETE'])
-# @authentication_classes([JSONWebTokenAuthentication])
-# @permission_classes([IsAuthenticated])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
 def comment_update_delete(request, comment_pk):
     comment = get_object_or_404(Comment, pk=comment_pk)
 
