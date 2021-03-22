@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'infoboards',
     'community',
     'accounts',
     'rest_framework',
