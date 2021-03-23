@@ -23,5 +23,5 @@ urlpatterns = [
     path('community/', include('community.urls')),
     path('accounts/', include('accounts.urls')),
     path('selftrains/', include('selftrains.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROO0T)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
