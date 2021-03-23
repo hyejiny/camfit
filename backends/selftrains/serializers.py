@@ -16,3 +16,4 @@ class TrainDetailSerializer(serializers.ModelSerializer):
         fields= '__all__'
 
 
+
