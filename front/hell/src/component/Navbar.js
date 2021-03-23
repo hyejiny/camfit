@@ -21,9 +21,9 @@ class NavBar extends Component {
                 </NavDropdown>
                 </Nav>
                 <Nav>
-                <Nav.Link href="#deets">More deets</Nav.Link>
-                <Nav.Link eventKey={2} href="#memes">
-                    Dank memes
+                <Nav.Link href="#">로그인</Nav.Link>
+                <Nav.Link eventKey={2} href="#">
+                    로그아웃
                 </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
