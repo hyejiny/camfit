@@ -4,7 +4,7 @@ import '../component.css';
 class ExerciseSidebar extends Component {
     render() {
         return (
-            <div class="ExerciseSidebar">사이드바</div>
+            <div className="ExerciseSidebar">사이드바</div>
         )
     }
 }

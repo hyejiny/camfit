@@ -4,7 +4,7 @@ import './page.css';
 class MoneyClass extends Component {
     render() {
         return (
-            <div class="MoneyClass">유료 클래스</div>
+            <div className="MoneyClass">유료 클래스</div>
         )
     }
 }
