@@ -8,6 +8,8 @@ import Exercise from './pages/Exercise';
 import ExerciseDetail from './pages/ExerciseDetail';
 import MoneyClass from './pages/MoneyClass';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import LoginModal from './component/Login/LoginModal';
+import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
           <Route path="/exercise" component={Exercise}></Route>
           <Route path="/moneyclass" component={MoneyClass}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
+          <Route path="/login" component={LoginModal}></Route>
         </Switch>
         <br></br>
         <Footer></Footer>
