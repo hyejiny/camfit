@@ -8,7 +8,7 @@ class InfoArticle(models.Model):
     image = models.ImageField(blank=True, upload_to='%Y%m%d')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    category = models.IntegerField()
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_posts')
 
     def __str__(self):
         return f'{self.pk} : {self.title}'
