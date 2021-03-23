@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+
+
+
+
 class NavBar extends Component {
+    
     render() {
+    
+
+
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
@@ -21,7 +29,10 @@ class NavBar extends Component {
                 </NavDropdown>
                 </Nav>
                 <Nav>
-                <Nav.Link href="#">로그인</Nav.Link>
+                <Nav.Link href="/login">로그인</Nav.Link>
+
+                {/* <LoginModal isOpen={this.state.isModalOpen} close={this.closeModal}/> */}
+                
                 <Nav.Link eventKey={2} href="#">
                     로그아웃
                 </Nav.Link>
