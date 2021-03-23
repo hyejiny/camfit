@@ -6,8 +6,10 @@ import Info from './pages/Info';
 import Article from './pages/Article';
 import Exercise from './pages/Exercise';
 import MoneyClass from './pages/MoneyClass';
+import LoginModal from './component/Login/LoginModal';
 import Route from 'react-router-dom/es/Route';
 import { BrowserRouter, Switch } from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="/article" component={Article}></Route>
           <Route path="/exercise" component={Exercise}></Route>
           <Route path="/moneyclass" component={MoneyClass}></Route>
+          <Route path="/login" component={LoginModal}></Route>
         </Switch>
         <br></br>
         <Footer></Footer>
