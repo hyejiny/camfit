@@ -5,7 +5,7 @@ import {Card, Button} from 'react-bootstrap';
 class ExerciseCardlist extends Component {
     render() {
         return (
-            <div class="ExerciseCardlist">
+            <div className="ExerciseCardlist">
 
                 <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
@@ -14,7 +14,7 @@ class ExerciseCardlist extends Component {
                     <Card.Text>
                     Some quick example 
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button href='/exercise/detail'variant="primary">Go somewhere</Button>
                 </Card.Body>
                 </Card>
             </div>
