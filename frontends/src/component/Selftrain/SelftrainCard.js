@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../component.css';
 import {Card, Button} from 'react-bootstrap';
 
-class ExerciseCard extends Component {
+class SelftrainCard extends Component {
     
     render() {
         return (
@@ -26,4 +26,4 @@ class ExerciseCard extends Component {
     }
 }
 
-export default ExerciseCard
+export default SelftrainCard
