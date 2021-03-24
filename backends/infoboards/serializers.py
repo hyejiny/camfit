@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Movie, Comment
+from .models import InfoArticle
 
 from django.contrib.auth import get_user_model
 
@@ -20,7 +20,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class InfoArticleDetailSerializer(serializers.ModelSerializer):
-    user = UserSerializer(required=False)
     
     class Meta:
         model = InfoArticle
@@ -28,8 +27,14 @@ class InfoArticleDetailSerializer(serializers.ModelSerializer):
 
 
 class InfoArticleSerializer(serializers.ModelSerializer):
-    user = UserSerializer(required=False)
 
     class Meta:
         model = InfoArticle
         fields = '__all__'
+
+class InfoArticleLikeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = InfoArticle
+        fields = '__all__'
+        read_only_fields = ('title','content')
