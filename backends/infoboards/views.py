@@ -35,18 +35,34 @@ def infoarticle_detail(request, infoarticle_pk):
     serializer = InfoArticleDetailSerializer(infoarticle)
     return Response(serializer.data)
 
-
-@api_view(['PUT','DELETE'])
+@api_view(['POST'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
-def infoarticle_update_delete(request,infoarticle_pk):
-    infoarticle = get_object_or_404(InfoArticle, pk=infoarticle_pk)
+def like(request, infoarticle_pk):
+        infoarticle = get_object_or_404(InfoArticle, pk=infoarticle_pk)
+        user = request.user
 
-    if request.method == 'PUT':
-        serializer = InfoArticleSerializer(infoarticle, data=request.data)
+        if infoarticle.like_users.filter(pk=user.pk).exists():
+            infoarticle.like_users.remove(user)
+        else:
+            infoarticle.like_users.add(user)
+
+        serializer = InfoArticleSerializer(infoarticle)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(user= request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-    else:
-        infoarticle.delete()
-        return Response({'id': infoarticle_pk}, status=status.HTTP_204_NO_CONTENT)
+            serializer.save(user= user)
+            return Response(serializer.data)
+
+# @api_view(['PUT','DELETE'])
+# @authentication_classes([JSONWebTokenAuthentication])
+# @permission_classes([IsAuthenticated])
+# def infoarticle_update_delete(request,infoarticle_pk):
+#     infoarticle = get_object_or_404(InfoArticle, pk=infoarticle_pk)
+
+#     if request.method == 'PUT':
+#         serializer = InfoArticleSerializer(infoarticle, data=request.data)
+#         if serializer.is_valid(raise_exception=True):
+#             serializer.save(user= request.user)
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#     else:
+#         infoarticle.delete()
+#         return Response({'id': infoarticle_pk}, status=status.HTTP_204_NO_CONTENT)
