@@ -9,8 +9,6 @@
 
   }
 .Selftrain {
-    
-
     margin:2px;
     padding: 2px;
     width: 100%;
@@ -21,15 +19,34 @@
     border-radius: 1px;
     border-color: green;
 
-  }
-  .SelftrainHead {
-    padding: 10px;
-    text-align: center;
-    font-size: 30px;
-    border-style: dotted;
-    border-radius: 3px;
-    border-color:black;
 }
+.SelftrainHead {
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  border-style: dotted;
+  border-radius: 3px;
+  border-color:black;
+}
+.SelftrainCarousel {
+  
+  padding: 10px;
+  font-size: 30px;
+  border-style: dotted;
+  border-radius: 3px;
+  border-color:black;
+}
+.CarouselImg {
+  width:50%;
+  /* color: black; */
+  /* text-align: center; */
+  justify-content: center;
+}
+/* .img {
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+} */
 .Info {
     width: 100%;
     height: 800px;
@@ -59,4 +76,15 @@
     border-radius: 1px;
     border-color: green;
 
+  }
+
+  .app__container {
+    margin-top:10px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+  }
+
+  .app__target {
+    margin-top: 10px;
   }
