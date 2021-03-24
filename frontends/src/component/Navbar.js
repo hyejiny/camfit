@@ -72,7 +72,6 @@ class NavBar extends Component {
                         <Button key="submit" type="primary" onClick={this.handleOk}>
                           로그인
                         </Button>,
-                    
                       ]}
                     >
                         <LoginModal/>
@@ -80,6 +79,9 @@ class NavBar extends Component {
                 
                 <Nav.Link eventKey={2} href="#">
                     로그아웃
+                </Nav.Link>
+                <Nav.Link href="/signin">
+                      회원가입
                 </Nav.Link>
                 </Nav>
             </Navbar.Collapse>

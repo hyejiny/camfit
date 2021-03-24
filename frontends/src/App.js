@@ -9,7 +9,7 @@ import SelftrainDetail from './pages/SelftrainDetail';
 import Exercise from './pages/Exercise';
 import VideoClass from './pages/VideoClass';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import LoginModal from './component/Account/LoginModal';
+import Signin from './component/Account/Signin';
 // import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
@@ -26,7 +26,7 @@ function App() {
           <Route path="/selftrain/detail" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route path="/videoClass" component={VideoClass}></Route>
-          <Route path="/login" component={LoginModal}></Route>
+          <Route path="/signin" component={Signin}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>
         <br></br>
