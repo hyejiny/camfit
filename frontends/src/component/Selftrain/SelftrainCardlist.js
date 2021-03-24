@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../component.css';
 import {Card, Button} from 'react-bootstrap';
 
-class ExerciseCardlist extends Component {
+class SelftrainCardlist extends Component {
     render() {
         return (
-            <div className="ExerciseCardlist">
+            <div className="SelftrainCardlist">
 
                 <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
@@ -14,7 +14,7 @@ class ExerciseCardlist extends Component {
                     <Card.Text>
                     Some quick example 
                     </Card.Text>
-                    <Button href='/exercise/detail'variant="primary">Go somewhere</Button>
+                    <Button href='/selftrain/detail'variant="primary">Go somewhere</Button>
                 </Card.Body>
                 </Card>
             </div>
@@ -22,4 +22,4 @@ class ExerciseCardlist extends Component {
     }
 }
 
-export default ExerciseCardlist
+export default SelftrainCardlist
