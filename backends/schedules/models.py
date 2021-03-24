@@ -5,4 +5,4 @@ from django.conf import settings
 
 class Grass(models.Model):
     user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='Grass', blank=True)
-    date = models.models.DateField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
