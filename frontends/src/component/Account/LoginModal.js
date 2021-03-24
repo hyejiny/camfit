@@ -1,38 +1,28 @@
-import React from 'react';
-// import React, { useState } from 'react';
-// import 'semantic-ui-css/semantic.min.css'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Form,Button } from 'react-bootstrap';
 
-const LoginModal = () => (
-//   const [Email,setEmail] = useState("")
-//   const [Password,setPassword] = useState("")
+class LoginModal extends Component {
+  render() {
+    return (
+      <Form>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" />
+  </Form.Group>
 
-  <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-    <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='teal' textAlign='center'>
-        로그인을 하세요!
-      </Header>
-      <Form size='large'>
-        <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
-          <Form.Input
-            fluid
-            icon='lock'
-            iconPosition='left'
-            placeholder='Password'
-            type='password'
-          />
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Text className="text-muted">
+      비밀번호가 생각이 안나시나요? 그렇다면
+    </Form.Text>
+  <Button variant="primary" type="submit">
+    비밀번호 찾기
+  </Button>
+</Form>
+    );
+  }
+}
 
-          <Button color='teal' fluid size='large'>
-            Login
-          </Button>
-        </Segment>
-      </Form>
-      <Message>
-        첫방문 이신가요? <a href='/'>회원가입</a>
-      </Message>
-    </Grid.Column>
-  </Grid>
-)
-
-export default LoginModal
+export default LoginModal;
