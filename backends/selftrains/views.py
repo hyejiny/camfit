@@ -17,13 +17,13 @@ from .models import SelfTrain
 def train_list_create(request):
     if request.method == 'GET':
         trains = SelfTrain.objects.order_by('-pk')
-        serializer = ArticleSerializer(articles, many =True)
+        serializer = TrainListSerializer(trains, many =True)
         return Response(serializer.data)
     else:
         if request.user.is_superuser:
-            serializer = ArticleSerializer(data=request.data)
+            serializer = TrainDetailSerializer(data=request.data)
             if serializer.is_valid(raise_exception=True):
-                serializer.save(user= request.user)
+                serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
@@ -40,13 +40,13 @@ def train_detail(request, train_pk):
 def train_update_delete(request,article_pk):
     train = get_object_or_404(SelfTrain, pk=selftrain_pk)
 
-    if not request.user.train.filter(pk=selftrain_pk).exists():
+    if not request.user.is_superuser:
         return Response({'detail': '권한이 없습니다.'})
     
     if request.method == 'PUT':
         serializer = TrainDetailSerializer(train, data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(user= request.user)
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
     else:
         train.delete()
