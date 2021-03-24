@@ -1,0 +1,19 @@
+.ExerciseSidebar {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 30px;
+    border-style: dotted;
+    border-radius: 3px;
+    border-color:black;
+  }
+.ExerciseCardlist {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 30px;
+    border-style: dotted;
+    border-radius: 3px;
+    border-color:black;
+  }

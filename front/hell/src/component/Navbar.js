@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+
+
+
+
 class NavBar extends Component {
+    
     render() {
+    
+
+
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
@@ -10,8 +18,8 @@ class NavBar extends Component {
                 <Nav className="mr-auto">
                 <Nav.Link href="/info">정보게시판</Nav.Link>
                 <Nav.Link href="/article">자유게시판</Nav.Link>
-                <Nav.Link href="exercise">ai운동하기</Nav.Link>
-                <Nav.Link href="moneyclass">유료강의</Nav.Link>
+                <Nav.Link href="/exercise">ai운동하기</Nav.Link>
+                <Nav.Link href="/moneyclass">유료강의</Nav.Link>
                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -21,9 +29,12 @@ class NavBar extends Component {
                 </NavDropdown>
                 </Nav>
                 <Nav>
-                <Nav.Link href="#deets">More deets</Nav.Link>
-                <Nav.Link eventKey={2} href="#memes">
-                    Dank memes
+                <Nav.Link href="/login">로그인</Nav.Link>
+
+                {/* <LoginModal isOpen={this.state.isModalOpen} close={this.closeModal}/> */}
+                
+                <Nav.Link eventKey={2} href="#">
+                    로그아웃
                 </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
