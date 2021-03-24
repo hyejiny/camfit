@@ -3,6 +3,7 @@ from .models import SelfTrain
 
 from django.contrib.auth import get_user_model
 
+
 class TrainListSerializer(serializers.ModelSerializer):
     
     class Meta:
