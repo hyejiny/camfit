@@ -29,7 +29,7 @@ def train_list_create(request):
 @api_view(['GET'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
-def train_detail(request, train_pk):
+def train_detail(request, selftrain_pk):
     train = get_object_or_404(SelfTrain, pk=selftrain_pk)
     serializer = TrainDetailSerializer(train)
     return Response(serializer.data)
@@ -37,7 +37,7 @@ def train_detail(request, train_pk):
 @api_view(['PUT','DELETE'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
-def train_update_delete(request,article_pk):
+def train_update_delete(request,selftrain_pk):
     train = get_object_or_404(SelfTrain, pk=selftrain_pk)
 
     if not request.user.is_superuser:
