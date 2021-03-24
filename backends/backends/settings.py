@@ -25,12 +25,13 @@ SECRET_KEY = '=a)v)@r3je(z6fidzc%i1r+h&#+x2wu3@^78nrx95#bs^chd7y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'infoboards',
     'selftrains',
     'community',
     'accounts',
