@@ -1,13 +1,13 @@
-import React from 'react';
-// import React, { useState } from 'react';
-// import 'semantic-ui-css/semantic.min.css'
+import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
 
-const LoginModal = () => (
-//   const [Email,setEmail] = useState("")
-//   const [Password,setPassword] = useState("")
-
-  <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+class LoginModal extends Component {
+  render() {
+    return (
+    //   const [Email,setEmail] = useState("")
+    //   const [Password,setPassword] = useState("")
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='teal' textAlign='center'>
         로그인을 하세요!
@@ -21,7 +21,7 @@ const LoginModal = () => (
             iconPosition='left'
             placeholder='Password'
             type='password'
-          />
+            />
 
           <Button color='teal' fluid size='large'>
             Login
@@ -33,6 +33,8 @@ const LoginModal = () => (
       </Message>
     </Grid.Column>
   </Grid>
-)
+    )
+}}
+
 
 export default LoginModal
