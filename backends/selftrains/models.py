@@ -6,3 +6,5 @@ class SelfTrain(models.Model):
     content = models.TextField()
     yt_address = models.TextField()
     category = models.IntegerField()
+    thumbnail = models.ImageField(blank=True, upload_to='%Y%m%d')
+    

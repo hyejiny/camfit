@@ -5,9 +5,11 @@ import Mainpage from './pages/Mainpage';
 import Info from './pages/Info';
 import Article from './pages/Article';
 import Exercise from './pages/Exercise';
+import ExerciseDetail from './pages/ExerciseDetail';
 import MoneyClass from './pages/MoneyClass';
-import Route from 'react-router-dom/es/Route';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import LoginModal from './component/Login/LoginModal';
+import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
 function App() {
@@ -19,8 +21,11 @@ function App() {
           <Route exact path="/" component={Mainpage}></Route>
           <Route path="/info" component={Info}></Route>
           <Route path="/article" component={Article}></Route>
+          <Route path="/exercise/detail" component={ExerciseDetail}></Route>
           <Route path="/exercise" component={Exercise}></Route>
           <Route path="/moneyclass" component={MoneyClass}></Route>
+          <Route render={() => <div className='error'>에러 페이지</div>} />
+          <Route path="/login" component={LoginModal}></Route>
         </Switch>
         <br></br>
         <Footer></Footer>

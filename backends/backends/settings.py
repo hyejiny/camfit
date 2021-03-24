@@ -135,13 +135,13 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'Uploaded_Files'
 
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "http://192.168.0.15:8080",
-    # "https://angry-lichterman-434487.netlify.app/",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8080",
+#     "http://192.168.0.15:8080",
+#     # "https://angry-lichterman-434487.netlify.app/",
+# ]
 
 
 AUTH_USER_MODEL = 'accounts.User'
