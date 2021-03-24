@@ -1,16 +1,48 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-
+import 'antd/dist/antd.css';
+import { Modal,Button} from 'antd';
+import LoginModal from './Account/LoginModal';
 
 
 
 class NavBar extends Component {
-    
-    render() {
-    
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            visible: false,
+        }
+        this.showModal = this.showModal.bind(this);
+        
+
+
+    }
+
+    showModal () {
+        this.setState( {
+            visible: true,
+        })
+    }
+    
+    handleOk = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+          this.setState({ loading: false, visible: false });
+        }, 3000);
+      };
+
+
+    handleCancel = () => {
+        this.setState({ visible: false });
+      };
+
+    render() {
+ 
 
         return (
+           
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -29,12 +61,27 @@ class NavBar extends Component {
                 </NavDropdown>
                 </Nav>
                 <Nav>
-                <Nav.Link href="/login">로그인</Nav.Link>
-
-                {/* <LoginModal isOpen={this.state.isModalOpen} close={this.closeModal}/> */}
+                <Nav.Link onClick={this.showModal}>로그인</Nav.Link>
+                <Modal
+                    visible={this.state.visible}
+                    title="로그인 하시겠습니까?"
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                    footer={[
+                    
+                        <Button key="submit" type="primary" onClick={this.handleOk}>
+                          로그인
+                        </Button>,
+                      ]}
+                    >
+                        <LoginModal/>
+                    </Modal>
                 
                 <Nav.Link eventKey={2} href="#">
                     로그아웃
+                </Nav.Link>
+                <Nav.Link href="/signin">
+                      회원가입
                 </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
