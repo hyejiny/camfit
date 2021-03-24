@@ -1,40 +1,28 @@
 import React, { Component } from 'react';
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css'
+import { Form,Button } from 'react-bootstrap';
 
 class LoginModal extends Component {
   render() {
     return (
-    //   const [Email,setEmail] = useState("")
-    //   const [Password,setPassword] = useState("")
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-    <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='teal' textAlign='center'>
-        로그인을 하세요!
-      </Header>
-      <Form size='large'>
-        <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
-          <Form.Input
-            fluid
-            icon='lock'
-            iconPosition='left'
-            placeholder='Password'
-            type='password'
-            />
+      <Form>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" />
+  </Form.Group>
 
-          <Button color='teal' fluid size='large'>
-            Login
-          </Button>
-        </Segment>
-      </Form>
-      <Message>
-        첫방문 이신가요? <a href='/'>회원가입</a>
-      </Message>
-    </Grid.Column>
-  </Grid>
-    )
-}}
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Text className="text-muted">
+      아직 회원이 아니신가요?
+    </Form.Text>
+  <Button variant="primary" type="submit">
+    회원가입
+  </Button>
+</Form>
+    );
+  }
+}
 
-
-export default LoginModal
+export default LoginModal;
