@@ -10,6 +10,7 @@ import VideoClass from './pages/VideoClass';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import LoginModal from './component/Account/LoginModal';
 import 'semantic-ui-css/semantic.min.css'
+
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
 function App() {
@@ -24,8 +25,8 @@ function App() {
           <Route path="/selftrain/detail" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route path="/videoClass" component={VideoClass}></Route>
-          <Route render={() => <div className='error'>에러 페이지</div>} />
           <Route path="/login" component={LoginModal}></Route>
+          <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>
         <br></br>
         <Footer></Footer>
