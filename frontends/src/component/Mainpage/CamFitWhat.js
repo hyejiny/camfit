@@ -3,7 +3,7 @@ import Background from './images/CamFit.png';
 import Image from 'react-bootstrap/Image';
 import { Col, Row } from 'antd';
 
-class MainImage extends Component {
+class CamFitWhat extends Component {
   render() {
     return (
       <div>
@@ -15,4 +15,4 @@ class MainImage extends Component {
   }
 }
 
-export default MainImage;
+export default CamFitWhat;
