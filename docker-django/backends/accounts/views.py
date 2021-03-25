@@ -8,6 +8,8 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from .serializers import UserSerializer
 
+from .models import User
+
 # Create your views here.
 @api_view(['POST'])
 def signup(request):
@@ -28,4 +30,10 @@ def signup(request):
 
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
+@api_view(['POST'])
+def emailCheck(request):
+    email = request.data.get('username')
+    # print(email)
+    if User.objects.filter(username=email).exists():
+        return Response({'있음'})
+    return Response({'없음'})
