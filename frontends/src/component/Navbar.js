@@ -44,45 +44,45 @@ class NavBar extends Component {
         return (
            
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="/">CamFit</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="/info">정보게시판</Nav.Link>
-                <Nav.Link href="/community">자유게시판</Nav.Link>
-                <Nav.Link href="/selftrain">ai운동하기</Nav.Link>
-                <Nav.Link href="/videoclass">유료강의</Nav.Link>
-                <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown>
+                    <Nav.Link href="/selftrain">AI트레이닝</Nav.Link>
+                    <Nav.Link href="/info">캠핏꿀팁</Nav.Link>
+                    <Nav.Link href="/videoclass">클래스</Nav.Link>
+                    <Nav.Link href="/community">커뮤니티</Nav.Link>
+                    {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown> */}
                 </Nav>
-                <Nav>
-                <Nav.Link onClick={this.showModal}>로그인</Nav.Link>
-                <Modal
-                    visible={this.state.visible}
-                    title="로그인 하시겠습니까?"
-                    onOk={this.handleOk}
-                    onCancel={this.handleCancel}
-                    footer={[
+                <Nav className="ml-auto">
+                    <Nav.Link onClick={this.showModal}>로그인</Nav.Link>
+                    <Modal
+                        visible={this.state.visible}
+                        title="로그인 하시겠습니까?"
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
+                        footer={[
+                        
+                            <Button key="submit" type="primary" onClick={this.handleOk}>
+                            로그인
+                            </Button>,
+                        ]}
+                        >
+                            <LoginModal/>
+                        </Modal>
                     
-                        <Button key="submit" type="primary" onClick={this.handleOk}>
-                          로그인
-                        </Button>,
-                      ]}
-                    >
-                        <LoginModal/>
-                    </Modal>
-                
-                <Nav.Link eventKey={2} href="#">
-                    로그아웃
-                </Nav.Link>
-                <Nav.Link href="/signup">
-                      회원가입
-                </Nav.Link>
+                    <Nav.Link eventKey={2} href="#">
+                        로그아웃
+                    </Nav.Link>
+                    <Nav.Link href="/signin">
+                        회원가입
+                    </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>

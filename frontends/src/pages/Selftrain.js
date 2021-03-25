@@ -3,6 +3,7 @@ import './page.css';
 import SelftrainSidebar from '../component/Selftrain/SelftrainSidebar';
 import SelftrainCardlist from '../component/Selftrain/SelftrainCardlist';
 
+
 class Selftrain extends Component {
     render() {
         return (

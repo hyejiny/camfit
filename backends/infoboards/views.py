@@ -8,7 +8,7 @@ from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from .serializers import InfoArticleDetailSerializer, InfoArticleSerializer
+from .serializers import InfoArticleLikeSerializer,InfoArticleDetailSerializer, InfoArticleSerializer
 from .models import InfoArticle
 
 
@@ -23,7 +23,7 @@ def infoarticle_list_create(request):
     else:
         serializer = InfoArticleSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(user= request.user)
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
@@ -35,19 +35,21 @@ def infoarticle_detail(request, infoarticle_pk):
     serializer = InfoArticleDetailSerializer(infoarticle)
     return Response(serializer.data)
 
-@api_view(['POST'])
+@api_view(['PUT'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
 def like(request, infoarticle_pk):
         infoarticle = get_object_or_404(InfoArticle, pk=infoarticle_pk)
         user = request.user
+        print(infoarticle)
+        print(request.data)
 
         if infoarticle.like_users.filter(pk=user.pk).exists():
             infoarticle.like_users.remove(user)
         else:
             infoarticle.like_users.add(user)
 
-        serializer = InfoArticleSerializer(infoarticle)
+        serializer = InfoArticleLikeSerializer(infoarticle, data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(user= user)
             return Response(serializer.data)
