@@ -80,7 +80,7 @@ class NavBar extends Component {
                 <Nav.Link eventKey={2} href="#">
                     로그아웃
                 </Nav.Link>
-                <Nav.Link href="/signin">
+                <Nav.Link href="/signup">
                       회원가입
                 </Nav.Link>
                 </Nav>

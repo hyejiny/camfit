@@ -6,10 +6,20 @@ import './index.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import {createStore} from 'redux';
+import reducers from './reducers';
+
+import {Provider } from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+
+// const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore, composeWithDevTools());
+const store = createStore(reducers, composeWithDevTools());
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
