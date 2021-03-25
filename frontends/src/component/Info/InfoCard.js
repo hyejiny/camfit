@@ -6,9 +6,9 @@ import "slick-carousel/slick/slick-theme.css";
 import InfoCardList from "./InfoCardList";
 import InfoCardS from "./InfoCardS";
 
-import {IoIosArrowForward} from "react-icons/io"
 
-import './info.css'
+
+
 
 // import imga from './캡처.JPG'
 
@@ -40,9 +40,7 @@ class InfoCard extends Component {
         <Slider {...settings}>
           <div>
           <div style={{ width: 250, height: 250 }}>
-            <div>
-              <IoIosArrowForward class="arrown"/>
-            </div>
+        
             <InfoCardList />
           </div>
           </div>

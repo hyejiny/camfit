@@ -6,16 +6,6 @@ class Community extends Component {
         return (
             <div className="Community">
                 자유게시판
-                
-
-
-
-
-
-
-
-
-                
                 </div>
         )
     }
