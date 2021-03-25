@@ -1,53 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import {login} from '../../actions/index';
+import {login} from '../../_actions/index';
 import { Form,Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 // import axios from 'axios';
-
-
-// class LoginModal extends Component {
-//   state = {
-//     email:'',
-//     password:'',
-//   };
-//   handleEmail = e => {
-//     this.setState({
-//       email: e.target.value,
-//     });
-//     console.log(this.state.email);
-//   }
-//   handlePassword = e => {
-//     this.setState({
-//       password: e.target.value,
-//     });
-//     console.log('e');
-//   }
-//   handleSubmit = e => {
-//     console.log('32414123')
-//     e.preventDefault();
-//     const data = {
-//       username : this.state.email,
-//       password: this.state.password
-//     }
-//     console.log(data)
-//     axios.post('http://127.0.0.1:8000/accounts/api-token-auth/', data)
-//       .then(res => {
-//         console.log(res)
-//       })
-//       .catch(err=> {
-//         console.log(err)
-//       })
-    
-//   };
-
-//   constructor(props) {
-//     super(props);
-//   }
-
 function LoginModal(props) {
   const dispatch = useDispatch();
   const [Email,setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  // const [LoginDone] = useState(false);
+
+  // const closeModal = () => {
+  //   console.log('closemodal')
+  //   props.modalfunc(LoginDone);
+  // }
 
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);
@@ -63,22 +29,24 @@ function LoginModal(props) {
       username : Email,
       password : Password
     };
-    // axios.post('http://127.0.0.1:8000/accounts/api-token-auth/', body)
-    //   .then(res => {
-    //     console.log(res.data.token)
-    //   })
-    //   .catch(err=> {
-    //     console.log(err)
-    //   })
+ 
     dispatch(login(body))
       .then((res) => {
-        if (res.payload.loginSuccess) {
-            props.history.push('/');
+        // console.log(res);
+        if (res.payload.token) {
+          localStorage.setItem('token',res.payload.token);
+          // axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.token}`;
+          console.log('login success')
+          window.location.replace("/")
+          // props.history.push('/')
+          // closeModal()
         } else {
-          alert(res.payload.message);
+          console.log('login fail')
+          alert(res.payload.message)
         }
       })
       .catch((err) => {
+        alert('로그인실패')
         console.log(err);
       });
   };
@@ -115,4 +83,5 @@ function LoginModal(props) {
   
 }
 
-export default LoginModal;
+
+export default withRouter(LoginModal)
