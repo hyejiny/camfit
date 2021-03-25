@@ -7,7 +7,7 @@ services:
             image: docker-django/nginx
             restart: always
             ports:
-                    - "80:80"
+                    - "8080:8080"
             volumes:
                     - ./backends:/srv/docker-django
                     - ./log:/var/log/nginx
@@ -23,4 +23,5 @@ services:
             volumes:
                     - ./backends:/srv/docker-django
                     - ./log:/var/log/uwsgi
+  
 
