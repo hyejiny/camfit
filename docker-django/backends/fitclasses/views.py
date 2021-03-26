@@ -46,3 +46,4 @@ def participate_left(request,fitclass_pk):
     
     if serializer.is_valid(raise_exception=True):
         serializer.save
+    #asdf
