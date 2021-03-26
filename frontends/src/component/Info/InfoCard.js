@@ -13,14 +13,14 @@ import {infolist} from "../../_actions/index"
 function InfoCard() {
 
   const dispatch = useDispatch();
-  const [FirstInfo,setFirstInfo] = useState({})
+  const [FirstInfo,setFirstInfo] = useState(null)
 
   useEffect(() => {
     dispatch(infolist())
     .then((res)=>{
       console.log(res.payload[4])
-      // setFirstInfo(JSON.stringify(res.payload[4]))
-      setFirstInfo(...FirstInfo,res.payload[4])
+      setFirstInfo(JSON.stringify(res.payload[4]))
+      // setFirstInfo(...FirstInfo,JSON.stringify(res.payload[4]))
       console.log(typeof(FirstInfo))
 
     },[])
@@ -42,8 +42,9 @@ function InfoCard() {
       <div>
         <Slider {...settings}>
           <div>
-          <div style={{ width: 250, height: 250 }}>      
-            <InfoCardList first={FirstInfo}/>
+          <div style={{ width: 250, height: 250 }}>
+            {FirstInfo &&      
+            <InfoCardList first={FirstInfo}/>}
           </div>
           </div>
 
