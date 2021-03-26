@@ -13,8 +13,8 @@ from .models import InfoArticle
 
 
 @api_view(['GET','POST'])
-@authentication_classes([JSONWebTokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([JSONWebTokenAuthentication])
+# @permission_classes([IsAuthenticated])
 def infoarticle_list_create(request):
     if request.method == 'GET':
         infoarticles = InfoArticle.objects.order_by('-pk')
@@ -28,8 +28,8 @@ def infoarticle_list_create(request):
 
 
 @api_view(['GET'])
-@authentication_classes([JSONWebTokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([JSONWebTokenAuthentication])
+# @permission_classes([IsAuthenticated])
 def infoarticle_detail(request, infoarticle_pk):
     infoarticle = get_object_or_404(InfoArticle, pk=infoarticle_pk)
     serializer = InfoArticleDetailSerializer(infoarticle)
