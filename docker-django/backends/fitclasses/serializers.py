@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = get_user_model()
         fields=('username')
 
-class FitclassListSerializer(serializers.ModelSerializer):
+class FitclassSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     guests = UserSerializer(required=False, many=True)
 
