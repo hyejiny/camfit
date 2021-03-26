@@ -7,13 +7,13 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields=('username')
+        fields=('username',)
 
 class FitclassSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    user = UserSerializer(required=False)
     guests = UserSerializer(required=False, many=True)
 
     class Meta:
         model = Fitclass
         fields = '__all__'
-        read_only_fields = {'user'}
+        read_only_fields = ('user',)

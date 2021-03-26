@@ -14,10 +14,10 @@ from .serializers import FitclassSerializer
 from .models import Fitclass
 
 @api_view(['GET','POST'])
-@authentication.classes([JSONWebTokenAuthentication])
+@authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
 def fitclass_list_create(request):
-    if request.methed == 'GET':
+    if request.method == 'GET':
         fitclasses = Fitclass.objects.order_by('-pk')
         serializer = FitclassSerializer(fitclasses, many=True)
         return Response(serializer.data)
@@ -29,3 +29,20 @@ def fitclass_list_create(request):
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response('트레이너만 클래스 생성 가능합니다')
+
+
+@api_view(['PUT'])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
+def participate_left(request,fitclass_pk):
+    fitclass = get_object_or_404(Fitclass, pk=fitclass_pk)
+    serializer = FitclassSerializer(fitclass)
+
+    # if 제한인원
+    if fitclass.guests.filter(pk=user.pk).exists():
+        fitclass.guests.remove(user)
+    else:
+        fitclass.guests.add(user)
+    
+    if serializer.is_valid(raise_exception=True):
+        serializer.save
