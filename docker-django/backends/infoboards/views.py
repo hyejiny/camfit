@@ -53,18 +53,3 @@ def like(request, infoarticle_pk):
         if serializer.is_valid(raise_exception=True):
             serializer.save(user= user)
             return Response(serializer.data)
-
-# @api_view(['PUT','DELETE'])
-# @authentication_classes([JSONWebTokenAuthentication])
-# @permission_classes([IsAuthenticated])
-# def infoarticle_update_delete(request,infoarticle_pk):
-#     infoarticle = get_object_or_404(InfoArticle, pk=infoarticle_pk)
-
-#     if request.method == 'PUT':
-#         serializer = InfoArticleSerializer(infoarticle, data=request.data)
-#         if serializer.is_valid(raise_exception=True):
-#             serializer.save(user= request.user)
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#     else:
-#         infoarticle.delete()
-#         return Response({'id': infoarticle_pk}, status=status.HTTP_204_NO_CONTENT)
