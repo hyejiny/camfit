@@ -27,12 +27,15 @@ def article_list_create(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET'])
+@api_view(['PUT'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
 def article_detail(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
-    serializer = ArticleDetailSerializer(article)
+    article.hit += 1
+    serializer = ArticleDetailSerializer(article, data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
     return Response(serializer.data)
 
 

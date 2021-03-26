@@ -31,11 +31,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'fitclasses',
     'grasses',
     'infoboards',
     'selftrains',
     'community',
     'accounts',
+    
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',

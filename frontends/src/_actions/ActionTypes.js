@@ -4,3 +4,4 @@ export const EMAILCHECK = "EMAILCHECK";
 
 export const SELFTRAINLIST = "SELFTRAINLIST";
 
+export const INFO = "INFO";
