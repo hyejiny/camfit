@@ -10,7 +10,7 @@ class Fitclass(models.Model):
     end_day = models.CharField(max_length=50)
     user_limit = models.IntegerField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='my_fitclasses')
-    guests = models.models.ManyToManyField(settings.AUTH_USER_MODEL)
+    guests = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='participated_fitclasses', blank=True)
     price = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
