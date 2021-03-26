@@ -8,12 +8,6 @@ function LoginModal(props) {
   const dispatch = useDispatch();
   const [Email,setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  // const [LoginDone] = useState(false);
-
-  // const closeModal = () => {
-  //   console.log('closemodal')
-  //   props.modalfunc(LoginDone);
-  // }
 
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);

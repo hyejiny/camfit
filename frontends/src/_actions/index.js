@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as types from './ActionTypes';
-import {API_BASE_URL} from '../constants';
+import {API_BASE_URL, ACCESS_TOKEN} from '../constants';
 export function login(data) {
     const request = axios.post(`${API_BASE_URL}/accounts/api-token-auth/`, data)
         .then((res) =>
@@ -28,6 +28,22 @@ export function emailcheck(data) {
 
     return {
         type: types.EMAILCHECK,
+        payload: request
+    };
+}
+
+// const headers = {
+//     headers:{Authorization: 'jwt ' + ACCESS_TOKEN}
+// }
+export function selftrainlist() {
+    // console.log(headers)
+    const request = axios.get(`${API_BASE_URL}/selftrains/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+        .then((res) => 
+            res.data);
+        
+
+    return {
+        type: types.SELFTRAINLIST,
         payload: request
     };
 }

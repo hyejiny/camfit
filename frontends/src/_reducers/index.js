@@ -2,9 +2,10 @@ import { combineReducers} from 'redux';
 import login from './login';
 import signup from './signup';
 import emailcheck from './email';
+import selftrainlist from './selftrain';
 
-const reducers = combineReducers({
-    login, signup, emailcheck,
+const Reducers = combineReducers({
+    login, signup, emailcheck, selftrainlist
 });
 
-export default reducers;
+export default Reducers;
