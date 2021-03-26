@@ -52,10 +52,7 @@
     height: 800px;
     text-align: center;
     font-size: 30px;
-    border-style: dotted;
-    border-radius: 1px;
-    border-color: green;
-
+  
   }
 .Mainpage {
     width: 100%;
@@ -78,13 +75,3 @@
 
   }
 
-  .app__container {
-    margin-top:10px;
-    width: 500px;
-    height: 500px;
-    border: 1px solid black;
-  }
-
-  .app__target {
-    margin-top: 10px;
-  }
