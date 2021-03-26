@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'selftrains',
     'community',
     'accounts',
+    
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
