@@ -25,5 +25,6 @@ urlpatterns = [
     path('infoboards/', include('infoboards.urls')),
     path('grasses/', include('grasses.urls')),
     path('selftrains/', include('selftrains.urls')),
+    path('fitclasses/', include('fitclasses.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
