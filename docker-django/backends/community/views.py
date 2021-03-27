@@ -72,15 +72,14 @@ def comment_list_create(request, article_pk):
         return Response(serializer.data)
     else:
         serializer = CommentSerializer(data=request.data)
-        print(request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(user= request.user,article= article)
-
+            # print(request.data['content'])
             alert = Alert(
                 user=article.user,
                 pushed_user=request.user,
                 category=1,
-                content='1'
+                content='{}'.format(request.data['content'])
             )
             alert.save()
 
