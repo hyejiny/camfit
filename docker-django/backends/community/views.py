@@ -10,6 +10,8 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from .serializers import ArticleDetailSerializer, ArticleSerializer, CommentSerializer, ArticleListSerializer
 from .models import Article, Comment
+from accounts.models import Alert
+from accounts.serializers import AlertSerializer
 
 # Create your views here.
 @api_view(['GET','POST'])
@@ -70,8 +72,19 @@ def comment_list_create(request, article_pk):
         return Response(serializer.data)
     else:
         serializer = CommentSerializer(data=request.data)
+        print(request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(user= request.user,article= article)
+
+            alert = Alert(
+                user=article.user,
+                pushed_user=request.user,
+                category=1,
+                content='1'
+            )
+            alert.save()
+
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
