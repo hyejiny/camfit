@@ -33,7 +33,7 @@ def fitclass_list_create(request):
 @api_view(['GET'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
-def fitclass_detail(requests, fitclass_pk):
+def fitclass_detail(request, fitclass_pk):
     fitclass = get_object_or_404(Fitclass, pk=fitclass_pk)
     serializer = FitclassSerializer(fitclass)
     # print(len(fitclass.guests.all()))
@@ -60,8 +60,20 @@ def fitclass_participate_left(request,fitclass_pk):
     #     serializer.save(user=request.user)
     return Response(serializer.data)
 
-@api_view(['PUT'])
+@api_view(['PUT','DELETE'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
 def fitclass_update_delete(request,fitclass_pk):
-    pass
+    fitclass= get_object_or_404(Fitclass, pk=fitclass_pk)
+
+    if not request.user.my_fitclasses.filter(pk=fitclass_pk).exists():
+        return Response({'detail':'권한 없음'})
+
+    if request.method == 'PUT':
+        serializer = FitclassSerializer(fitclass, data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user=request.user)
+            return Response(serializer.data)
+    else:
+        fitclass.delete()
+        return Response({'id':fitclass_pk}, status=status.HTTP_204_NO_CONTENT)
