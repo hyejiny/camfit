@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from rest_framework.decorators import authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from .serializers import UserSerializer,AlertSerializer
@@ -39,9 +40,10 @@ def emailCheck(request):
     return Response({'없음'})
 
 @api_view(['GET'])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
 def alertCheck(request):
-    # alerts = Alert.objects.filter(pk=request.user.pk).order_by('-pk')
-    alerts = Alert.objects.filter(user_id=request.user.id)
+    alerts = Alert.objects.filter(user_id=request.user.pk).order_by('-pk')
     for alert in alerts:
         if not alert.checked:
             alert.checked = True
