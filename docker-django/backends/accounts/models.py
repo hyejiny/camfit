@@ -11,6 +11,7 @@ class User(AbstractUser):
 
 class Alert(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='alerts')
+    pushed_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pushed')
     checked = models.BooleanField(default=False)
     content = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
