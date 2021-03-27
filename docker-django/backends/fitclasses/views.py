@@ -13,6 +13,7 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from .serializers import FitclassSerializer
 from .models import Fitclass
 
+
 @api_view(['GET','POST'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
