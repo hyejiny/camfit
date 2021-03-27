@@ -36,6 +36,8 @@ def fitclass_list_create(request):
 def fitclass_detail(request, fitclass_pk):
     fitclass = get_object_or_404(Fitclass, pk=fitclass_pk)
     serializer = FitclassSerializer(fitclass)
+    # print(fitclass.user.id)
+    # print(request.user.username)
     # print(len(fitclass.guests.all()))
     return Response(serializer.data)
 
