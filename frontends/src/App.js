@@ -23,7 +23,7 @@ function App() {
           <Route path="/info" component={Info}></Route>
           <Route path="/Community" component={Community}></Route>
           <Route path="/selftrain/exercise" component={Exercise}></Route>
-          <Route path="/selftrain/detail" component={SelftrainDetail}></Route>
+          <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route path="/videoClass" component={VideoClass}></Route>
           <Route path="/signup" component={Signup}></Route>
