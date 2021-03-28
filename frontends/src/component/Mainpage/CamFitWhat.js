@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Background from './images/CamFit.png';
+import WhatImage from './images/CamFit.png';
 import Image from 'react-bootstrap/Image';
 import { Col, Row } from 'antd';
 
@@ -8,7 +8,7 @@ class CamFitWhat extends Component {
     return (
       <div>
         <Row className="justify-content-md-center">
-          <Col xs={16}><Image src={Background} fluid/></Col>
+          <Col xs={16}><Image src={WhatImage} fluid/></Col>
         </Row>
       </div>
     );
