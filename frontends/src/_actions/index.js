@@ -30,10 +30,17 @@ export function selftrainlist() {
     const request = axios.get(`${API_BASE_URL}/selftrains/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
         .then((res) => 
             res.data);
-        
-
     return {
         type: types.SELFTRAINLIST,
+        payload: request
+    };
+}
+export function selftraindetail(id) {
+    const request = axios.get(`${API_BASE_URL}/selftrains/${id}/detail`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+        .then((res) => 
+            res.data);
+    return {
+        type: types.SELFTRAINDETAIL,
         payload: request
     };
 }

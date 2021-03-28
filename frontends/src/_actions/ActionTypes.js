@@ -3,5 +3,6 @@ export const SIGNUP = "SIGNUP";
 export const EMAILCHECK = "EMAILCHECK";
 
 export const SELFTRAINLIST = "SELFTRAINLIST";
+export const SELFTRAINDETAIL = "SELFTRAINDETAIL";
 
 export const INFO = "INFO";
