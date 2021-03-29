@@ -6,3 +6,17 @@
     background-color: aliceblue;
 
 }
+
+.image-container{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.contrast {
+    -webkit-filter: contrast(20%) ;
+    filter: contrast(20%);
+}
+
