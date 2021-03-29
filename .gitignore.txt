@@ -121,6 +121,8 @@ celerybeat.pid
 # .env
 .env/
 .venv/
+backends/venv/
+docker-django/venv/
 env/
 venv/
 ENV/

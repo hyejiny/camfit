@@ -31,11 +31,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'fitclasses',
     'grasses',
     'infoboards',
     'selftrains',
     'community',
     'accounts',
+    
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -146,6 +148,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 AUTH_USER_MODEL = 'accounts.User'
+ALERT = 'accounts.Alert'
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': (
