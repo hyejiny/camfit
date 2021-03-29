@@ -1,10 +1,28 @@
-import React, { Component} from 'react';
+// import React, { Component} from 'react';
 import SelftrainSidebar from '../component/Selftrain/SelftrainSidebar';
 import {Carousel, Button} from 'react-bootstrap';
 import './page.css';
+import React, { useEffect, useState } from "react";
+import { selftraindetail } from "../_actions/index";
+import { useDispatch } from "react-redux";
+import { API_BASE_URL } from "../constants";
+
 import img1 from '../media/logo512.png'
-class SelftrainDetail extends Component {
-    render() {
+function SelftrainDetail(props) {
+        const dispatch = useDispatch();
+        const [TrainInfo, setTrainInfo] = useState([]);
+        useEffect(() => {
+            
+            let trainId = props.match.params.id;
+            console.log(trainId,'아이디')
+            dispatch(selftraindetail(trainId))
+            .then((res) =>{
+                const tmp_list = res.payload
+                setTrainInfo(tmp_list);
+                console.log(TrainInfo)
+            });
+        }, [dispatch]);
+
         return (
             <div className="Selftrain row">
                 <SelftrainSidebar className="col"></SelftrainSidebar>
@@ -17,7 +35,7 @@ class SelftrainDetail extends Component {
                             className="d-block"
                             
                             // src={require("holder.js/800x400?text=First slide&bg=373940")}
-                            src={img1}
+                            src={API_BASE_URL + TrainInfo.thumbnail}
                             alt="First slide"
                             />
                             {/* <Carousel.Caption>
@@ -56,8 +74,8 @@ class SelftrainDetail extends Component {
                         </Carousel>
                         <div className="col text-align-center">
 
-                            <h1>제목</h1>
-                            <h2>내용</h2>
+                            <h1>{TrainInfo.title}</h1>
+                            <h2>{TrainInfo.content}</h2>
                             <Button href='/selftrain/exercise'>sfad</Button>
                         </div>
                     </div>
@@ -65,7 +83,7 @@ class SelftrainDetail extends Component {
 
             </div>
         )
-    }
+    
 }
 
 export default SelftrainDetail

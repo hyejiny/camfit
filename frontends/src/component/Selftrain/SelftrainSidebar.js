@@ -8,6 +8,7 @@ function SelftrainSidebar(props) {
 
     const shoulder = () => {
         dispatch(selftrainlist())
+        
     }
     // const arm = () => {
 

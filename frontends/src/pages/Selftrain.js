@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import './page.css';
 import SelftrainSidebar from '../component/Selftrain/SelftrainSidebar';
 import SelftrainCardlist from '../component/Selftrain/SelftrainCardlist';
+// import { useDispatch } from 'react-redux';
+// import { selftrainlist } from '../_actions';
 
 
 class Selftrain extends Component {
+    
     render() {
         return (
             <div className="Selftrain row">
