@@ -137,16 +137,21 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     learning_rate = hparams.learning_rate 
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
                                 weight_decay=hparams.weight_decay)
-    scheduler = ''
+    scheduler = torch.optim.lr_scheduler(
+        optimizer,
+        hparams.scheduler_step,
+        hparams.gamma,
+    )
     
-    criterion = Tacotron2Loss() # define loss function 
+    # define loss function 
+    criterion = Tacotron2Loss() 
     ####TODO####
     
     
     ####TODO#### 2. prepare_dataloaders 함수를 이용하여 dataset 준비
     # input : hparams
     # output : train_loader, valset, collate_fn 반환
-    
+    train_loader, valset, collate_fn = prepare_dataloaders(hparams)
     ####TODO####
     
     
@@ -158,7 +163,8 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
         # train from pretrained model
         if warm_start:
             # warm_start함수로 이동
-            pass
+            model = warm_start_model(
+                checkpoint_path, model, hparams.ignore_layers)            
 
         #train from scratch
         ##제공##
@@ -173,6 +179,7 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     ####TODO####
     
     is_overflow = False
+    model.train()
     ####TODO#### 4. model을 training mode로 전환 후 main loop 작성
     # hparams에서 epoch을 참고하여 mainloop 구성   
         
@@ -184,14 +191,18 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
         for i, batch in enumerate(train_loader):    
             
             # iteration start time
-            start = time.perf_counter()
-            
+            start = time.perf_counter()       
+            for param_group in optimizer.param_groups:
+                param_group['lr'] = learning_rate             
             # set gradients to zero
-           
-
+            model.zero_grad()
+            x, y = model.parse_batch(batch)
+            y_pred = model(x)
             # loss 계산 후 backpropagation
-            
-           
+            loss = criterion(y_pred, y)
+            reduced_loss = loss.item()
+            loss.backward()
+
             ####TODO####
             
             grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), hparams['grad_clip_thresh'])
