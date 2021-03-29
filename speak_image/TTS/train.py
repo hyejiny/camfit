@@ -83,7 +83,12 @@ def warm_start_model(checkpoint_path, model, ignore_layers):
 # checkpoint path에 iteration,그리고 model, optimizer, scheduler의 statedict를 저장
 # torch.save() 함수 이용하여 딕셔너리 형태로 저장
 def save_checkpoint(model, optimizer, scheduler, learning_rate, iteration, filepath): 
-    pass
+    print("Saving model and optimizer state at iteration {} to {}".format(
+        iteration, filepath))
+    torch.save({'iteration': iteration,
+                'state_dict': model.state_dict(),
+                'optimizer': optimizer.state_dict(),
+                'learning_rate': learning_rate}, filepath)
 
 ####TODO####
 
@@ -91,7 +96,7 @@ def save_checkpoint(model, optimizer, scheduler, learning_rate, iteration, filep
 ####TODO#### 6. 주기적으로 validation dataset으로 모델 성능 확인 후 log 기록
 def validate(model, criterion, valset, iteration, batch_size,collate_fn, epoch, dur):
     # model을 evalutation mode로 전환
-    
+    model.eval()
     # with torch.no_grad로 전체 연산을 묶음
     with torch.no_grad():
         # validation dataset 준비
@@ -100,12 +105,20 @@ def validate(model, criterion, valset, iteration, batch_size,collate_fn, epoch, 
                                 pin_memory=False, collate_fn=collate_fn)
 
         # validation loss 계산 (train() 코드와 동일하게 작성하지만 backpropagation을 하면 안된다)
-       
+        val_loss = 0.0
+        for i, batch in enumerate(val_loader):
+            x, y = model.parse_batch(batch)
+            y_pred = model(x)
+            loss = criterion(y_pred, y)
+            reduced_val_loss = loss.item()
+            val_loss += reduced_val_loss
+        val_loss = val_loss / (i + 1)
     #Req. 3-3 학습 로그 기록
     # validation 결과 출력 및 log 기록 
-    
+    print("Validation loss {}: {:9f}  ".format(iteration, val_loss))
     
     # model을 training mode로 전환
+    model.train()
         
 ####TODO####
     
@@ -121,8 +134,9 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     # optimizer : hparams에서 learning rate, weight decay 참고
     # scheduler : hparams에서 scheduler_step, gamma 참고
     model = load_model(hparams)
-    
-    optimizer = ''
+    learning_rate = hparams.learning_rate 
+    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
+                                weight_decay=hparams.weight_decay)
     scheduler = ''
     
     criterion = Tacotron2Loss() # define loss function 
