@@ -86,5 +86,10 @@ class TTS_Model:
 #Req. 4-2 학습을 마친 이후 test할 수 있는 inference 코드 작성하기    
 ####TODO####        
 if __name__ == '__main__':
-    pass
+    
+    tts = TTS_Model()
+    text = "Hello everyone, nice to meet you."
+    output = tts.inference(text, "output.wav")
+
+    # pass
 ####TODO####        
