@@ -6,3 +6,4 @@ export const SELFTRAINLIST = "SELFTRAINLIST";
 export const SELFTRAINDETAIL = "SELFTRAINDETAIL";
 
 export const INFO = "INFO";
+export const INFODETAIL = "INFODETAIL";
