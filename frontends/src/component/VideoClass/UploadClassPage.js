@@ -1,9 +1,22 @@
 import React, {useState} from 'react'
 import {Typography, Button, Form, Input} from 'antd'
+import FileUpload from '../utils/FileUpload'
 
 
 const {Title} = Typography;
 const {TextArea} = Input;
+
+
+const Categories = [
+  {key:1, value:"등"},
+  {key:2, value:"윗가슴"},
+  {key:3, value:"아랫가슴"},
+  {key:4, value:"이두"},
+  {key:5, value:"삼두"},
+  {key:6, value:"복근"},
+  {key:7, value:"하체"},
+]
+
 function UploadClassPage() {
   
   const [Name, setName] = useState("")
@@ -24,6 +37,9 @@ function UploadClassPage() {
   const priceChageHandler = (event) => {
     setPrice(event.currentTarget.value)
   }
+  const categoryChageHandler = (event) => {
+    setCategory(event.currentTarget.value)
+  }
 
 
     return (
@@ -32,6 +48,15 @@ function UploadClassPage() {
               <Title level={2}>클래스 업로드</Title>
             </div>
             <Form>
+              {/* drop zone */}
+
+
+
+              <FileUpload />
+
+
+
+
               <br/>
               <br/>
               <label>이름</label>
@@ -47,8 +72,15 @@ function UploadClassPage() {
               <label>가격</label>
               <Input type="number" onChange={priceChageHandler} value={Price}/>
               <br/><br/>
-              <select>
-                <option></option>
+              <select onChange={categoryChageHandler} value={Category}>
+                {Categories.map(item => (
+                  <option key={item.key} value={item.key}>{item.value}</option>
+                ))}
+
+
+
+
+                
               </select>
               <br/><br/>
               <Button>확인</Button>
