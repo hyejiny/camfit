@@ -134,13 +134,13 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     # optimizer : hparams에서 learning rate, weight decay 참고
     # scheduler : hparams에서 scheduler_step, gamma 참고
     model = load_model(hparams)
-    learning_rate = hparams.learning_rate 
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
-                                weight_decay=hparams.weight_decay)
-    scheduler = torch.optim.lr_scheduler(
+    learning_rate = hparams['learning_rate'] 
+    optimizer = torch.optim.Adam(model.parameters(), lr=float(learning_rate),
+                                weight_decay=float(hparams['weight_decay']))
+    scheduler = torch.optim.lr_scheduler.LambdaLR(
         optimizer,
-        hparams.scheduler_step,
-        hparams.gamma,
+        hparams['scheduler_step'],
+        hparams['gamma'],
     )
     
     # define loss function 
@@ -248,7 +248,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args.hparams)
     
-    with open('/home/multicam/samsung_multicam/speak_image/TTS/config.yaml') as f:
+    with open('config.yaml') as f:
             hparams = yaml.load(f)
     
     #pytorch random seed 고정
