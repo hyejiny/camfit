@@ -54,3 +54,13 @@ export function infolist() {
     payload: request,
   };
 }
+
+export function infodetail(id) {
+  const request = axios.get(`${API_BASE_URL}/infoboards/${id}/detail`)
+      .then((res) => 
+          res.data);
+  return {
+      type: types.INFODETAIL,
+      payload: request,
+  };
+}
