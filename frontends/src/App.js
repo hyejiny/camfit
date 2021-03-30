@@ -31,8 +31,8 @@ function App() {
           <Route path="/selftrain/exercise" component={Exercise}></Route>
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
-          <Route path="/videoclass" component={VideoClass}></Route>
-          <Route path="/videoclass/upload" component={UploadClassPage}></Route>
+          <Route exact path="/videoclass" component={VideoClass}></Route>
+          <Route exact path="/videoclass/upload" component={UploadClassPage}></Route>
           <Route path="/signup" component={Signup}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>
