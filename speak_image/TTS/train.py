@@ -137,7 +137,7 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     learning_rate = hparams['learning_rate'] 
     optimizer = torch.optim.Adam(model.parameters(), lr=float(learning_rate),
                                 weight_decay=float(hparams['weight_decay']))
-    scheduler = torch.optim.lr_scheduler.LambdaLR(
+    scheduler = torch.optim.lr_scheduler.StepLR(
         optimizer,
         hparams['scheduler_step'],
         hparams['gamma'],
