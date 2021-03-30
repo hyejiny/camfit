@@ -26,10 +26,12 @@ export function emailcheck(data) {
 }
 
 
-export function selftrainlist() {
-    const request = axios.get(`${API_BASE_URL}/selftrains/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+export function selftrainlist(category) {
+    // console.log(category)
+    const request = axios.post(`${API_BASE_URL}/selftrains/`,{'category':category},{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
         .then((res) => 
             res.data);
+    // console.log(category)
     return {
         type: types.SELFTRAINLIST,
         payload: request

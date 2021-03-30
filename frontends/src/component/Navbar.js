@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import 'antd/dist/antd.css';
-import { Modal,Button} from 'antd';
-import LoginModal from './Account/LoginModal';
-
-
-
-=======
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import "antd/dist/antd.css";
@@ -15,7 +5,6 @@ import "antd/dist/antd.css";
 import { Modal } from "antd";
 import LoginModal from "./Account/LoginModal";
 import { ACCESS_TOKEN } from "../constants";
->>>>>>> 90afdba8fe8ef05ce81c4622c3c4d105182d3a97
 class NavBar extends Component {
   constructor(props) {
     super(props);
