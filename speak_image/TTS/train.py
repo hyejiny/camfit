@@ -51,7 +51,7 @@ def load_checkpoint(checkpoint_path, model, optimizer):
     checkpoint_dict = torch.load(checkpoint_path, map_location='cpu')
     model.load_state_dict(checkpoint_dict['state_dict'])
     optimizer.load_state_dict(checkpoint_dict['optimizer'])
-    learning_rate = checkpoint_dict['learning_rate']
+    learning_rate = float(checkpoint_dict['learning_rate'])
     iteration = checkpoint_dict['iteration']
     print("Loaded checkpoint '{}' from iteration {}" .format(
         checkpoint_path, iteration))
@@ -134,13 +134,13 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     # optimizer : hparams에서 learning rate, weight decay 참고
     # scheduler : hparams에서 scheduler_step, gamma 참고
     model = load_model(hparams)
-    learning_rate = hparams.learning_rate 
+    learning_rate = float(hparams['learning_rate']) 
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate,
-                                weight_decay=hparams.weight_decay)
-    scheduler = torch.optim.lr_scheduler(
+                                weight_decay=float(hparams['weight_decay']))
+    scheduler = torch.optim.lr_scheduler.StepLR(
         optimizer,
-        hparams.scheduler_step,
-        hparams.gamma,
+        hparams['scheduler_step'],
+        hparams['gamma'],
     )
     
     # define loss function 
@@ -205,7 +205,7 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
 
             ####TODO####
             
-            grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), hparams['grad_clip_thresh'])
+            grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), float(hparams['grad_clip_thresh']))
     
             optimizer.step()
             scheduler.step()
@@ -235,7 +235,7 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--output_directory', type=str,
-                        help='directory to save checkpoints',default = "/home/multicam/checkpoints/tts_checkpoints")
+                        help='directory to save checkpoints',default = "/home/team1/checkpoints")
     parser.add_argument('-c', '--checkpoint_path', type=str, default=None,
                         required=False, help='checkpoint path')
     parser.add_argument('--warm_start', action='store_true',
@@ -248,7 +248,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args.hparams)
     
-    with open('/home/multicam/samsung_multicam/speak_image/TTS/config.yaml') as f:
+    with open('config.yaml') as f:
             hparams = yaml.load(f)
     
     #pytorch random seed 고정

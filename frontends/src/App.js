@@ -4,6 +4,7 @@ import Footer from './component/Footer'
 ;
 import Mainpage from './pages/Mainpage';
 import Info from './pages/Info';
+import InfoDetail from'./component/Info/InfoDetail';
 import Community from './pages/Community';
 import Selftrain from './pages/Selftrain';
 import SelftrainDetail from './pages/SelftrainDetail';
@@ -24,13 +25,14 @@ function App() {
         <NavBar></NavBar>
         <Switch>
           <Route exact path="/" component={Mainpage}></Route>
+          <Route path="/info/detail/:id" component={InfoDetail}></Route>
           <Route path="/info" component={Info}></Route>
           <Route path="/Community" component={Community}></Route>
           <Route path="/selftrain/exercise" component={Exercise}></Route>
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
-          <Route path="/videoclass" component={VideoClass}></Route>
-          <Route path="/videoclass/upload" component={UploadClassPage}></Route>
+          <Route exact path="/videoclass" component={VideoClass}></Route>
+          <Route exact path="/videoclass/upload" component={UploadClassPage}></Route>
           <Route path="/signup" component={Signup}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>
