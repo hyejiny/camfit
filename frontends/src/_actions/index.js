@@ -66,3 +66,39 @@ export function infodetail(id) {
       payload: request,
   };
 }
+
+export const boardSave = (dataToSave) => ({
+  type: types.SAVE,
+  dataToSave: {
+    id: dataToSave.id,
+    title: dataToSave.title,
+    content: dataToSave.content
+  }
+});
+
+export const boardDelete = (postId) => ({
+  type: types.DELETE,
+  postId
+});
+
+export const boardSelected = (postId) => ({
+  type: types.SELECTED,
+  postId
+});
+
+//initialState 
+const initialState = {
+  boards: [
+    {
+      id: 1, title: '안녕하세요', content: '반갑습니다'
+    },
+    {
+      id: 2, title: 'Hi', content: 'Nice to meet you'
+    },
+    {
+      id: 3, title: '오하요', content: '하지메마시떼'
+    },
+  ],
+  ids: 3, //id 기준, 새로 추가되는 id가 있다면 하나 늘리기
+  selected : {} //find함수를 통해서 boards에서 선택된 데이터를 넣을 예정
+}
