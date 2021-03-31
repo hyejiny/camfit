@@ -40,12 +40,24 @@ function InfoCard(props) {
     dots: true, // 캐러셀의 점을 보여줄 것인지
     infinite: true, // 마지막 장 다음에 첫번째가 나오게 할 것인지
     speed: 500, // 넘어가는 속도는 몇으로 할 것인지
+    arrows : true,
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "60px",
     rows: 2,
     slidesPerRow: 2,
+    responsive: [ // 반응형 웹 구현 옵션
+        {  
+            breakpoint: 1350, //화면 사이즈 960px
+            settings: {
+                //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+                slidesToShow:3 
+            } 
+        },
+        
+    ]
+
   };
 
 
