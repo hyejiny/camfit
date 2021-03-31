@@ -16,7 +16,7 @@ const Categories = [
   {key:5, value:"하체"},
 ]
 
-function UploadClassPage() {
+function UploadClassPage(props) {
   
   const [Name, setName] = useState("")
   const [Description, setDescription] = useState("")
