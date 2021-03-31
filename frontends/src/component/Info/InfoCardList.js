@@ -1,5 +1,6 @@
 import React from "react";
 import { Card,Col} from "react-bootstrap";
+import { Grid } from 'semantic-ui-react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./info.css";
 import {API_BASE_URL} from '../../constants'
@@ -13,7 +14,9 @@ function InfoCardList(props) {
         console.log(props.id,'id')
     }
   return (
-    <Col>
+    <Grid columns='equal'>
+      <Grid.Column>
+    <Col md="auto">
       <Card
         className="bg-dark text-white"
         style={{ width: "45rem", height: "25rem" }}
@@ -27,6 +30,8 @@ function InfoCardList(props) {
         </Card.ImgOverlay>
       </Card>
     </Col>
+    </Grid.Column>
+    </Grid>
   );
 }
 
