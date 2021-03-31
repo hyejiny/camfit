@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-function CommunityCreate() {
+function ArticleCreate() {
 
   const [Title, setTitle] = useState("")
   const [Description, setDescription] = useState("")
 
-  // const [Images, setImages] = useState()
+  const [Images, setImages] = useState()
 
   const descriptionChangeHandler = (e) => {
     setTitle(e.currentTarget.value)
@@ -34,4 +34,4 @@ function CommunityCreate() {
 }
 
 
-export default CommunityCreate;
+export default ArticleCreate;
