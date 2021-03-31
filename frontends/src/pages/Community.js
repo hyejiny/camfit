@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './page.css';
-import CommunityCreate from '../component/Community/CommunityCreate';
-import FileUpload from '../component/utils/FileUpload';
+import ArticleCreate from '../component/Community/ArticleCreate';
+import FileCreate from '../component/Community/FileCreate';
 
 
 class Community extends Component {
@@ -9,7 +9,8 @@ class Community extends Component {
         return (
             <div className="Community">
                 자유게시판
-                <CommunityCreate/>
+                <ArticleCreate/>
+                <FileCreate/>
             </div>
         )
     }
