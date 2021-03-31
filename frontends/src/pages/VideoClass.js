@@ -3,19 +3,21 @@ import axios from 'axios'
 import {Col, Card, Row} from 'antd'
 import Meta from 'antd/lib/card/Meta'
 import {HighlightOutlined} from '@ant-design/icons'
-import ImageSlider from '../utils/ImageSlider'
-
+import ImageSlider from '../component/utils/ImageSlider'
+// import SearchFeature from '../component/utils/SearchFeature'
 function VideoClass() {
 
 
     const [Classes, setClasses] = useState([])
 
+    // const [SearchTerm, setSearchTerm] = useState("")
 
     useEffect(() => {
 
-        axios.get('/fitclasses/',)
+        axios.get('http://localhost:8000/fitclasses', )
         .then(response => {
             if (response.data.success) {
+                console.log(response.data);
                 setClasses(response.data)
             } else {
                 alert('상품들을 가져오는데 실패했습니다.')
@@ -38,6 +40,7 @@ function VideoClass() {
             </Card>
         </Col>
     })
+
 
 
     
