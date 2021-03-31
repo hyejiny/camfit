@@ -1,43 +1,47 @@
-import React from 'react'
-import {API_BASE_URL} from '../../constants'
+import React from "react";
+import { API_BASE_URL } from "../../constants";
 import "./info.css";
-import { Layout,Divider  } from 'antd';
-import { AiOutlineHeart,AiFillHeart } from "react-icons/ai";
+import { Layout, Divider } from "antd";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 function InfoMain(props) {
-    const { Header, Content, Footer } = Layout;
-    return (
-        <div>
-        <div class="jb-wrap img contrast" style={{ background: `linear-gardient(to bottom,rgba(0,0,0,0)
+  const { Content } = Layout;
+  var dat = props.updated;
+  var st = String(dat);
+  var shot_d = st.substring(0, 10);
+  return (
+    <div class="outer">
+      <div
+        class="jb-wrap img contrast"
+        style={{
+          background: `linear-gardient(to bottom,rgba(0,0,0,0)
         39%,rgba(0,0,0,0)
         41%,rgba(0,0,0,0.65)
         100%),
-        url('${API_BASE_URL+props.imgg}'), #1c1c1c`,
-        backgroundImage: `url(${API_BASE_URL+props.imgg})`,
-        height : '500px',
-        backgroundSize: '100%, cover',
-        backgroundPosition: 'center, center',
-        width: '100%',
-        position: 'relative'
-        
-        }}>
-            <div class="jb-wrap">
-			<div class="jb-text">
-				<p>HELLO</p>
-			</div>
-		</div>
-        </div>
-        <Content style={{ padding: '0 50px' }}>
-        <div class="site-layout-content">
-            {props.content}
-        <Divider class="ant-divider"/>
-        <AiOutlineHeart size="24" color="red"/>
-        <AiFillHeart size="24" color="red"/>
-        </div>
-        </Content>
+        url('${API_BASE_URL + props.imgg}'), #1c1c1c`,
+          backgroundImage: `url(${API_BASE_URL + props.imgg})`,
+          height: "250px",
+          backgroundSize: "100%, cover",
+          backgroundPosition: "center, center",
+          width: "100%",
+          position: "relative",
+        }}
+      ></div>
 
+      <div class="inner multi">
+        <h1 style={{ color: "white" }}>{props.title}</h1>
+        <div style={{ color: "white" }}>발행일 : {shot_d}</div>
+      </div>
+      <Content style={{ padding: "0 50px" }}>
+        <div class="site-layout-content">
+          {props.content}
+          <Divider class="ant-divider" />
+          <AiOutlineHeart class="innerleft" size="30" color="red" />
+          <AiFillHeart class="innerleft" size="30" color="red" />
         </div>
-    )
+      </Content>
+    </div>
+  );
 }
 
-export default InfoMain
+export default InfoMain;
