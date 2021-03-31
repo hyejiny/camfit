@@ -27,7 +27,7 @@ function InfoCard(props) {
     <div>
      
      {FirstInfo ? 
-    <InfoCardList content={info.content} title={info.title} imgg={info.image} id={info.id} /> 
+    <InfoCardList content={info.content} title={info.title} imgg={info.image} id={info.id} updated={info.updated_at}/>
     : <InfoCardList />}
       
       </div>
@@ -41,12 +41,9 @@ function InfoCard(props) {
     infinite: true, // 마지막 장 다음에 첫번째가 나오게 할 것인지
     speed: 500, // 넘어가는 속도는 몇으로 할 것인지
     arrows : true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: "60px",
-    rows: 2,
-    slidesPerRow: 2,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+
     responsive: [ // 반응형 웹 구현 옵션
         {  
             breakpoint: 1350, //화면 사이즈 960px
