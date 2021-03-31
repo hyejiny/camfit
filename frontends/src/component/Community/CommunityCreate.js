@@ -7,9 +7,9 @@ function CommunityCreate() {
 
   // const [Images, setImages] = useState()
 
-  // const descriptionChangeHandler = (e) => {
-  //   setTitle(e.currentTarget.value)
-  // }
+  const descriptionChangeHandler = (e) => {
+    setTitle(e.currentTarget.value)
+  }
 
   const titleChangeHandler = (e) => {
     setDescription(e.currentTarget.value)
@@ -23,10 +23,10 @@ function CommunityCreate() {
         <label>Title</label>
         <input onChange={titleChangeHandler} value={Title}/>
         <br/>
-        {/* <label>Desc</label>
+        <label>Desc</label>
         <textarea onChange={descriptionChangeHandler} value={Description}/>
         <br/>
-        <button>Submit</button> */}
+        {/* <button>Submit</button> */}
 
       </form>
     </div>
