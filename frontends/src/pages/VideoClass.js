@@ -1,12 +1,35 @@
-import React, { Component } from 'react';
-import './page.css';
+import React, {useEffect} from 'react'
+import axios from 'axios'
 
-class VideoClass extends Component {
-    render() {
-        return (
-            <div className="VideoClass">유료 클래스</div>
-        )
-    }
+
+
+function VideoClass() {
+
+    useEffect(() => {
+
+        axios.get('/fitclasses/',)
+        .then(response => {
+            if (response.data.success) {
+                
+            } else {
+                alert('상품들을 가져오는데 실패했습니다.')
+            }
+        })
+
+    })
+
+
+
+
+
+    return (
+        <div>
+            <button>
+              <a href="/videoclass/upload">upload</a>
+            </button>
+
+        </div>
+    )
 }
 
 export default VideoClass

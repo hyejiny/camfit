@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from .models import Alert
 
 from django.contrib.auth import get_user_model
 
@@ -7,3 +8,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields=('username','password','category',)
+
+class AlertSerializer(serializers.ModelSerializer):
+    user = UserSerializer(required=False)
+    pushed_user = UserSerializer(required=False)
+    class Meta:
+        model = Alert
+        fields = '__all__'

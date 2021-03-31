@@ -1,25 +1,63 @@
-import React, { Component } from 'react';
-import '../component.css';
-import {Card, Button} from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import "../component.css";
+import { Card } from "react-bootstrap";
+// import { useDispatch } from "react-redux";
+import { useDispatch, useStore } from "react-redux";
+import { selftrainlist } from "../../_actions/index";
+import { API_BASE_URL } from "../../constants";
 
-class SelftrainCardlist extends Component {
-    render() {
-        return (
-            <div className="SelftrainCardlist">
+function SelftrainCardlist(props) {
+  const dispatch = useDispatch();
+  const store = useStore();
+  const [TrainInfo, setTrainInfo] = useState([]);
+  useEffect(() => {
+    dispatch(selftrainlist(0))
+    .then((res) =>{
+        const tmp_list = res.payload
+        setTrainInfo(tmp_list);
+    });
+  }, [dispatch]);
 
-                <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                    Some quick example 
-                    </Card.Text>
-                    <Button href='/selftrain/detail'variant="primary">Go somewhere</Button>
-                </Card.Body>
-                </Card>
-            </div>
-        )
-    }
+  // console.log(store.subscribe(setTrainInfo(store.getState().selftrainlist)))
+  // console.log(TrainInfo,'traininfo');
+  
+  const changeinfo = () => {
+    setTrainInfo(store.getState().selftrainlist.list)
+    // console.log(TrainInfo)
+    // console.log('12312')
+  }
+  const unsubscribe = store.subscribe(changeinfo)
+  // unsubscribe()
+  const infocard = TrainInfo.map((train) => (
+  // const infocard = store.getState().selftrainlist.list.map((train) => (
+    <Card style={{ width: "18rem", margin:'auto' }} key={train.id}>
+      <Card.Img width='300px' height='200px' variant="top" src={API_BASE_URL + train.thumbnail} />
+      <Card.Body>
+        <Card.Title><a href={`/selftrain/detail/${train.id}`}>{train.title}</a></Card.Title>
+
+        {/* <Button href={`/selftrain/detail/${train.id}`} variant="primary">
+          Go somewhere
+        </Button> */}
+      </Card.Body>
+    </Card>
+  ));
+  return (<div className="SelftrainCardlist">
+      {infocard}
+  </div>);
 }
 
-export default SelftrainCardlist
+// const mapStateToProps = state => {
+//     return {
+//       newlist : state.Selftrainlist
+//     }
+// }
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         selftrainlist : () => dispatch(selftrainlist())
+//     }
+//   }
+// export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+//   )(SelftrainCardlist)
+export default SelftrainCardlist;
