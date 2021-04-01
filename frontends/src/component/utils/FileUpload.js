@@ -6,31 +6,27 @@ import { useDispatch } from "react-redux";
 
 function FileUpload(props) {
     
-    const [Images, setImages] = useState([])
+    const [Image, setImage] = useState([])
     
     const dispatch = useDispatch();
 
-    const dropHandler = (files) => {
-
-        let formData = new FormData();
-
-        formData.append("file", files[0])
-        // var object = {}
-        //         formData.forEach(function(value,key){
-        //                     object[key]=value
-        //         })
-        //         var json = JSON.stringify(object)
-
-        dispatch(imageshow(formData))
+    const newBook = () => {
+        const uploadData = new FormData();
+        uploadData.append('image', Image, Image.name);
+        dispatch(imageshow(uploadData))
         .then((res) => {
-            setImages(res.payload)
+            console.log(res.payload)
         })    }
 
 
 
     return (
         <div style={{ display: 'flex', justifyContent: 'space-between'}}>
-            <Dropzone onDrop={dropHandler}>
+            <label>
+                Cover
+                <input type="file" onChange={(evt) => setImage(evt.target.files[0])}/>
+            </label>
+            {/* <Dropzone onDrop={dropHandler}>
                 {({getRootProps, getInputProps}) => (
                     <div 
                     style={{ width:300, height:240, border:'1px solid lightgray',
@@ -40,7 +36,7 @@ function FileUpload(props) {
                         <PlusOutlined style={{fontSize : '3rem'}}/>
                     </div>
                 )}
-            </Dropzone>
+            </Dropzone> */}
 
             {/* <div style={{ display: 'flex', width: '350px', height: '240px', overflowX: 'scroll'}}>
                 {Images.map((image, index) => (
@@ -54,6 +50,7 @@ function FileUpload(props) {
 
 
             </div> */}
+            <button onClick={() => newBook()}>image</button>
         </div>
     )
 }
