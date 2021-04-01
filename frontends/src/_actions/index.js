@@ -66,3 +66,4 @@ export function infodetail(id) {
       payload: request,
   };
 }
+

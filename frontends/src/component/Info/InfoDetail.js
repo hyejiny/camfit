@@ -23,7 +23,7 @@ function InfoDetail(props) {
 
     return (
         <div style={{ width: '100%', margin : '0'}}>
-            <InfoMain imgg={DetailInfo.image} content={DetailInfo.content}/>
+            <InfoMain imgg={DetailInfo.image} content={DetailInfo.content} title={DetailInfo.title} updated={DetailInfo.updated_at}/>
             
         </div>
     );

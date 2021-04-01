@@ -6,7 +6,9 @@ import "./info.css";
 import {API_BASE_URL} from '../../constants'
 
 function InfoCardList(props) {
-    
+    var dat = props.updated
+    var st = String(dat)
+    var shot_d = st.substring(0,10)
     if (props.title) {
         console.log(props.title)
         console.log(props.content)
@@ -14,24 +16,27 @@ function InfoCardList(props) {
         console.log(props.id,'id')
     }
   return (
+      <div class="outer">
     <Grid columns='equal'>
       <Grid.Column>
     <Col md="auto">
       <Card
         className="bg-dark text-white"
-        style={{ width: "45rem", height: "25rem" }}
       >
         <Card.Img src={API_BASE_URL+props.imgg} alt="Card image" class="image-container contrast" />
         <Card.ImgOverlay>
-          <Card.Title><a href={`/info/detail/${props.id}`}>{props.title}</a></Card.Title>
-          <Card.Text>
-              {props.content}
-          </Card.Text>
+            <div class="inner">
+          <h1>
+              <a href={`/info/detail/${props.id}`}>{props.title}</a>
+          </h1>
+          <Card.Title >발행일 : {shot_d}</Card.Title>
+          </div>
         </Card.ImgOverlay>
       </Card>
     </Col>
     </Grid.Column>
     </Grid>
+          </div>
   );
 }
 
