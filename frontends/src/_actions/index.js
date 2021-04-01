@@ -67,3 +67,22 @@ export function infodetail(id) {
   };
 }
 
+
+export function createArticle(data) {
+  const request = axios.post(`${API_BASE_URL}/community`, data).then(res => res.data);
+
+  return {
+    type: types.ARTICLE,
+    payload: request,
+  };
+}
+
+export function ArticleList() {
+  const request = axios.get(`${API_BASE_URL}/community`).then(res => res.data);
+
+  return {
+    type: types.ARTICLELIST,
+    payload: request,
+  };
+}
+
