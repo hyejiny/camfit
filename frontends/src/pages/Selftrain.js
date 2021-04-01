@@ -9,7 +9,7 @@ import SelfMain from '../component/Selftrain/SelfMain';
 
 
 function Selftrain() {
-    const [Category, setCategory] = useState('모두');
+    
 
     // const category = ''
     // if (StorageEvent.subscribe)
@@ -19,11 +19,14 @@ function Selftrain() {
             <SelfMain/>
             
         </div>
-            {/* <SelftrainSidebar className="col" setCategory={setCategory}></SelftrainSidebar> */}
-            {/* <div className="col" sytle="boder-sytle:dotted; border-radius:3px; border-color:black;">
+        {/* <div>
+
+                <SelftrainCardlist></SelftrainCardlist>
+        </div> */}
+            {/* <SelftrainSidebar className="col" setCategory={setCategory}></SelftrainSidebar>
+            <div className="col" sytle="boder-sytle:dotted; border-radius:3px; border-color:black;">
 
                 <div className="SelftrainHead">{Category}</div>
-                <SelftrainCardlist></SelftrainCardlist>
             
             </div> */}
             
