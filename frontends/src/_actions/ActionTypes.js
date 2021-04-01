@@ -12,3 +12,6 @@ export const SHOWIMAGE = 'SHOWIMAGE'
 
 export const VIDEOCLASS = "VIDEOCLASS";
 export const VIDEOCLASSDETAIL = "VIDEOCLASSDETAIL";
+
+export const ARTICLE = "ARTICLE";
+export const ARTICLELIST = "ARTICLELIST";
