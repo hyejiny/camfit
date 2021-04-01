@@ -12,8 +12,8 @@ from .serializers import TrainListSerializer, TrainDetailSerializer
 from .models import SelfTrain
 
 @api_view(['GET','POST'])
-@authentication_classes([JSONWebTokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([JSONWebTokenAuthentication])
+# @permission_classes([IsAuthenticated])
 def train_list_create(request):
     if request.method == 'GET':
         trains = SelfTrain.objects.order_by('-pk')

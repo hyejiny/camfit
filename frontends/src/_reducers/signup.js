@@ -5,6 +5,7 @@ const initialState = {
     password: '',
     passwordcheck: '',
     category: '1',
+    nickname: '',
 };
 
 export default function signup(state = initialState, action) {
