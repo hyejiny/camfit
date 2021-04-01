@@ -10,13 +10,12 @@ import Selftrain from './pages/Selftrain';
 import SelftrainDetail from './pages/SelftrainDetail';
 import Exercise from './pages/Exercise';
 import VideoClass from './pages/VideoClass';
-import App_ from './component/VideoClass/VideoChat/App_';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Signup from './component/Account/Signup';
 import UploadClassPage from './component/VideoClass/UploadClassPage';
-import { useState } from 'react';
+import ClassDetailPage from './component/VideoClass/UploadClassPage';
 // import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
@@ -34,9 +33,9 @@ function App() {
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route exact path="/videoclass" component={VideoClass}></Route>
+          <Route exact path="/videoclass/:classId" component={VideoClass}></Route>
           <Route exact path="/videoclass/upload" component={UploadClassPage}></Route>
           <Route path="/signup" component={Signup}></Route>
-          <Route path="/videochat" component={App_}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>
         <br></br>
