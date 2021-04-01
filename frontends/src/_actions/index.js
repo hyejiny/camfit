@@ -105,8 +105,7 @@ export function createArticle(data) {
 }
 
 export function ArticleList() {
-  const request = axios.get(`${API_BASE_URL}/community`).then(res => res.data);
-
+  const request = axios.get(`${API_BASE_URL}/community`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.ARTICLELIST,
     payload: request,

@@ -3,6 +3,7 @@ import "../component.css";
 import { useDispatch } from "react-redux";
 import { selftrainlist } from "../../_actions/index";
 import { ListGroup, Card, Button, Row, Col } from "react-bootstrap";
+import { Drawer } from 'antd';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -16,7 +17,7 @@ function SelftrainSidebar(props) {
   //   {id:4,name:'어깨'}
   // ])
 
-
+  const [Vis,setVis] = useState(false)
   const dispatch = useDispatch();
   const all = () => {
     dispatch(selftrainlist(0));
@@ -31,9 +32,15 @@ function SelftrainSidebar(props) {
     dispatch(selftrainlist(2));
     props.setCategory("팔");
   };
-  // const bottom = () => {
 
-  // }
+  const showDrawer = () => {
+    setVis(true)
+  };
+
+  const onClose = () => {
+    setVis(false)
+  };
+
 
   // const card_li = category_list.map((cate) => (
   //   <Card
@@ -62,6 +69,7 @@ function SelftrainSidebar(props) {
     <Card.Body>
       <Card.Title> 어깨 </Card.Title>
       <Button onClick={shoulder}>시작하기</Button>
+      <Button onClick={showDrawer}>운동종류보여줄거임</Button>
     </Card.Body>
   </Card>
   </Col>
@@ -87,7 +95,7 @@ function SelftrainSidebar(props) {
   >
     <Card.Body>
       <Card.Title> 다리 </Card.Title>
-      <Button onClick={shoulder}>시작하기</Button>
+      <Button onClick={arm}>시작하기</Button>
     </Card.Body>
   </Card>
   </Col>
@@ -101,10 +109,23 @@ function SelftrainSidebar(props) {
   >
     <Card.Body>
       <Card.Title> 코어 </Card.Title>
-      <Button onClick={shoulder}>시작하기</Button>
+      <Button onClick={all}>시작하기</Button>
     </Card.Body>
   </Card>
   </Col>
+  </Row>
+  <Row>
+  <Drawer
+          title="운동이름 받아와서 쓰기"
+          placement='bottom'
+          closable={false}
+          onClose={onClose}
+          visible={Vis}
+        >
+          <p>카드 리스트 캐러셀로 운동 넣기</p>
+      
+        </Drawer>
+
   </Row>
 
 

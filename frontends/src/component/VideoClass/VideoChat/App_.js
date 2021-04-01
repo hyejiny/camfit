@@ -2,7 +2,7 @@ import React from 'react'
 import './App_.css'
 import VideoChatContainer from './VideoChatContainer'
 
-function App () {
+function App_ () {
   return (
     <div className='app_'>
       <h1>React Video Chat App</h1>
@@ -12,4 +12,4 @@ function App () {
   )
 }
 
-export default App
+export default App_

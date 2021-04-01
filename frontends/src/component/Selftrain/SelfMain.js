@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import SelftrainSidebar from "./SelftrainSidebar";
 import "./train.css";
 
@@ -8,6 +8,8 @@ import backk from "./운동하기 배경.jpg";
 import { OverlayTrigger, Button, Popover,Row,Col } from "react-bootstrap";
 
 function SelfMain(props) {
+
+  const [Category, setCategory] = useState('');
   const popover = (
     <Popover id="popover-basic">
       <Popover.Title as="h3">Popover right</Popover.Title>
@@ -42,7 +44,7 @@ function SelfMain(props) {
           <Button variant="success">AI 운동 가이드</Button>
         </OverlayTrigger>
     
-        <SelftrainSidebar/>
+        <SelftrainSidebar setCategory={setCategory}></SelftrainSidebar>
 
      
      
