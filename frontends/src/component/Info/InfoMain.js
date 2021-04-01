@@ -18,7 +18,7 @@ function InfoMain(props) {
         39%,rgba(0,0,0,0)
         41%,rgba(0,0,0,0.65)
         100%),
-        url('${API_BASE_URL + props.imgg}'), #1c1c1c`,
+        url('${API_BASE_URL + props.imgg}'), #*1c1c1c`,
           backgroundImage: `url(${API_BASE_URL + props.imgg})`,
           height: "250px",
           backgroundSize: "100%, cover",

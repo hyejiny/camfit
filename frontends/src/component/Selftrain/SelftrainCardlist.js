@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../component.css";
+import "./train.css";
 import { Card } from "react-bootstrap";
 // import { useDispatch } from "react-redux";
 import { useDispatch, useStore } from "react-redux";
@@ -14,7 +14,7 @@ function SelftrainCardlist(props) {
     dispatch(selftrainlist(0))
     .then((res) =>{
         const tmp_list = res.payload
-        setTrainInfo(tmp_list);
+        setTrainInfo(tmp_list); 
     });
   }, [dispatch]);
 
