@@ -16,10 +16,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signup from './component/Account/Signup';
 import ArticleCreate from './component/Community/ArticleCreate';
 import ArticleDetail from './component/Community/ArticleDetail';
-
-
 import UploadClass from './component/VideoClass/UploadClass';
-
 import ClassDetailPage from './component/VideoClass/ClassDetailPage';
 // import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
