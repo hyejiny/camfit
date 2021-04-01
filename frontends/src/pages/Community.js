@@ -31,9 +31,10 @@ function Community() {
                 horizontal
                 cover={<a href={'/community/'+ article.id + '/detail'}></a>}
             >
+                <ListGroup.Item>{article.id}</ListGroup.Item>
                 <ListGroup.Item>{article.user.username}</ListGroup.Item>
                 <ListGroup.Item>{article.title}</ListGroup.Item>
-                <ListGroup.Item>{article.content}</ListGroup.Item>
+                <ListGroup.Item>{article.updated_at}</ListGroup.Item>
             </ListGroup>
     })
 
@@ -50,7 +51,7 @@ function Community() {
             <ArticleSearch
                 refreshFunction={updateSearchTerm}
             />
-            
+
             {/* Read */}
             <row gutter= {16, 16}>
                 {renderLists}

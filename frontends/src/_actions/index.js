@@ -111,3 +111,11 @@ export function ArticleList() {
     payload: request,
   };
 }
+
+export function Articledetail(id) {
+  const request = axios.get(`${API_BASE_URL}/community/${id}/detail/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.VIDEOCLASSDETAIL,
+    payload: request,
+  };
+}
