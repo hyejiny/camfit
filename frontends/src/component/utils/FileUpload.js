@@ -1,38 +1,30 @@
 import React, {useState} from 'react'
 import Dropzone from 'react-dropzone'
 import {PlusOutlined} from '@ant-design/icons'
-import axios from 'axios'
+import {imageshow} from '../../_actions/index'
+import { useDispatch } from "react-redux";
 
 function FileUpload(props) {
     
     const [Images, setImages] = useState([])
-
+    
+    const dispatch = useDispatch();
 
     const dropHandler = (files) => {
 
         let formData = new FormData();
 
-        const config = {
-            header: { 'content-type': 'multipart/form-data'}
-        }
         formData.append("file", files[0])
+        // var object = {}
+        //         formData.forEach(function(value,key){
+        //                     object[key]=value
+        //         })
+        //         var json = JSON.stringify(object)
 
-        axios.post('/fitclasses/', formData, config)
-        .then(response => {
-            if(response.data.success) {
-                console.log(response.data)
-
-
-                setImages([...Images, response.data.filePath])
-                props.refreshFunction([...Images, response.data.filePath])
-
-
-            }else {
-                alert('파일을 저장하는데 실패했습니다.')
-            }
-        })
-    }
-
+        dispatch(imageshow(formData))
+        .then((res) => {
+            setImages(res.payload)
+        })    }
 
 
 
