@@ -1,13 +1,15 @@
 import React,{useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
 import {videoclassdetail} from "../../_actions/index"
+import { API_BASE_URL } from "../../constants";
+
 function ClassDetailPage(props) {
 
     const dispatch = useDispatch();
     
     const classId = props.match.params.classId
 
-    const [Class, setClass] = useState({})
+    const [Classs, setClasss] = useState({})
 
 
     useEffect(() => {
@@ -15,7 +17,7 @@ function ClassDetailPage(props) {
         dispatch(videoclassdetail(classId))
         .then((res) => {
             console.log(res.payload);
-            setClass(res.payload)
+            setClasss(res.payload)
             
         })
     }, [])
@@ -25,8 +27,19 @@ function ClassDetailPage(props) {
 
     return (
         <div style={{ width: '100%', padding: '3rem 4rem'}}>
-            <div style= {{ display: 'flex', justifyContent: 'center'}}>
-                <h1>{Class.title} 11</h1>
+            <div>
+                <h1>강의명 : {Classs.title}</h1>
+                <hr/>
+                <h2>강의 설명 : {Classs.content}</h2>
+                <hr/>
+                <h2>강의 가격 : {Classs.price}</h2>
+                <img 
+                height='240px'
+                src={API_BASE_URL+Classs.image} />
+                <hr/>
+                <h2>시작날짜 : {Classs.start_day}</h2>
+                <hr/>
+                <h2>종료날짜 : {Classs.end_day}</h2>
             </div>
             <br/>
 

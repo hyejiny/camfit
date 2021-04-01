@@ -13,6 +13,7 @@ function VideoClass() {
     const dispatch = useDispatch();
 
     const [Classes, setClasses] = useState([])
+    const [MyClasses, setMyClasses] = useState([])
     useEffect(() => {
         dispatch(videoclasslist())
         .then((res) => {
@@ -25,10 +26,13 @@ function VideoClass() {
 
 
     const renderCards = Classes.map((product, index) => {
+        // const myclass = product.guest.map((person, index) => {
+
+        // })
 
         return <Col lg={6} md={8} xs={24} key={index}>
             <Card
-                cover={<a href={'/videoclass/'+ product.id + '/detail'}>
+                cover={<a href={'/videoclass/detail/'+ product.id }>
                    <img 
                 height='240px'
                 src={API_BASE_URL+product.image} /></a>}>
