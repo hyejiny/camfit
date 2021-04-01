@@ -1,6 +1,8 @@
 import axios from 'axios';
 import * as types from './ActionTypes';
 import {API_BASE_URL, ACCESS_TOKEN} from '../constants';
+
+
 export function login(data) {
   const request = axios.post(`${API_BASE_URL}/accounts/api-token-auth/`, data).then(res => res.data);
   return {
@@ -64,5 +66,38 @@ export function infodetail(id) {
   return {
       type: types.INFODETAIL,
       payload: request,
+  };
+}
+
+
+export function videoclasslist() {
+  const request = axios.get(`${API_BASE_URL}/fitclasses/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+
+  return {
+    type: types.VIDEOCLASS,
+    payload: request,
+  };
+}
+
+
+export function videoclassdetail(id) {
+  const request = axios.get(`${API_BASE_URL}/fitclasses/${id}/detail/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+
+  return {
+    type: types.VIDEOCLASSDETAIL,
+    payload: request,
+  };
+}
+
+
+export function imageshow(category) {
+  // console.log(category)
+  const request = axios.post(`${API_BASE_URL}/fitclasses/image_create`,{'image':category},{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+      .then((res) => 
+          res.data);
+  // console.log(category)
+  return {
+      type: types.SHOWIMAGE,
+      payload: request
   };
 }

@@ -19,7 +19,7 @@ class TTS_Model:
     def __init__(self):
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
 
-        with open('/home/multicam/samsung_multicam/speak_image/TTS/config.yaml') as f:
+        with open('config.yaml') as f:
             self.hparams = yaml.load(f)
 
         self.load_model()
@@ -33,15 +33,15 @@ class TTS_Model:
 
         # pass
         checkpoint_path = "tacotron2_statedict.pt"
-        model = load_model(hparams)
-        model.load_state_dict(torch.load(checkpoint_path)['state_dict'])
+        self.model = load_model(self.hparams)
+        self.model.load_state_dict(torch.load(checkpoint_path)['state_dict'])
         
 
         ####TODO####
         _ = self.model.cuda().eval().half()
         
         #waveglow model load
-        waveglow_path = "/home/multicam/checkpoints/waveglow.pt"
+        waveglow_path = "waveglow.pt"
         self.waveglow = torch.load(waveglow_path)['model']        
      
         self.waveglow.cuda().eval().half()
@@ -58,16 +58,16 @@ class TTS_Model:
         ####TODO#### 2.tacotron 모델로 mel-spectrogram을 생성 후 waveglow 모델로 waveform을 합성
         # text_to_sequence() 함수를 이용하여 text 전처리   => text_to_sequence(text, ['english_cleaners'])로 sequence 출력              
         # model로 mel_spectrogram예측
-        text = "Waveglow is really awesome!"
+        # text = "Waveglow is really awesome!"
         sequence = np.array(text_to_sequence(text, ['english_cleaners']))[None, :]
         sequence = torch.autograd.Variable(
             torch.from_numpy(sequence)).cuda().long()
 
 
-        mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
-        plot_data((mel_outputs.float().data.cpu().numpy()[0],
-           mel_outputs_postnet.float().data.cpu().numpy()[0],
-           alignments.float().data.cpu().numpy()[0].T))
+        mel_outputs, mel_outputs_postnet, _, alignments = self.model.inference(sequence)
+        # plot_data((mel_outputs.float().data.cpu().numpy()[0],
+        #    mel_outputs_postnet.float().data.cpu().numpy()[0],
+        #    alignments.float().data.cpu().numpy()[0].T))
 
         # pass
         
@@ -89,6 +89,7 @@ if __name__ == '__main__':
     
     tts = TTS_Model()
     text = "Hello everyone, nice to meet you."
+    text = "Put your knees in."
     output = tts.inference(text, "output.wav")
 
     # pass
