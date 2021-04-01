@@ -187,7 +187,8 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     init_start = time.perf_counter()
     
     #----------MainLoop----------
-    for epoch in range(epoch_offset, hparams['epochs']):        
+    # for epoch in range(epoch_offset, hparams['epochs']):        
+    for epoch in range(1):        
         for i, batch in enumerate(train_loader):    
             
             # iteration start time
@@ -213,8 +214,8 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
             #iteration 별 loss, grad_norm, duration 결과 출력
             if not is_overflow:
                 duration = time.perf_counter() - start
-                print("Train loss {} {:.6f} Grad Norm {:.6f} {:.2f}s/it".format(
-                    iteration, reduced_loss, grad_norm, duration),end='\r')              
+                print("Train loss {} {:.6f} Grad Norm {:.6f} {:.2f}s/it epoch {}, i {}".format(
+                    iteration, reduced_loss, grad_norm, duration, epoch, i),end='\r')              
                        
             # validation을 한 뒤 checkpoint model 저장
             if not is_overflow and (iteration % hparams['iters_per_checkpoint'] == 0):
