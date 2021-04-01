@@ -188,7 +188,7 @@ def train(output_directory, checkpoint_path, warm_start, hparams):
     
     #----------MainLoop----------
     # for epoch in range(epoch_offset, hparams['epochs']):        
-    for epoch in range(1):        
+    for epoch in range(5):        
         for i, batch in enumerate(train_loader):    
             
             # iteration start time
