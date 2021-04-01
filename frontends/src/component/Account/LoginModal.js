@@ -30,7 +30,8 @@ function LoginModal(props) {
         if (res.payload.token) {
           localStorage.setItem('token',res.payload.token);
           // axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.token}`;
-          console.log('login success')
+          localStorage.setItem('email',Email);
+          // props.setusername(Email)
           window.location.replace("/")
           // props.history.push('/')
           // closeModal()

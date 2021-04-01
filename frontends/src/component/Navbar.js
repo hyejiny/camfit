@@ -55,13 +55,14 @@ class NavBar extends Component {
             onOk={this.handleOk}
             onCancel={this.handleCancel}
             show={this.visible}
-          >
+            >
             <LoginModal />
           </Modal>
         </>
       );
     } else {
-      button = <Nav.Link onClick={this.logout}>로그아웃</Nav.Link>;
+      
+      button = <><Nav.Link href='/'>{window.localStorage.getItem('email')} 환영합니다.</Nav.Link><Nav.Link onClick={this.logout}>로그아웃</Nav.Link></>
     }
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
