@@ -10,6 +10,7 @@ export const INFODETAIL = "INFODETAIL";
 
 export const INFOLIKE = "INFOLIKE";
 export const SHOWIMAGE = 'SHOWIMAGE'
+export const GETIMAGE = 'GETIMAGE'
 
 export const VIDEOCLASS = "VIDEOCLASS";
 export const VIDEOCLASSDETAIL = "VIDEOCLASSDETAIL";
