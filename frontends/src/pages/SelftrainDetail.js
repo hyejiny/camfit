@@ -7,7 +7,7 @@ import { selftraindetail } from "../_actions/index";
 import { useDispatch } from "react-redux";
 import { API_BASE_URL } from "../constants";
 
-import img1 from "../media/logo512.png";
+// import img1 from "../media/logo512.png";
 function SelftrainDetail(props) {
   const dispatch = useDispatch();
   const [TrainInfo, setTrainInfo] = useState([]);
@@ -48,7 +48,7 @@ function SelftrainDetail(props) {
               <img
                 className="d-block"
                 // src={require("../media/logo512.png")}
-                src={img1}
+                // src={img1}
                 // src="holder.js/800x400?text=Second slide&bg=282c34"
                 alt="Second slide"
               />
@@ -62,7 +62,7 @@ function SelftrainDetail(props) {
               <img
                 className="d-block "
                 // src={require("../media/logo512.png")}
-                src={img1}
+                // src={img1}
                 // src="holder.js/800x400?text=Third slide&bg=20232a"
                 alt="Third slide"
               />

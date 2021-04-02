@@ -67,6 +67,16 @@ export function infodetail(id) {
   };
 }
 
+export function infolike(id) {
+  const request = axios.put(`${API_BASE_URL}/infoboards/${id}/detail`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+      .then((res) => 
+          res.data);
+  return {
+      type: types.INFODETAIL,
+      payload: request,
+  };
+}
+
 export function videoclasslist() {
   const request = axios.get(`${API_BASE_URL}/fitclasses/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
