@@ -1,44 +1,32 @@
 import React, {useState} from 'react'
 import Dropzone from 'react-dropzone'
 import {PlusOutlined} from '@ant-design/icons'
-import axios from 'axios'
+import {imageshow} from '../../_actions/index'
+import { useDispatch } from "react-redux";
 
 function FileUpload(props) {
     
-    const [Images, setImages] = useState([])
+    const [Image, setImage] = useState([])
+    
+    const dispatch = useDispatch();
 
-
-    const dropHandler = (files) => {
-
-        let formData = new FormData();
-
-        const config = {
-            header: { 'content-type': 'multipart/form-data'}
-        }
-        formData.append("file", files[0])
-
-        axios.post('/fitclasses/', formData, config)
-        .then(response => {
-            if(response.data.success) {
-                console.log(response.data)
-
-
-                setImages([...Images, response.data.filePath])
-                props.refreshFunction([...Images, response.data.filePath])
-
-
-            }else {
-                alert('파일을 저장하는데 실패했습니다.')
-            }
-        })
-    }
-
+    const newBook = () => {
+        const uploadData = new FormData();
+        uploadData.append('image', Image, Image.name);
+        dispatch(imageshow(uploadData))
+        .then((res) => {
+            console.log(res.payload)
+        })    }
 
 
 
     return (
         <div style={{ display: 'flex', justifyContent: 'space-between'}}>
-            <Dropzone onDrop={dropHandler}>
+            <label>
+                Cover
+                <input type="file" onChange={(evt) => setImage(evt.target.files[0])}/>
+            </label>
+            {/* <Dropzone onDrop={dropHandler}>
                 {({getRootProps, getInputProps}) => (
                     <div 
                     style={{ width:300, height:240, border:'1px solid lightgray',
@@ -48,7 +36,7 @@ function FileUpload(props) {
                         <PlusOutlined style={{fontSize : '3rem'}}/>
                     </div>
                 )}
-            </Dropzone>
+            </Dropzone> */}
 
             {/* <div style={{ display: 'flex', width: '350px', height: '240px', overflowX: 'scroll'}}>
                 {Images.map((image, index) => (
@@ -62,6 +50,7 @@ function FileUpload(props) {
 
 
             </div> */}
+            <button onClick={() => newBook()}>image</button>
         </div>
     )
 }

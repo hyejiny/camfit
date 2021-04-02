@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     class Meta:
         model = get_user_model()
-        fields=('username','password','category',)
+        fields=('username','password','category','first_name')
 
 class AlertSerializer(serializers.ModelSerializer):
     user = UserSerializer(required=False)

@@ -11,7 +11,8 @@ function Signup(props) {
   const [EmailCheck,setEmailCheck] = useState(false);
   const [Password, setPassword] = useState("");
   const [PasswordCheck, setPasswordCheck] = useState("");
-
+  const [Nickname, setNickname] = useState("");
+  
   const onEmailHandler = (event) => {
     setEmailCheck(false);
     setEmail(event.currentTarget.value);
@@ -23,6 +24,9 @@ function Signup(props) {
 
   const onPasswordCheckHandler = (event) => {
     setPasswordCheck(event.currentTarget.value);
+  }
+  const onNicknameHandler = (event) => {
+    setNickname(event.currentTarget.value);
   }
 
   const emailCheck = (event) => {
@@ -49,6 +53,9 @@ function Signup(props) {
     if (!Email) {
       return alert('이메일을 입력하세요')
     }
+    if (!Nickname) {
+      return alert('닉네임을 입력하세요')
+    }
     if (!EmailCheck) {
       return alert('이메일 중복 확인을 하세요')
     } else {
@@ -68,6 +75,7 @@ function Signup(props) {
       password : Password,
       passwordcheck : PasswordCheck,
       category : 1,
+      firstname : Nickname,
     };
     console.log(body);
     dispatch(signup(body))
@@ -139,14 +147,15 @@ function Signup(props) {
           </Col>
         </Form.Group>
 
-        {/* <Form.Group as={Row} controlId="formHorizontalPassword">
+        <Form.Group as={Row} controlId="formHorizontalNickname">
           <Form.Label column sm={2}>
             Nickname
           </Form.Label>
           <Col sm={10}>
-            <Form.Control type="text" placeholder="Nickname" />
+            <Form.Control type="text" placeholder="Nickname" value={Nickname} 
+            onChange={onNicknameHandler}  />
           </Col>
-        </Form.Group> */}
+        </Form.Group>
 
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>

@@ -10,17 +10,19 @@ import Selftrain from './pages/Selftrain';
 import SelftrainDetail from './pages/SelftrainDetail';
 import Exercise from './pages/Exercise';
 import VideoClass from './pages/VideoClass';
-import App_ from './component/VideoClass/VideoChat/App_';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Signup from './component/Account/Signup';
-import UploadClassPage from './component/VideoClass/UploadClassPage';
-import { useState } from 'react';
+import ArticleCreate from './component/Community/ArticleCreate';
+import ArticleDetail from './component/Community/ArticleDetail';
+import UploadClass from './component/VideoClass/UploadClass';
+import ClassDetailPage from './component/VideoClass/ClassDetailPage';
 // import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
 function App() {
+  
   return (
     <BrowserRouter>
         
@@ -29,14 +31,16 @@ function App() {
           <Route exact path="/" component={Mainpage}></Route>
           <Route path="/info/detail/:id" component={InfoDetail}></Route>
           <Route path="/info" component={Info}></Route>
-          <Route path="/Community" component={Community}></Route>
+          <Route exact path="/Community" component={Community}></Route>
+          <Route exact path="/Community/create" component={ArticleCreate}></Route>
+          <Route exact path="/Community/:articleId/detail" component={ArticleDetail}></Route>
           <Route path="/selftrain/exercise" component={Exercise}></Route>
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route exact path="/videoclass" component={VideoClass}></Route>
-          <Route exact path="/videoclass/upload" component={UploadClassPage}></Route>
+          <Route exact path="/videoclass/detail/:classId" component={ClassDetailPage}></Route>
+          <Route exact path="/videoclass/upload" component={UploadClass}></Route>
           <Route path="/signup" component={Signup}></Route>
-          <Route path="/videochat" component={App_}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>
         <br></br>

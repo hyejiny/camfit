@@ -59,6 +59,7 @@ const Exercise = () => {
             if(status == 'sit') {
                 count++
                 console.log(count)
+                // 음성 넣을 부분
             }
             if (status != 'stand') {
                 status = "stand"
@@ -69,10 +70,11 @@ const Exercise = () => {
                 status = "sit"
                 console.log('앉음')
             }
-        } else if(prediction[3].probability.toFixed(2) >0.9) {
+        } else if(prediction[2].probability.toFixed(2) >0.9) {
             if (status != "허리") {
                 status = "허리"
                 console.log('허리가 굽었음')
+                // 음성 넣을 부분
             }
         }
         for (let i = 0; i < maxPredictions; i++) {
@@ -101,11 +103,18 @@ const Exercise = () => {
             <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/dist/teachablemachine-pose.min.js"></script>
             {/* <script type="text/javascript"></script> */}
-            <div>Teachable Machine Pose Model</div>
-            <button type="button" onClick={init}>Start</button>
-            <div><canvas id="canvas"></canvas></div>
-            <div id="label-container"></div>
-            <button type="btn" href="/selftrain">뒤로</button>
+            <Row>
+                <Col>
+                    <iframe src="../media/비디오샘플.mp4"></iframe>
+                </Col>
+                <Col>
+                    <div>Teachable Machine Pose Model</div>
+                    <button type="button" onClick={init}>Start</button>
+                    <div><canvas id="canvas"></canvas></div>
+                    <div id="label-container"></div>
+                    <button type="btn" href="/selftrain">뒤로</button>
+                </Col>
+            </Row>
         </Container>
     );
     // const [playing,setPlaying] =useState(false);

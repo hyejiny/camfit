@@ -9,3 +9,11 @@ export const INFO = "INFO";
 export const INFODETAIL = "INFODETAIL";
 
 export const INFOLIKE = "INFOLIKE";
+export const SHOWIMAGE = 'SHOWIMAGE'
+
+export const VIDEOCLASS = "VIDEOCLASS";
+export const VIDEOCLASSDETAIL = "VIDEOCLASSDETAIL";
+
+export const ARTICLE = "ARTICLE";
+export const ARTICLELIST = "ARTICLELIST";
+export const ARTICLEDETAIL = "ARTICLEDETAIL";
