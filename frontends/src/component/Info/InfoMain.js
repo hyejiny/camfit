@@ -3,12 +3,22 @@ import { API_BASE_URL } from "../../constants";
 import "./info.css";
 import { Layout, Divider } from "antd";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-
+import infolike from "../../_actions/index"
+import { useDispatch } from "react-redux";
 function InfoMain(props) {
+  const dispatch = useDispatch();
   const { Content } = Layout;
   var dat = props.updated;
   var st = String(dat);
   var shot_d = st.substring(0, 10);
+
+
+  // const like = () => {
+  //   dispatch(infolike())
+  // }
+
+  
+
   return (
     <div class="outer">
       <div
@@ -36,7 +46,7 @@ function InfoMain(props) {
         <div class="site-layout-content">
           {props.content}
           <Divider class="ant-divider" />
-          <AiOutlineHeart class="innerleft" size="30" color="red" />
+          <AiOutlineHeart onClick="like" class="innerleft" size="30" color="red" />
           <AiFillHeart class="innerleft" size="30" color="red" />
         </div>
       </Content>
