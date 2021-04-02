@@ -5,6 +5,9 @@ import { selftrainlist } from "../../_actions/index";
 import { ListGroup, Card, Button, Row, Col } from "react-bootstrap";
 import { Drawer } from 'antd';
 import "bootstrap/dist/css/bootstrap.min.css";
+import SelftrainCardlist from "./SelftrainCardlist";
+
+
 
 
 
@@ -22,24 +25,26 @@ function SelftrainSidebar(props) {
   const all = () => {
     dispatch(selftrainlist(0));
     props.setCategory("모두");
+    setVis(true)
   };
   const shoulder = () => {
     dispatch(selftrainlist(1));
     props.setCategory("어깨");
     console.log('어깨')
+    setVis(true)
   };
   const arm = () => {
     dispatch(selftrainlist(2));
     props.setCategory("팔");
-  };
-
-  const showDrawer = () => {
     setVis(true)
   };
+
 
   const onClose = () => {
     setVis(false)
   };
+  
+  console.log(props.categoryname)
 
 
   // const card_li = category_list.map((cate) => (
@@ -56,6 +61,7 @@ function SelftrainSidebar(props) {
   //   </Card.Body>
   // </Card>
   // ));
+
   return (
 
     <div className="site-content">
@@ -69,7 +75,6 @@ function SelftrainSidebar(props) {
     <Card.Body>
       <Card.Title> 어깨 </Card.Title>
       <Button onClick={shoulder}>시작하기</Button>
-      <Button onClick={showDrawer}>운동종류보여줄거임</Button>
     </Card.Body>
   </Card>
   </Col>
@@ -82,7 +87,7 @@ function SelftrainSidebar(props) {
   >
     <Card.Body>
       <Card.Title> 팔 </Card.Title>
-      <Button onClick={shoulder}>시작하기</Button>
+      <Button onClick={arm}>시작하기</Button>
     </Card.Body>
   </Card>
   </Col>
@@ -115,16 +120,21 @@ function SelftrainSidebar(props) {
   </Col>
   </Row>
   <Row>
+  <div style={{overflowX: 'scroll'}}>
   <Drawer
-          title="운동이름 받아와서 쓰기"
+          title={props.categoryname}
           placement='bottom'
           closable={false}
           onClose={onClose}
           visible={Vis}
+          height='350px'
         >
-          <p>카드 리스트 캐러셀로 운동 넣기</p>
+          
+            <SelftrainCardlist/>
+          
       
         </Drawer>
+        </div>
 
   </Row>
 

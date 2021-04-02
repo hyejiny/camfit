@@ -6,10 +6,13 @@ import "./train.css";
 import backk from "./운동하기 배경.jpg";
 
 import { OverlayTrigger, Button, Popover,Row,Col } from "react-bootstrap";
+import { Drawer } from 'antd';
 
 function SelfMain(props) {
 
-  const [Category, setCategory] = useState('');
+  const [Category, setCategory] = useState('팔');
+
+
   const popover = (
     <Popover id="popover-basic">
       <Popover.Title as="h3">Popover right</Popover.Title>
@@ -44,17 +47,9 @@ function SelfMain(props) {
           <Button variant="success">AI 운동 가이드</Button>
         </OverlayTrigger>
     
-        <SelftrainSidebar setCategory={setCategory}></SelftrainSidebar>
-
-     
-     
+        <SelftrainSidebar setCategory={setCategory} categoryname={Category}></SelftrainSidebar>
       </div>
-      <Row>
-            <Col>
-
-            
-            </Col>
-        </Row>
+   
     </div>
   );
 }

@@ -110,3 +110,10 @@ body {
   border-radius: 20px;
   opacity: 0.7;
 }
+
+.arrow_next {
+  position: absolute;
+ top: 50%;
+ -webkit-transform: translateY(-50%);
+         transform: translateY(-50%);
+}
