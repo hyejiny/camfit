@@ -24,6 +24,7 @@ import ClassDetailPage from './component/VideoClass/ClassDetailPage';
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
 function App() {
+  
   return (
     <BrowserRouter>
         
@@ -34,7 +35,7 @@ function App() {
           <Route path="/info" component={Info}></Route>
           <Route exact path="/Community" component={Community}></Route>
           <Route exact path="/Community/create" component={ArticleCreate}></Route>
-          <Route exact path="/Community/:articleId" component={ArticleDetail}></Route>
+          <Route exact path="/Community/:articleId/detail" component={ArticleDetail}></Route>
           <Route path="/selftrain/exercise" component={Exercise}></Route>
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>

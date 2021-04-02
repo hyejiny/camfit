@@ -14,7 +14,7 @@ function Community() {
         dispatch(ArticleList())
         .then((res) => {
           const article_list = res.payload
-          console.log(res.payload)
+        //   console.log(res.payload)
           setArticles(article_list)
         })
       }, [dispatch])
@@ -29,11 +29,10 @@ function Community() {
 
         return <ListGroup 
                 horizontal
-                cover={<a href={'/community/'+ article.id + '/detail'}></a>}
             >
                 <ListGroup.Item>{article.id}</ListGroup.Item>
                 <ListGroup.Item>{article.user.username}</ListGroup.Item>
-                <ListGroup.Item>{article.title}</ListGroup.Item>
+                <ListGroup.Item><a href={'/community/'+ article.id + '/detail'}>{article.title}</a></ListGroup.Item>
                 <ListGroup.Item>{article.updated_at}</ListGroup.Item>
             </ListGroup>
     })
@@ -53,9 +52,7 @@ function Community() {
             />
 
             {/* Read */}
-            <row gutter= {16, 16}>
-                {renderLists}
-            </row>
+            {renderLists}
         </div>
     )
 }
