@@ -97,7 +97,14 @@ export function imageshow(category) {
 
 export function createArticle(data) {
   const request = axios.post(`${API_BASE_URL}/community`, data).then(res => res.data);
+  return {
+    type: types.ARTICLE,
+    payload: request,
+  };
+}
 
+export function editArticle(id) {
+  const request = axios.put(`${API_BASE_URL}/community${id}`, '').then(res => res.data);
   return {
     type: types.ARTICLE,
     payload: request,
