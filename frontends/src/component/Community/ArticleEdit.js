@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import FileCreate from './FileCreate';
 import { useDispatch } from "react-redux";
 import { editArticle } from "../../_actions/index";
+import {useLocation} from "react-router";
 
 
 function ArticleEdit(props) {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const Article = location.state.Article;
 
-  const [Title, setTitle] = useState("")
+  const [Title, setTitle] = useState(Article.title)
   const [Description, setDescription] = useState("")
   const [Images, setImages] = useState([])
 

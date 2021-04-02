@@ -46,7 +46,7 @@ function ArticleCreate(props) {
       dispatch(createArticle(body))
       .then((res) => {
         props.history.push('/Community')
-        console.log('1111111');
+        console.log(res.payload);
       });
       // Axios.post('/api/product', body)
       //       .then(response => {

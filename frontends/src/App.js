@@ -17,7 +17,7 @@ import Signup from './component/Account/Signup';
 import ArticleCreate from './component/Community/ArticleCreate';
 import ArticleDetail from './component/Community/ArticleDetail';
 import ArticleEdit from './component/Community/ArticleEdit';
-import UploadClass from './component/VideoClass/UploadClass';
+import UploadClassPage from './component/VideoClass/UploadClassPage';
 import ClassDetailPage from './component/VideoClass/ClassDetailPage';
 // import Payment from './component/Payment';
 // import PaymentResult from './component/PaymentResult';

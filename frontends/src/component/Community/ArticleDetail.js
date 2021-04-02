@@ -1,10 +1,13 @@
 import React,{useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
 import { Articledetail } from "../../_actions/index"
-// import { API_BASE_URL } from "../../constants";
+import { API_BASE_URL } from "../../constants";
+import ArticleEdit from "./ArticleEdit"
+import {useHistory} from "react-router";
 
-// function ArticleDetail(props) {
+function ArticleDetail(props) {
 
+    const history = useHistory();
     const dispatch = useDispatch();    
     const [Article, setArticle] = useState({})
       
@@ -36,9 +39,12 @@ import { Articledetail } from "../../_actions/index"
           <br/>
 
           {/* Update */}
-          <button>
-            {<a href={'/community/'+ Article.id }>수정하기</a>}
-          </button>
+          <button
+          // style={{ width: '50px', height: '25px'}}
+           onClick={() => {history.push({
+            pathname: `/community/${Article.id}` ,
+            state: {Article: Article}
+          })}}>수정하기</button>
 
           {/* Delete */}
           <button>
