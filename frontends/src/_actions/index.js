@@ -116,6 +116,7 @@ export function imageget() {
 }
 
 export function createArticle(data) {
+  console.log('index : ', data);
   const request = axios.post(`${API_BASE_URL}/community`, data).then(res => res.data);
   return {
     type: types.ARTICLE,
