@@ -13,7 +13,7 @@ function VideoClass() {
     const dispatch = useDispatch();
 
     const [Classes, setClasses] = useState([])
-    const [MyClasses, setMyClasses] = useState([])
+    // const [MyClasses, setMyClasses] = useState([])
     useEffect(() => {
         dispatch(videoclasslist())
         .then((res) => {
