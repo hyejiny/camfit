@@ -1,60 +1,51 @@
-// import React,{useEffect, useState} from 'react'
-// import { useDispatch } from "react-redux";
-// import {ArticleDetail} from "../../_actions/index"
+import React,{useEffect, useState} from 'react'
+import { useDispatch } from "react-redux";
+import { Articledetail } from "../../_actions/index"
 // import { API_BASE_URL } from "../../constants";
 
 // function ArticleDetail(props) {
 
-//     const dispatch = useDispatch();
-    
-//     const classId = props.match.params.classId
+    const dispatch = useDispatch();    
+    const [Article, setArticle] = useState({})
+      
+    useEffect(() => {
+      const articleId = props.match.params.articleId
 
-//     const [Classs, setClasss] = useState({})
+      console.log(articleId)
+      dispatch(Articledetail(articleId))
+      .then((res) => {
+        console.log('11111');
+        setArticle(res.payload)           
+      })
+    }, [dispatch]);
 
+    return (
+        <div>       
+          <h1>Title : {Article.title}</h1>
+          <hr/>
+          <h2>Content : {Article.content}</h2>
+          <hr/>
+          <h2>생성날짜 : {Article.created_at}</h2>
+          <hr/>
+          <h2>수정날짜 : {Article.updated_at}</h2>
+          <hr/>
+          {/* image */}   
+          {/* <img 
+          height='240px'
+          src={API_BASE_URL+Articles.image} /> */}
+          <br/>
 
-//     useEffect(() => {
+          {/* Update */}
+          <button>
+            {<a href={'/community/'+ Article.id }>수정하기</a>}
+          </button>
 
-//         dispatch(videoclassdetail(classId))
-//         .then((res) => {
-//             console.log(res.payload);
-//             setClasss(res.payload)
-            
-//         })
-//     }, [])
+          {/* Delete */}
+          <button>
+            <a href="/community/">삭제하기</a>
+          </button>
+        </div>
+    )
+}
 
-
-
-
-//     return (
-//         <div style={{ width: '100%', padding: '3rem 4rem'}}>
-//             <div>
-//                 <h1>강의명 : {Classs.title}</h1>
-//                 <hr/>
-//                 <h2>강의 설명 : {Classs.content}</h2>
-//                 <hr/>
-//                 <h2>강의 가격 : {Classs.price}</h2>
-//                 <img 
-//                 height='240px'
-//                 src={API_BASE_URL+Classs.image} />
-//                 <hr/>
-//                 <h2>시작날짜 : {Classs.start_day}</h2>
-//                 <hr/>
-//                 <h2>종료날짜 : {Classs.end_day}</h2>
-//             </div>
-//             <br/>
-
-
-//             {/* image */}   
-
-
-
-
-//             {/* info */}
-
-
-
-//         </div>
-//     )
-// }
-
-// export default ClassDetailPage
+export default ArticleDetail;

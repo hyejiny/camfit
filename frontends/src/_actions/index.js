@@ -67,6 +67,16 @@ export function infodetail(id) {
   };
 }
 
+export function infolike(id) {
+  const request = axios.put(`${API_BASE_URL}/infoboards/${id}/detail`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+      .then((res) => 
+          res.data);
+  return {
+      type: types.INFODETAIL,
+      payload: request,
+  };
+}
+
 export function videoclasslist() {
   const request = axios.get(`${API_BASE_URL}/fitclasses/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
@@ -107,7 +117,14 @@ export function imageget() {
 
 export function createArticle(data) {
   const request = axios.post(`${API_BASE_URL}/community`, data).then(res => res.data);
+  return {
+    type: types.ARTICLE,
+    payload: request,
+  };
+}
 
+export function editArticle(id) {
+  const request = axios.put(`${API_BASE_URL}/community${id}`, '').then(res => res.data);
   return {
     type: types.ARTICLE,
     payload: request,
@@ -123,9 +140,9 @@ export function ArticleList() {
 }
 
 export function Articledetail(id) {
-  const request = axios.get(`${API_BASE_URL}/community/${id}/detail/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  const request = axios.put(`${API_BASE_URL}/community/${id}/detail/`, '', {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
-    type: types.VIDEOCLASSDETAIL,
+    type: types.ARTICLEDETAIL,
     payload: request,
   };
 }

@@ -8,6 +8,7 @@ export const SELFTRAINDETAIL = "SELFTRAINDETAIL";
 export const INFO = "INFO";
 export const INFODETAIL = "INFODETAIL";
 
+export const INFOLIKE = "INFOLIKE";
 export const SHOWIMAGE = 'SHOWIMAGE'
 export const GETIMAGE = 'GETIMAGE'
 
