@@ -1,47 +1,34 @@
 import React,{useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
-import {ArticleDetail} from "../../_actions/index"
-import { API_BASE_URL } from "../../constants";
+import { Articledetail } from "../../_actions/index"
+// import { API_BASE_URL } from "../../constants";
 
 function ArticleDetail(props) {
 
-    const dispatch = useDispatch();
-    
-    const classId = props.match.params.classId
-
-    const [Classs, setClasss] = useState({})
-
-
+    const dispatch = useDispatch();    
+    const [Articles, setArticles] = useState({})
+      
     useEffect(() => {
-
-        dispatch(videoclassdetail(classId))
-        .then((res) => {
-            console.log(res.payload);
-            setClasss(res.payload)
-            
-        })
-    }, [])
-
-
-
+      const articleId = props.match.params.articleId
+      console.log(articleId)
+      dispatch(Articledetail(articleId))
+      .then((res) => {
+        console.log('11111');
+        setArticles(res.payload)           
+      })
+    }, [dispatch]);
 
     return (
-        <div style={{ width: '100%', padding: '3rem 4rem'}}>
-            <div>
-                <h1>강의명 : {Classs.title}</h1>
-                <hr/>
-                <h2>강의 설명 : {Classs.content}</h2>
-                <hr/>
-                <h2>강의 가격 : {Classs.price}</h2>
-                <img 
-                height='240px'
-                src={API_BASE_URL+Classs.image} />
-                <hr/>
-                <h2>시작날짜 : {Classs.start_day}</h2>
-                <hr/>
-                <h2>종료날짜 : {Classs.end_day}</h2>
-            </div>
-            <br/>
+        <div>       
+          <h1>Title : {Articles.title}</h1>
+          <hr/>
+          <h2>Content : {Articles.content}</h2>
+          <hr/>
+          {/* <img 
+          height='240px'
+          src={API_BASE_URL+Articles.image} /> */}
+
+          <br/>
 
 
             {/* image */}   
@@ -57,4 +44,4 @@ function ArticleDetail(props) {
     )
 }
 
-export default ClassDetailPage
+export default ArticleDetail;
