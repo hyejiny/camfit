@@ -9,6 +9,7 @@ export const INFO = "INFO";
 export const INFODETAIL = "INFODETAIL";
 
 export const SHOWIMAGE = 'SHOWIMAGE'
+export const GETIMAGE = 'GETIMAGE'
 
 export const VIDEOCLASS = "VIDEOCLASS";
 export const VIDEOCLASSDETAIL = "VIDEOCLASSDETAIL";

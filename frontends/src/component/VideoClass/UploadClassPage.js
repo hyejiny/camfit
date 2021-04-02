@@ -60,15 +60,7 @@ function UploadClassPage(props) {
       image: Image
     }
     // 서버에 채운 값들을 request로 보낸다
-    Axios.post('', body)
-    .then(response => {
-      if(response.data.success) {
-        alert('상품 업로드에 성공했습니다.')
-        props.history.push('/')
-      } else {
-        alert('상품 업로드에 실패했습니다.')
-      }
-    })
+    
   }
     return (
         <div style={{maxWidth: '700px', margin: '2rem auto'}}>
@@ -80,7 +72,7 @@ function UploadClassPage(props) {
 
 
 
-              <FileUpload refreshFunction={updateImages} />
+              <FileUpload  />
 
 
 

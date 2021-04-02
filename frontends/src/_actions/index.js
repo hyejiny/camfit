@@ -85,12 +85,22 @@ export function videoclassdetail(id) {
 
 export function imageshow(category) {
   console.log(category)
-  const request = axios.post(`${API_BASE_URL}/tempimages/`,{'image':category},{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+  const request = axios.post(`${API_BASE_URL}/gallaries/`,category,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
       .then((res) => 
           res.data);
   console.log(category)
   return {
       type: types.SHOWIMAGE,
+      payload: request
+  };
+}
+
+export function imageget() {
+  const request = axios.get(`${API_BASE_URL}/gallaries/get/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+      .then((res) => 
+          res.data);
+  return {
+      type: types.GETIMAGE,
       payload: request
   };
 }
