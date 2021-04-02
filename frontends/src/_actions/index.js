@@ -95,7 +95,7 @@ export function videoclassdetail(id) {
 
 export function imageshow(category) {
   console.log(category)
-  const request = axios.post(`${API_BASE_URL}/images`,{'image':category},{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+  const request = axios.post(`${API_BASE_URL}/tempimages/`,{'image':category},{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
       .then((res) => 
           res.data);
   console.log(category)

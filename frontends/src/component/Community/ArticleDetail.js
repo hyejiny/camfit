@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Articledetail } from "../../_actions/index"
 // import { API_BASE_URL } from "../../constants";
 
-function ArticleDetail(props) {
+// function ArticleDetail(props) {
 
     const dispatch = useDispatch();    
     const [Articles, setArticles] = useState({})
@@ -31,17 +31,17 @@ function ArticleDetail(props) {
           <br/>
 
 
-            {/* image */}   
+//             {/* image */}   
 
 
 
 
-            {/* info */}
+//             {/* info */}
 
 
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
 export default ArticleDetail;
