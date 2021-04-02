@@ -16,8 +16,11 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signup from './component/Account/Signup';
 import ArticleCreate from './component/Community/ArticleCreate';
 import ArticleDetail from './component/Community/ArticleDetail';
+import ArticleEdit from './component/Community/ArticleEdit';
 import UploadClass from './component/VideoClass/UploadClass';
 import ClassDetailPage from './component/VideoClass/ClassDetailPage';
+// import Payment from './component/Payment';
+// import PaymentResult from './component/PaymentResult';
 // import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
@@ -34,12 +37,15 @@ function App() {
           <Route exact path="/Community" component={Community}></Route>
           <Route exact path="/Community/create" component={ArticleCreate}></Route>
           <Route exact path="/Community/:articleId/detail" component={ArticleDetail}></Route>
+          <Route exact path="/Community/:articleId" component={ArticleEdit}></Route>
           <Route path="/selftrain/exercise" component={Exercise}></Route>
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route exact path="/videoclass" component={VideoClass}></Route>
           <Route exact path="/videoclass/detail/:classId" component={ClassDetailPage}></Route>
-          <Route exact path="/videoclass/upload" component={UploadClass}></Route>
+          <Route exact path="/videoclass/upload" component={UploadClassPage}></Route>
+          {/* <Route exact path="/payment" component={Payment} /> */}
+          {/* <Route exact path="/payment/result" component={PaymentResult} /> */}
           <Route path="/signup" component={Signup}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>

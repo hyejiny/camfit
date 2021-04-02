@@ -11,6 +11,8 @@ function ClassDetailPage(props) {
 
     const [Classs, setClasss] = useState({})
 
+    const clickHandler = () => {}
+
 
     useEffect(() => {
 
@@ -44,8 +46,9 @@ function ClassDetailPage(props) {
             <br/>
 
 
-            {/* image */}   
-
+            <div>
+                <button onClick={clickHandler}>add to cart</button>
+            </div>
 
 
 
