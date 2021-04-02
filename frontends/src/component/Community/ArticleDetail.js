@@ -39,13 +39,12 @@ function ArticleDetail(props) {
           <br/>
 
           {/* Update */}
-          <button onClick={() => {history.push({
+          <button
+          // style={{ width: '50px', height: '25px'}}
+           onClick={() => {history.push({
             pathname: `/community/${Article.id}` ,
             state: {Article: Article}
-          })}} />수정하기
-          <button>
-            {<a href={'/community/'+ Article.id }></a>}
-          </button>
+          })}}>수정하기</button>
 
           {/* Delete */}
           <button>
