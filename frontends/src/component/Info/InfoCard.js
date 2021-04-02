@@ -34,7 +34,7 @@ function InfoCard(props) {
           updated={info.updated_at}
           key={index}
         />
-      ) : (
+      ) : ( 
         <InfoCardList />
       )}
     </div>

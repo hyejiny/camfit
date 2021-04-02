@@ -20,9 +20,9 @@ function InfoMain(props) {
   
 
   return (
-    <div class="outer">
+    <div className="outer">
       <div
-        class="jb-wrap img contrast"
+        className="jb-wrap img contrast"
         style={{
           background: `linear-gardient(to bottom,rgba(0,0,0,0)
         39%,rgba(0,0,0,0)
@@ -38,16 +38,16 @@ function InfoMain(props) {
         }}
       ></div>
 
-      <div class="inner multi">
+      <div className="inner multi">
         <h1 style={{ color: "white" }}>{props.title}</h1>
         <div style={{ color: "white" }}>발행일 : {shot_d}</div>
       </div>
       <Content style={{ padding: "0 50px" }}>
-        <div class="site-layout-content">
+        <div className="site-layout-content">
           {props.content}
-          <Divider class="ant-divider" />
+          <Divider className="ant-divider" />
           <AiOutlineHeart onClick="like" class="innerleft" size="30" color="red" />
-          <AiFillHeart class="innerleft" size="30" color="red" />
+          <AiFillHeart className="innerleft" size="30" color="red" />
         </div>
       </Content>
     </div>
