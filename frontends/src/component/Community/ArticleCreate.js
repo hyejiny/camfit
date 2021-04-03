@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import FileCreate from './FileCreate';
 import { useDispatch } from "react-redux";
 import { createArticle } from "../../_actions/index";
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@toast-ui/react-editor';
 
 
 function ArticleCreate(props) {
@@ -19,14 +22,14 @@ function ArticleCreate(props) {
     setDescription(e.currentTarget.value)
   }
 
-  const updateImages = (newImages) => {
-    setImages(newImages)
-  }
+  // const updateImages = (newImages) => {
+  //   setImages(newImages)
+  // }
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (!Title || !Description) {
+    if (!Title) {
         return alert("값을 입력해주셔야 합니다.")
     }
 
@@ -36,14 +39,14 @@ function ArticleCreate(props) {
         //로그인 된 사람의 ID 
         // writer: props.user.userData._id,
         title: Title,
-        content: Description,
+        // content: Description,
         // images: Images
       }
 
       dispatch(createArticle(body))
       .then((res) => {
         props.history.push('/Community')
-        console.log('1111111');
+        console.log(res.payload);
       });
       // Axios.post('/api/product', body)
       //       .then(response => {
@@ -59,15 +62,22 @@ function ArticleCreate(props) {
 
   return (
     <div className="ArticleCreate">
-      <form onSubmit={submitHandler}>
-        
+      <form onSubmit={submitHandler}>       
         <label>Title</label>
         <input onChange={titleChangeHandler} value={Title}/>
         <br/>
         <label>Desc</label>
-        <textarea onChange={descriptionChangeHandler} value={Description}/>
+        <Editor
+          // onChange={descriptionChangeHandler}
+          initialValue="내용을 입력해주세요."
+          height="600px"
+          width="300px"
+          // value={Description}
+          usageStatistics={false}
+        />
+        {/* <textarea onChange={descriptionChangeHandler} value={Description}/> */}
         <br/>
-        <FileCreate refreshFunction={updateImages}/>
+        {/* <FileCreate refreshFunction={updateImages}/> */}
         <button type="submit">Submit</button>
       </form>
     </div>

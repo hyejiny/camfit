@@ -95,7 +95,7 @@ export function videoclassdetail(id) {
 
 export function imageshow(category) {
   console.log(category)
-  const request = axios.post(`${API_BASE_URL}/tempimages/`,{'image':category},{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+  const request = axios.post(`${API_BASE_URL}/gallaries/`,category,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
       .then((res) => 
           res.data);
   console.log(category)
@@ -105,9 +105,27 @@ export function imageshow(category) {
   };
 }
 
-export function createArticle(data) {
-  const request = axios.post(`${API_BASE_URL}/community`, data).then(res => res.data);
+export function imageget() {
+  const request = axios.get(`${API_BASE_URL}/gallaries/get/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
+      .then((res) => 
+          res.data);
+  return {
+      type: types.GETIMAGE,
+      payload: request
+  };
+}
 
+export function createArticle(data) {
+  console.log('index : ', data);
+  const request = axios.post(`${API_BASE_URL}/community`, data).then(res => res.data);
+  return {
+    type: types.ARTICLE,
+    payload: request,
+  };
+}
+
+export function editArticle(id) {
+  const request = axios.put(`${API_BASE_URL}/community${id}`, '').then(res => res.data);
   return {
     type: types.ARTICLE,
     payload: request,
