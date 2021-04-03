@@ -5,7 +5,7 @@ import { createArticle } from "../../_actions/index";
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
-import { Viewer } from '@toast-ui/editor/dist/toastui-editor-viewer';
+// import { Viewer } from '@toast-ui/editor/dist/toastui-editor-viewer';
 
 
 function ArticleCreate(props) {
@@ -33,7 +33,7 @@ function ArticleCreate(props) {
     e.preventDefault();
 
     if (!Title) {
-        return alert("값을 입력해주셔야 합니다.")
+      return alert("값을 입력해주셔야 합니다.")
     }
 
     //서버에 채운 값들을 request로 보낸다.
@@ -68,10 +68,10 @@ function ArticleCreate(props) {
     console.log('마크다운')
     const getContent_html = editorInstance.getHtml();
     console.log('HTML')
-    setDescription(editorInstance.getMarkdown())
+    setDescription(getContent_md)
   }
 
-  
+
 
   return (
     <div className="ArticleCreate">
@@ -82,7 +82,7 @@ function ArticleCreate(props) {
         <label>Desc</label>
         <Editor
           // onChange={descriptionChangeHandler}
-          initialValue={Description}
+          // initialValue={Description}
           height="600px"
           width="300px"
           usageStatistics={false}
