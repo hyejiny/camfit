@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-// import FileCreate from './FileCreate';
 import { useDispatch } from "react-redux";
 import { createArticle } from "../../_actions/index";
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
+
 // import { Viewer } from '@toast-ui/editor/dist/toastui-editor-viewer';
 
 
@@ -58,7 +58,7 @@ function ArticleCreate(props) {
       //               alert('상품 업로드에 실패 했습니다.')
       //           }
       //       })
-          }
+    }
     
   const editorRef = useRef();
 
@@ -89,8 +89,8 @@ function ArticleCreate(props) {
           ref={editorRef}
           // getValue={Description}
         />
-        {/* <textarea onChange={descriptionChangeHandler} value={Description}/> */}
         <br/>
+
         {/* <FileCreate refreshFunction={updateImages}/> */}
         <button type="submit" onClick={btnClickListener}>Submit</button>
       </form>
