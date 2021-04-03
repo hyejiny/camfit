@@ -75,7 +75,7 @@ function Signup(props) {
       password : Password,
       passwordcheck : PasswordCheck,
       category : 1,
-      firstname : Nickname,
+      first_name : Nickname,
     };
     console.log(body);
     dispatch(signup(body))

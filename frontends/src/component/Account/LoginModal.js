@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import {login} from '../../_actions/index';
+import {login, getuserinfo} from '../../_actions/index';
 import { Form,Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 // import axios from 'axios';
@@ -26,15 +26,15 @@ function LoginModal(props) {
  
     dispatch(login(body))
       .then((res) => {
-        // console.log(res);
         if (res.payload.token) {
           localStorage.setItem('token',res.payload.token);
-          // axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.token}`;
-          localStorage.setItem('email',Email);
-          // props.setusername(Email)
+          // localStorage.setItem('email',Email);
+          dispatch(getuserinfo({email:Email})).then((res)=> {
+            localStorage.setItem('userid',res.payload.id)
+            localStorage.setItem('usernickname',res.payload.nickname)
+            localStorage.setItem('usercategory',res.payload.category)
+          })
           window.location.replace("/")
-          // props.history.push('/')
-          // closeModal()
         } else {
           console.log('login fail')
           alert(res.payload.message)

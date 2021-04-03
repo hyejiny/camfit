@@ -117,7 +117,8 @@ export function imageget() {
 
 export function createArticle(data) {
   console.log('index : ', data);
-  const request = axios.post(`${API_BASE_URL}/community`, data).then(res => res.data);
+  const request = axios.post(`${API_BASE_URL}/community/`, data,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  console.log(request)
   return {
     type: types.ARTICLE,
     payload: request,
@@ -125,7 +126,7 @@ export function createArticle(data) {
 }
 
 export function editArticle(id) {
-  const request = axios.put(`${API_BASE_URL}/community${id}`, '').then(res => res.data);
+  const request = axios.put(`${API_BASE_URL}/community/${id}`, '',{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.ARTICLE,
     payload: request,
@@ -133,7 +134,7 @@ export function editArticle(id) {
 }
 
 export function ArticleList() {
-  const request = axios.get(`${API_BASE_URL}/community`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  const request = axios.get(`${API_BASE_URL}/community/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.ARTICLELIST,
     payload: request,
@@ -144,6 +145,14 @@ export function Articledetail(id) {
   const request = axios.put(`${API_BASE_URL}/community/${id}/detail/`, '', {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.ARTICLEDETAIL,
+    payload: request,
+  };
+}
+
+export function getuserinfo(email) {
+  const request = axios.post(`${API_BASE_URL}/accounts/userinfo/`, email,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.GETUSERINFO,
     payload: request,
   };
 }
