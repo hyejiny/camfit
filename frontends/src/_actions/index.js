@@ -86,7 +86,7 @@ export function videoclasslist() {
 }
 
 export function videoclassdetail(id) {
-  const request = axios.get(`${API_BASE_URL}/fitclasses/${id}/detail/`,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  const request = axios.get(`${API_BASE_URL}/fitclasses/${id}/detail/`,{headers:{"Content-Type": "multipart/form-data", Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.VIDEOCLASSDETAIL,
     payload: request,
@@ -94,11 +94,12 @@ export function videoclassdetail(id) {
 }
 
 export function imageshow(category) {
-  console.log(category)
   const request = axios.post(`${API_BASE_URL}/gallaries/`,category,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
       .then((res) => 
           res.data);
-  console.log(category)
+          for (let value of category.values()) {
+            console.log('imageshow ,' ,value);
+        }
   return {
       type: types.SHOWIMAGE,
       payload: request
@@ -125,8 +126,8 @@ export function createArticle(data) {
   };
 }
 
-export function editArticle(id) {
-  const request = axios.put(`${API_BASE_URL}/community/${id}`, '',{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+export function editArticle(body, id) {
+  const request = axios.put(`${API_BASE_URL}/community/${id}/`, body,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.ARTICLE,
     payload: request,
@@ -153,6 +154,14 @@ export function getuserinfo(email) {
   const request = axios.post(`${API_BASE_URL}/accounts/userinfo/`, email,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.GETUSERINFO,
+    payload: request,
+  };
+}
+
+export function deleteArticle(id) {
+  const request = axios.delete(`${API_BASE_URL}/community/${id}/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.ARTICLELIST,
     payload: request,
   };
 }
