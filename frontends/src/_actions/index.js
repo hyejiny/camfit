@@ -126,8 +126,8 @@ export function createArticle(data) {
   };
 }
 
-export function editArticle(id) {
-  const request = axios.put(`${API_BASE_URL}/community/${id}`, '',{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+export function editArticle(body, id) {
+  const request = axios.put(`${API_BASE_URL}/community/${id}/`, body,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.ARTICLE,
     payload: request,
