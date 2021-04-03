@@ -13,6 +13,7 @@ export const createOffer = async (connection, localStream, userToCall, doOffer, 
   
   export const initiateLocalStream = async () => {
     try {
+      // getUserMedia : 로컬 비디오와 오디오에 접근하여 미디어 데이터를 가져온다.
       const stream = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: true
@@ -20,6 +21,7 @@ export const createOffer = async (connection, localStream, userToCall, doOffer, 
       return stream
     } catch (exception) {
       console.error(exception)
+      console.log('getusermedia 실패')
     }
   }
   export const initiateConnection = async () => {
@@ -28,12 +30,13 @@ export const createOffer = async (connection, localStream, userToCall, doOffer, 
       var configuration = {
         iceServers: [{ urls: 'stun:stun2.1.google.com:19302' }]
       }
-  
+      // RTCPeerConnetion : 피어간 오디오, 비디오 통신을 활성화, 신호처리,코덱관리, 피투피통신, 보안, 대역폭 관리 등을 수행
       const conn = new RTCPeerConnection(configuration)
   
       return conn
     } catch (exception) {
       console.error(exception)
+      console.log('rtcpeerconnection 실패')
     }
   }
   
