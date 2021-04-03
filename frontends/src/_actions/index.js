@@ -157,3 +157,11 @@ export function getuserinfo(email) {
     payload: request,
   };
 }
+
+export function deleteArticle(id) {
+  const request = axios.delete(`${API_BASE_URL}/community/${id}/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.ARTICLELIST,
+    payload: request,
+  };
+}
