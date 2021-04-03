@@ -49,3 +49,11 @@ def alertCheck(request):
             alert.checked = True
     serializer = AlertSerializer(alerts, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+# @authentication_classes([JSONWebTokenAuthentication])
+# @permission_classes([IsAuthenticated])
+def getUserInfo(request):
+    username = request.data.get('email')
+    user = User.objects.get(username=username)
+    return Response({'id':user.id,'nickname':user.first_name,'email':user.username,'category':user.category})

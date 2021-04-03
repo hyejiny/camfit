@@ -26,5 +26,5 @@ urlpatterns = [
     path('api/grasses/', include('grasses.urls')),
     path('api/selftrains/', include('selftrains.urls')),
     path('api/fitclasses/', include('fitclasses.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static('api'+ settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

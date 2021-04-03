@@ -1,6 +1,7 @@
 export const LOGIN = "LOGIN";
 export const SIGNUP = "SIGNUP";
 export const EMAILCHECK = "EMAILCHECK";
+export const GETUSERINFO ="GETUSERINFO";
 
 export const SELFTRAINLIST = "SELFTRAINLIST";
 export const SELFTRAINDETAIL = "SELFTRAINDETAIL";

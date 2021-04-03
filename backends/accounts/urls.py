@@ -9,4 +9,5 @@ urlpatterns = [
     path('emailCheck/', views.emailCheck, name='emailCheck'),
     path('alertCheck/', views.alertCheck, name='alertCheck'),
     path('api-token-auth/', obtain_jwt_token),
+    path('userinfo/',views.getUserInfo, name='userinfo')
 ] 
