@@ -8,12 +8,6 @@ function LoginModal(props) {
   const dispatch = useDispatch();
   const [Email,setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  // const [LoginDone] = useState(false);
-
-  // const closeModal = () => {
-  //   console.log('closemodal')
-  //   props.modalfunc(LoginDone);
-  // }
 
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);
@@ -36,7 +30,8 @@ function LoginModal(props) {
         if (res.payload.token) {
           localStorage.setItem('token',res.payload.token);
           // axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.token}`;
-          console.log('login success')
+          localStorage.setItem('email',Email);
+          // props.setusername(Email)
           window.location.replace("/")
           // props.history.push('/')
           // closeModal()

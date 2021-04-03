@@ -3,7 +3,7 @@
     height: 800px;
     text-align: center;
     font-size: 30px;
-    border-style: dotted;
+    /* border-style: dotted; */
     border-radius: 1px;
     border-color: green;
 
@@ -21,12 +21,13 @@
 
 }
 .SelftrainHead {
+  margin-top: 50px;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   font-size: 30px;
-  border-style: dotted;
+  /* border-style: dotted;
   border-radius: 3px;
-  border-color:black;
+  border-color:black; */
 }
 .SelftrainCarousel {
   
@@ -59,7 +60,7 @@
     height: 800px;
     text-align: center;
     font-size: 30px;
-    border-style: dotted;
+    /* border-style: dotted; */
     border-radius: 1px;
     border-color: green;
 
@@ -69,7 +70,7 @@
     height: 800px;
     text-align: center;
     font-size: 30px;
-    border-style: dotted;
+    /* border-style: dotted; */
     border-radius: 1px;
     border-color: green;
 

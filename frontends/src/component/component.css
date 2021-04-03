@@ -1,11 +1,15 @@
+
 .SelftrainSidebar {
     width: 20%;
-    height: 100%;
+    /* height: ; */
+    margin-top: 50px;
+    
+    /* padding-right: 3px; */
     text-align: center;
     font-size: 30px;
-    border-style: dotted;
-    border-radius: 3px;
-    border-color:black;
+    /* border-style:solid */
+    /* border-radius: 3px; */
+    /* border-color:black; */
   }
 .SelftrainCardlist {
     padding: 10px;
@@ -13,7 +17,7 @@
     height: auto;
     text-align: center;
     font-size: 30px;
-    border-style: dotted;
+    /* border-style: dotted;
     border-radius: 3px;
-    border-color:black;
+    border-color:black; */
   }

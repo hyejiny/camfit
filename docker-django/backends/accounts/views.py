@@ -1,14 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
 from rest_framework.decorators import authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from .serializers import UserSerializer
+from .serializers import UserSerializer,AlertSerializer
 
-from .models import User
+from .models import User,Alert
 
 # Create your views here.
 @api_view(['POST'])
@@ -37,3 +38,14 @@ def emailCheck(request):
     if User.objects.filter(username=email).exists():
         return Response({'있음'})
     return Response({'없음'})
+
+@api_view(['GET'])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
+def alertCheck(request):
+    alerts = Alert.objects.filter(user_id=request.user.pk).order_by('-pk')
+    for alert in alerts:
+        if not alert.checked:
+            alert.checked = True
+    serializer = AlertSerializer(alerts, many=True)
+    return Response(serializer.data)

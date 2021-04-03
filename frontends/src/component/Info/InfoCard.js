@@ -1,102 +1,70 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import InfoCardList from "./InfoCardList";
-import InfoCardS from "./InfoCardS";
 
+import { useDispatch } from "react-redux";
+import { infolist } from "../../_actions/index";
+// import {ACCESS_TOKEN} from '../../constants'
 
+function InfoCard(props) {
+  const dispatch = useDispatch();
+  const [FirstInfo, setFirstInfo] = useState([]);
 
+  useEffect(() => {
+    dispatch(infolist()).then((res) => {
+      console.log(res.payload, "payload");
+      const infoinfo = res.payload;
+      setFirstInfo(infoinfo);
+      console.log(FirstInfo, "firstinfo");
+      console.log(typeof FirstInfo);
+    });
+  }, []);
 
+  const infocard = FirstInfo.map((info, index) => (
+    <div>
+      {FirstInfo ? (
+        <InfoCardList
+          content={info.content}
+          title={info.title}
+          imgg={info.image}
+          id={info.id}
+          updated={info.updated_at}
+          key={index}
+        />
+      ) : ( 
+        <InfoCardList />
+      )}
+    </div>
+  ));
 
-// import imga from './캡처.JPG'
+  var settings = {
+    dots: true, // 캐러셀의 점을 보여줄 것인지
+    infinite: true, // 마지막 장 다음에 첫번째가 나오게 할 것인지
+    speed: 500, // 넘어가는 속도는 몇으로 할 것인지
+    arrows: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
 
-// import { connect } from 'react-redux';
+    responsive: [
+      // 반응형 웹 구현 옵션
+      {
+        breakpoint: 1350, //화면 사이즈 960px
+        settings: {
+          //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+          slidesToShow: 3,
+        },
+      },
+    ],
+  };
 
-// function mapStateToProps(state) {
-//     return {
-
-//     };
-// }
-
-
-
-class InfoCard extends Component {
-  render() {
-    var settings = {
-      dots: true, // 캐러셀의 점을 보여줄 것인지
-      infinite: true, // 마지막 장 다음에 첫번째가 나오게 할 것인지
-      speed: 500, // 넘어가는 속도는 몇으로 할 것인지
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      centerMode: true,
-      centerPadding: "60px",
-      rows: 2,
-      slidesPerRow: 3,
-    };
-    return (
-      <div>
-        <Slider {...settings}>
-          <div>
-          <div style={{ width: 250, height: 250 }}>
-        
-            <InfoCardList />
-          </div>
-          </div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-          <div>4</div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-          <div>
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardList />
-          </div>
-          </div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-          <div>4</div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-          <div style={{ width: 250, height: 250 }}>
-            <InfoCardS />
-          </div>
-
-
-
-        </Slider>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Slider {...settings}>{infocard}</Slider>
+    </div>
+  );
 }
 
 export default InfoCard;
-
-// connect(
-//     mapStateToProps,
-// )(InfoCard);

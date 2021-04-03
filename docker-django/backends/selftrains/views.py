@@ -8,12 +8,12 @@ from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from .serializers import  TrainListSerializer, TrainDetailSerializer
+from .serializers import TrainListSerializer, TrainDetailSerializer
 from .models import SelfTrain
 
 @api_view(['GET','POST'])
-@authentication_classes([JSONWebTokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([JSONWebTokenAuthentication])
+# @permission_classes([IsAuthenticated])
 def train_list_create(request):
     if request.method == 'GET':
         trains = SelfTrain.objects.order_by('-pk')
@@ -25,6 +25,14 @@ def train_list_create(request):
             if serializer.is_valid(raise_exception=True):
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else: 
+            category = request.data.get('category')
+            if category == 0 or category == '0':
+                trains = SelfTrain.objects.order_by('-pk')
+            else:
+                trains = SelfTrain.objects.filter(category=category).order_by('-pk')
+            serializer = TrainListSerializer(trains, many = True)
+            return Response(serializer.data)
 
 @api_view(['GET'])
 @authentication_classes([JSONWebTokenAuthentication])
@@ -51,4 +59,3 @@ def train_update_delete(request,selftrain_pk):
     else:
         train.delete()
         return Response({'id': selftrain_pk}, status=status.HTTP_204_NO_CONTENT)
-
