@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
 import { Articledetail, deleteArticle } from "../../_actions/index";
 import {useHistory} from "react-router";
+import Comment from './Comment';
 
 function ArticleDetail(props) {
 
@@ -60,6 +61,8 @@ function ArticleDetail(props) {
           >
             <a href="/community/">삭제하기</a>
           </button>
+          {/* 댓글 CRUD */}
+          <Comment/>
         </div>
     )
 }
