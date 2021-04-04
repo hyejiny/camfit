@@ -109,3 +109,28 @@ body {
   padding-top: 50px;
 }
 
+
+/* 위치 이후 첫번째 줄 */
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: grey;
+}
+/*위치 이후에 첫번째 점*/
+.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+  background-color: red;
+}
+/*위치 이후에 첫번째 점*/
+.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+  background-color: red;
+}
+/*지나간 줄*/
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: orangered;
+}
+/*나머지 줄*/
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: grey;
+}
+/*지나간 점*/
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+  background-color: red;
+}

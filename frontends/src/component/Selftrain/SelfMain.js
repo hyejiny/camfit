@@ -27,6 +27,7 @@ function SelfMain(props) {
       </Popover.Content>
     </Popover>
   );
+  
   const nickname = window.localStorage.getItem("usernickname");
   return (
     
@@ -39,7 +40,7 @@ function SelfMain(props) {
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
         <Button variant="success">AI 운동 가이드</Button>
       </OverlayTrigger>
-      
+      <Jandi></Jandi>
        <SelftrainSidebar
         setCategory={setCategory}
         categoryname={Category}
