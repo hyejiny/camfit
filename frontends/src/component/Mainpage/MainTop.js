@@ -13,7 +13,7 @@ function MainTop(props) {
         className="jb-wrap outer2 img contrast2"
         style={{
             backgroundImage: `url("${backgr}")`,
-            height: "700px",
+            height: "500px",
             backgroundSize: "100%, cover",
             backgroundPosition: "center, center",
             width: "100%",
@@ -22,8 +22,9 @@ function MainTop(props) {
       ></div>
 
       <div className="bottomleft">
-        <h1 style={{ color: "white" }}>당신의 홈트 파트너 캠피트
-        // 밝은 이미지로 갈가?? 고민 ㅠ</h1>
+        <h1 style={{ color: "white" }}>Make Your Wonderful Body</h1>
+
+        <h1 style={{ color: "white" }}>with "CamFit"</h1>
       </div>
       
     </div>
