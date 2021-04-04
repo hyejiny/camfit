@@ -24,3 +24,4 @@ export const ARTICLEDETAIL = "ARTICLEDETAIL";
 export const COMMENT = "COMMENT";
 export const COMMENTLIST = "COMMENTLIST";
 
+export const JANDI = "JANDI";

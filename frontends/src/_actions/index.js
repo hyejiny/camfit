@@ -204,3 +204,11 @@ export function deleteComment(id) {
     payload: request,
   };
 }
+
+export function getjandi(id) {
+  const request = axios.get(`${API_BASE_URL}/grasses/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.JANDI,
+    payload: request,
+  };
+}
