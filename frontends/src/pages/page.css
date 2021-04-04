@@ -51,7 +51,7 @@
   }
 .Mainpage {
     width: 100%;
-    height: 600px;
+    height: 800px;
     text-align: center;
     font-size: 30px;
  
@@ -66,3 +66,21 @@
 
   }
 
+/* info 베너 글자 중앙 */
+.Infomid {
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+.Infoouter {
+    position:relative;
+    text-align:center;
+    width:100%;
+    height:150px; /*  Any height is allowed, also in %. */
+  }
