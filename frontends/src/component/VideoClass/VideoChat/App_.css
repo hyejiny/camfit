@@ -3,7 +3,7 @@
     justify-content: center;
     color: white;
     align-items: center;
-  
+
     background: #43cea2; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #43cea2, #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -12,14 +12,17 @@
     background-attachment: fixed;
   }
   .h1{
-    margin:0
+    margin:0;
+    font-weight: 1000;
   }
   .app_{
+    margin:0;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Cabin', sans-serif;
-    padding-top: 300px;
+    padding-top: 200px;
+    padding-bottom: 100px;
   }
   
   .app_ h3{
@@ -41,6 +44,7 @@
     box-shadow: 1px 1px 0.8px #0c1d2e;
     margin-top: 10px;
     margin-bottom: 4px;
+    color:grey;
   }
   .button{
     width: 100px;
@@ -54,7 +58,7 @@
     
   }
   .video{
-    width: 200px;
+    width: 500px;
     height: 100%;
   }
   .form{

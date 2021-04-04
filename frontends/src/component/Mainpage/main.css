@@ -9,8 +9,10 @@
     position: relative;
 }
 .bottomleft {
+    
     position: absolute;
-    bottom: 10%;
+    
+    bottom: 0%;
     left: 16px;
     font-size: 18px;
   }
