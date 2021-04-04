@@ -3,9 +3,8 @@ import "../component.css";
 import { useDispatch } from "react-redux";
 import { selftrainlist } from "../../_actions/index";
 import { ListGroup, Card, Button, Row, Col } from "react-bootstrap";
-import { Drawer } from 'antd';
 import "bootstrap/dist/css/bootstrap.min.css";
-import SelftrainCardlist from "./SelftrainCardlist";
+
 
 
 

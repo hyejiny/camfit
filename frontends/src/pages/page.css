@@ -3,9 +3,7 @@
     height: 800px;
     text-align: center;
     font-size: 30px;
-    /* border-style: dotted; */
-    border-radius: 1px;
-    border-color: green;
+
 
   }
 .Selftrain {
@@ -15,9 +13,7 @@
     height: 800px;
     text-align: center;
     font-size: 30px;
-    border-style: dotted;
-    border-radius: 1px;
-    border-color: green;
+
 
 }
 .SelftrainHead {
@@ -33,9 +29,7 @@
   
   padding: 10px;
   font-size: 30px;
-  border-style: dotted;
-  border-radius: 3px;
-  border-color:black;
+
 }
 .CarouselImg {
   width:50%;
@@ -60,7 +54,7 @@
     height: 600px;
     text-align: center;
     font-size: 30px;
-    background-color:#1b1c1d;
+ 
 
   }
 .VideoClass {
@@ -68,9 +62,7 @@
     height: 800px;
     text-align: center;
     font-size: 30px;
-    /* border-style: dotted; */
-    border-radius: 1px;
-    border-color: green;
+
 
   }
 
