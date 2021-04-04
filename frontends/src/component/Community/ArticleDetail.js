@@ -1,24 +1,38 @@
 import React,{useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
-import { Articledetail, deleteArticle } from "../../_actions/index";
+import { Articledetail, deleteArticle, CommentList } from "../../_actions/index";
 import {useHistory} from "react-router";
-import Comment from './Comment';
+import CommentCreate from './CommentCreate';
+import ListGroup from 'react-bootstrap/esm/ListGroup';
 
 function ArticleDetail(props) {
 
     const history = useHistory();
     const dispatch = useDispatch();    
     const [Article, setArticle] = useState({})
+    const [Comments, setComments] = useState([])
+    const articleId = props.match.params.articleId
       
     useEffect(() => {
-      const articleId = props.match.params.articleId
-      console.log(articleId)
       dispatch(Articledetail(articleId))
       .then((res) => {
         console.log('11111');
         setArticle(res.payload)           
       })
+
+      // dispatch(CommentList(articleId))
+      // .then((res) => {
+      //   const comment_list = res.payload
+      //   setComments(comment_list)
+      // })
+
     }, [dispatch]);
+
+    dispatch(CommentList(articleId))
+    .then((res) => {
+      const comment_list = res.payload
+      setComments(comment_list)
+    })
 
     const removeArticle = () => {
       if (window.confirm("해당 게시물을 삭제하시겠습니까?\n삭제된 데이터는 복구할 수 없습니다.")) {
@@ -30,6 +44,16 @@ function ArticleDetail(props) {
       alert('게시물이 삭제되었습니다.')
       }
     }
+
+    const renderCommentLists = Comments.map((comment, index) => {
+      return <ListGroup
+              horizontal
+            >
+        <ListGroup.Item>{comment.user.username}</ListGroup.Item>
+        <ListGroup.Item>{comment.content}</ListGroup.Item>
+        <ListGroup.Item>{comment.updated_at}</ListGroup.Item>
+      </ListGroup>
+    })
 
     return (
         <div>       
@@ -62,7 +86,8 @@ function ArticleDetail(props) {
             <a href="/community/">삭제하기</a>
           </button>
           {/* 댓글 CRUD */}
-          <Comment article={Article.id}/>
+          <CommentCreate article={Article.id}/>
+          {renderCommentLists}
         </div>
     )
 }
