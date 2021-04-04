@@ -16,8 +16,8 @@
 }
 
 .contrast {
-    -webkit-filter: contrast(20%) ;
-    filter: contrast(20%);
+    -webkit-filter: contrast(30%) ;
+    filter: contrast(30%);
 }
 
 .jb-wrap {
