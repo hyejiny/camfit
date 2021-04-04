@@ -7,13 +7,15 @@
 
   }
 .Selftrain {
-    margin:2px;
-    padding: 2px;
+    background: url("./운동하기 배경.jpg");
+    height: 2000px;
+    background-repeat: repeat-y;
+    background-position: center, center;
+    /* background-color:rgba(255, 255, 255, 0.2); */
     width: 100%;
-    height: 800px;
-    text-align: center;
-    font-size: 30px;
-
+    position: relative;
+    /* opacity: 0.5;
+    z-index: -1; */
 
 }
 .SelftrainHead {
@@ -51,11 +53,10 @@
   }
 .Mainpage {
     width: 100%;
-    height: 800px;
+    height:1000px;
     text-align: center;
     font-size: 30px;
- 
-
+    background-color:#1b1c1d;
   }
 .VideoClass {
     width: 100%;
