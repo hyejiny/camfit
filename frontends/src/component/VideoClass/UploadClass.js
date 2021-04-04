@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { imageshow } from '../../_actions';
 
+
 function UploadClass() {
     const dispatch = useDispatch()
     const [ cover, setCever ] = useState();
