@@ -46,7 +46,7 @@ function App() {
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route exact path="/videoclass" component={VideoClass}></Route>
           <Route exact path="/videoclass/detail/:classId" component={ClassDetailPage}></Route>
-          <Route exact path="/videoclass/upload" component={UploadClassPage}></Route>
+          {/* <Route exact path="/videoclass/upload" component={UploadClassPage}></Route> */}
           {/* <Route exact path="/payment" component={Payment} /> */}
           {/* <Route exact path="/payment/result" component={PaymentResult} /> */}
           <Route path="/videochat" component={App_}></Route>
