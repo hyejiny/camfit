@@ -84,6 +84,13 @@ export function videoclasslist() {
     payload: request,
   };
 }
+export function videoclasscreate(body) {
+  const request = axios.post(`${API_BASE_URL}/fitclasses/`,body,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.VIDEOCLASSCREATE,
+    payload: request,
+  };
+}
 
 export function videoclassdetail(id) {
   const request = axios.get(`${API_BASE_URL}/fitclasses/${id}/detail/`,{headers:{"Content-Type": "multipart/form-data", Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
