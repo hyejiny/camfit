@@ -25,7 +25,7 @@ import { Viewer } from '@toast-ui/react-editor';
 
 function FileUpload() {
 
-    const [Content, setContent] = useState('asdasdasd')
+    const [Content, setContent] = useState('뷰어')
     const dispatch = useDispatch()
     const editorRef = useRef()
 

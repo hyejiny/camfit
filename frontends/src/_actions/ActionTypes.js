@@ -14,6 +14,7 @@ export const SHOWIMAGE = 'SHOWIMAGE'
 export const GETIMAGE = 'GETIMAGE'
 
 export const VIDEOCLASS = "VIDEOCLASS";
+export const VIDEOCLASSCREATE = "VIDEOCLASSCREATE";
 export const VIDEOCLASSDETAIL = "VIDEOCLASSDETAIL";
 
 export const ARTICLE = "ARTICLE";
