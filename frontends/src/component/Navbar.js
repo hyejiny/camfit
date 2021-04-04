@@ -50,7 +50,7 @@ class NavBar extends Component {
       console.log("no token");
       button = (
         <>
-          <Nav.Link onClick={this.showModal}>로그인</Nav.Link>
+          <Nav.Link onClick={this.showModal} className="nav-links">로그인</Nav.Link>
           <Modal
             visible={this.state.visible}
             title="로그인 하시겠습니까?"
@@ -64,7 +64,7 @@ class NavBar extends Component {
       );
     } else {
       
-      button = <><Nav.Link href='/'>{window.localStorage.getItem('email')} 환영합니다.</Nav.Link><Nav.Link onClick={this.logout}>로그아웃</Nav.Link></>
+      button = <><Nav.Link className="nav-links" href='/'>{window.localStorage.getItem('usernickname')}님 환영합니다.</Nav.Link><Nav.Link className="nav-links"onClick={this.logout}>로그아웃</Nav.Link></>
     }
     return (
       <Navbar className="Nav" collapseOnSelect expand="lg" variant="dark">
@@ -79,7 +79,7 @@ class NavBar extends Component {
           </Nav>
           <Nav className="ml-auto">
             {button}
-            <Nav.Link href="/signup">회원가입</Nav.Link>
+            <Nav.Link className="nav-links" href="/signup">회원가입</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

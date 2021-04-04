@@ -19,11 +19,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('community/', include('community.urls')),
-    path('accounts/', include('accounts.urls')),
-    path('infoboards/', include('infoboards.urls')),
-    path('schedules/', include('schedules.urls')),
-    path('selftrains/', include('selftrains.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('api/admin/', admin.site.urls),
+    path('api/community/', include('community.urls')),
+    path('api/accounts/', include('accounts.urls')),
+    path('api/infoboards/', include('infoboards.urls')),
+    path('api/grasses/', include('grasses.urls')),
+    path('api/selftrains/', include('selftrains.urls')),
+    path('api/fitclasses/', include('fitclasses.urls')),
+] + static('api'+ settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

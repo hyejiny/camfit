@@ -56,19 +56,14 @@ function UploadClassPage(props) {
       // user: , 
       title: Name,
       content: Description,
+      // start_day: StartDay,
+      // end_day: EndDay,
+      // user_limit : UserLimit,
       price: Price,
       image: Image
     }
     // 서버에 채운 값들을 request로 보낸다
-    Axios.post('', body)
-    .then(response => {
-      if(response.data.success) {
-        alert('상품 업로드에 성공했습니다.')
-        props.history.push('/')
-      } else {
-        alert('상품 업로드에 실패했습니다.')
-      }
-    })
+    
   }
     return (
         <div style={{maxWidth: '700px', margin: '2rem auto'}}>
@@ -78,12 +73,10 @@ function UploadClassPage(props) {
             <Form onSubmit={submitHandler}>
               {/* drop zone */}
 
+              <div>       
+                </div>
 
-
-              <FileUpload refreshFunction={updateImages} />
-
-
-
+              <FileUpload  />
 
               <br/>
               <br/>
@@ -98,6 +91,12 @@ function UploadClassPage(props) {
               <br/>
               <br/>
               <label>가격</label>
+              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <label>시작일</label>
+              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <label>종료일</label>
+              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <label>수강생 수</label>
               <Input type="number" onChange={priceChageHandler} value={Price}/>
               <br/><br/>
               <select onChange={categoryChageHandler} value={Category}>

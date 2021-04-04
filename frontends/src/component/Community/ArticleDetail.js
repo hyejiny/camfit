@@ -1,16 +1,17 @@
 import React,{useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
-import { Articledetail } from "../../_actions/index"
-// import { API_BASE_URL } from "../../constants";
+import { Articledetail, deleteArticle } from "../../_actions/index";
+import {useHistory} from "react-router";
+import Comment from './Comment';
 
 function ArticleDetail(props) {
 
+    const history = useHistory();
     const dispatch = useDispatch();    
     const [Article, setArticle] = useState({})
       
     useEffect(() => {
       const articleId = props.match.params.articleId
-
       console.log(articleId)
       dispatch(Articledetail(articleId))
       .then((res) => {
@@ -18,6 +19,17 @@ function ArticleDetail(props) {
         setArticle(res.payload)           
       })
     }, [dispatch]);
+
+    const removeArticle = () => {
+      if (window.confirm("해당 게시물을 삭제하시겠습니까?\n삭제된 데이터는 복구할 수 없습니다.")) {
+        const articleId = props.match.params.articleId
+        dispatch(deleteArticle(articleId))
+        .then((res) => {
+          setArticle(res.payload)
+        })
+      alert('게시물이 삭제되었습니다.')
+      }
+    }
 
     return (
         <div>       
@@ -36,14 +48,21 @@ function ArticleDetail(props) {
           <br/>
 
           {/* Update */}
-          <button>
-            {<a href={'/community/'+ Article.id }>수정하기</a>}
-          </button>
+          <button
+          // style={{ width: '50px', height: '25px'}}
+           onClick={() => {history.push({
+            pathname: `/community/${Article.id}` ,
+            state: {Article: Article}
+          })}}>수정하기</button>
 
           {/* Delete */}
-          <button>
+          <button
+            onClick={removeArticle}
+          >
             <a href="/community/">삭제하기</a>
           </button>
+          {/* 댓글 CRUD */}
+          <Comment article={Article.id}/>
         </div>
     )
 }

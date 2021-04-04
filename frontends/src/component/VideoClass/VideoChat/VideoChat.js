@@ -1,4 +1,4 @@
-import  React, { Component } from 'react'
+import  React from 'react'
 import 'firebase/database';
 import classnames from 'classnames';
 
@@ -18,7 +18,7 @@ export default class VideoChat extends React.Component {
         isLoggedIn: true
       })
     }
-  
+   
     onStartCallClicked = () => {
       this.props.startCall(this.state.username, this.state.userToCall)
     }

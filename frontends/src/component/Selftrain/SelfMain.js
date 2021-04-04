@@ -20,6 +20,7 @@ function SelfMain(props) {
       </Popover.Content>
     </Popover>
   );
+  const nickname = window.localStorage.getItem('usernickname');
   return (
     <div class="outer2">
       <div
@@ -36,8 +37,11 @@ function SelfMain(props) {
       ></div>
 
       <div class="inner2 multi2">
-
-        <h1>"닉네임" 님 운동을 시작하시겠습니까?</h1>
+        { nickname ? 
+          <h1>"{nickname}" 님 운동을 시작하시겠습니까?</h1>
+          :
+          <h1>로그인 후 사용해주세요</h1>
+        }
         <OverlayTrigger trigger="click" placement="right" overlay={popover}>
           <Button variant="success">AI 운동 가이드</Button>
         </OverlayTrigger>
