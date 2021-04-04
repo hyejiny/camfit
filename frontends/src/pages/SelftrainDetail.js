@@ -22,7 +22,7 @@ function SelftrainDetail(props) {
   }, [dispatch]);
 
   return (
-    <div className="Selftrain row">
+    <div className="row">
       <SelftrainSidebar className="col"></SelftrainSidebar>
       <div className="col SelftrainCarousel">
         <div className="row">

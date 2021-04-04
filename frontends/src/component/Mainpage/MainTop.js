@@ -8,16 +8,16 @@ function MainTop(props) {
 
 
   return (
-    <div className="outer2">
+    <div>
       <div
-        className="jb-wrap img contrast2"
+        className="jb-wrap outer2 img contrast2"
         style={{
             backgroundImage: `url("${backgr}")`,
             height: "700px",
             backgroundSize: "100%, cover",
             backgroundPosition: "center, center",
             width: "100%",
-            position: "relative",
+            // position: "relative",
           }}
       ></div>
 

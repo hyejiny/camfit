@@ -11,37 +11,37 @@ import { API_BASE_URL } from "../../constants";
 import ArrowNext from "./ArrowNext";
 
 function SelftrainCardlist(props) {
- 
   const dispatch = useDispatch();
   const store = useStore();
   const [TrainInfo, setTrainInfo] = useState([]);
   useEffect(() => {
-    dispatch(selftrainlist(0)).then(res => {
+    dispatch(selftrainlist(0)).then((res) => {
       const tmp_list = res.payload;
       setTrainInfo(tmp_list);
     });
   }, [dispatch]);
 
-  // console.log(store.subscribe(setTrainInfo(store.getState().selftrainlist)))
-  // console.log(TrainInfo,'traininfo');
-
   const changeinfo = () => {
     setTrainInfo(store.getState().selftrainlist.list);
-    // console.log(TrainInfo)
-    // console.log('12312')
   };
   const unsubscribe = store.subscribe(changeinfo);
   // unsubscribe()
-
-  const infocard = TrainInfo.map(train => (
-    // const infocard = store.getState().selftrainlist.list.map((train) => (
-
-    <div class="outer">
+  const infocard = TrainInfo.map((train) => (
+    <div className="outer">
       <Grid columns="equal">
         <Grid.Column>
           <Col md="auto">
-            <Card style={{ width: "18rem", margin: "auto" }} className="bg-dark text-white" key={train.id}>
-              <Card.Img width="300px" height="200px" variant="top" src={API_BASE_URL + train.thumbnail} />
+            <Card
+              style={{ width: "18rem", margin: "auto"}}
+              className="bg-dark text-white"
+              key={train.id}
+            >
+              <Card.Img
+                width="300px"
+                height="200px"
+                variant="top"
+                src={API_BASE_URL + train.thumbnail}
+              />
               <Card.ImgOverlay>
                 <div class="inner">
                   <Card.Title>
@@ -91,40 +91,19 @@ function SelftrainCardlist(props) {
       },
     ],
   };
-  
+
   return (
     <div className="site-content2">
-    <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
-      
-      
-    <Slider {...settings} className="multi2 site-layout-background2">
-      <ArrowNext/>
-      
-      {infocard}
-      
-      </Slider>
-
-    {/* <div className="SelftrainCardlist">
-       {infocard}
-    </div> */}
-
-    </div>
+      <div
+        className="site-layout-background"
+        style={{ padding: 24, minHeight: 380 }}
+      >
+        <Slider {...settings} className="multi2">
+          <ArrowNext />
+          {infocard}
+        </Slider>
+      </div>
     </div>
   );
 }
-
-// const mapStateToProps = state => {
-//     return {
-//       newlist : state.Selftrainlist
-//     }
-// }
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         selftrainlist : () => dispatch(selftrainlist())
-//     }
-//   }
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-//   )(SelftrainCardlist)
 export default SelftrainCardlist;
