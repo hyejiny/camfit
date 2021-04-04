@@ -60,7 +60,7 @@ function SelftrainCardlist(props) {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 2,
     slidesToScroll: 4,
     initialSlide: 0,
 
@@ -93,16 +93,23 @@ function SelftrainCardlist(props) {
   };
   
   return (
-    <Slider {...settings}>
+    <div className="site-content2">
+    <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+      
+      
+    <Slider {...settings} className="multi2 site-layout-background2">
       <ArrowNext/>
       
       {infocard}
       
       </Slider>
 
-    // <div className="SelftrainCardlist">
-    //     {infocard}
-    // </div>
+    {/* <div className="SelftrainCardlist">
+       {infocard}
+    </div> */}
+
+    </div>
+    </div>
   );
 }
 

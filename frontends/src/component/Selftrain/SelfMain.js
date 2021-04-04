@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import SelftrainSidebar from "./SelftrainSidebar";
+import SelftrainCardlist from "./SelftrainCardlist"
 import "./train.css";
-
-
 import backk from "./운동하기 배경.jpg";
 
 import { OverlayTrigger, Button, Popover,Row,Col } from "react-bootstrap";
-import { Drawer } from 'antd';
 
 function SelfMain(props) {
 
   const [Category, setCategory] = useState('팔');
+  const [Vis,setVis] = useState(false)
 
 
   const popover = (
@@ -24,17 +23,13 @@ function SelfMain(props) {
   return (
     <div class="outer2">
       <div
-        class="jb-wrap img contrast"
+        className="jb-wrap img contrast bgrepeat"
         style={{
-          background: `linear-gardient(to bottom,rgba(0,0,0,0)
-        39%,rgba(0,0,0,0)
-        41%,rgba(0,0,0,0.65)
-        100%),
-        url(${backk}), #*1c1c1c`,
           backgroundImage: `url("${backk}")`,
           height: "900px",
           backgroundSize: "100%, cover",
           backgroundPosition: "center, center",
+
           width: "100%",
           position: "relative",
         }}
@@ -46,10 +41,19 @@ function SelfMain(props) {
         <OverlayTrigger trigger="click" placement="right" overlay={popover}>
           <Button variant="success">AI 운동 가이드</Button>
         </OverlayTrigger>
-    
+
+        
         <SelftrainSidebar setCategory={setCategory} categoryname={Category}></SelftrainSidebar>
+        
+
+      
+        <SelftrainCardlist
+          visible={Vis}/>
+        
+
       </div>
-   
+
+    
     </div>
   );
 }

@@ -9,8 +9,6 @@ import SelftrainCardlist from "./SelftrainCardlist";
 
 
 
-
-
 function SelftrainSidebar(props) {
 
   // const category_list = useState([
@@ -65,10 +63,10 @@ function SelftrainSidebar(props) {
   return (
 
     <div className="site-content">
-      <Row xs={1} md={3} lg={4} >
+      <Row xs={1} md={2} lg={4} >
         <Col>
         <Card
-    text='white'
+    text='black'
     style={{ width: '20rem', height: '18rem' }}
     className="mb-2 bgc"
   >
@@ -81,7 +79,7 @@ function SelftrainSidebar(props) {
 
   <Col>
   <Card
-    text='white'
+    text='black'
     style={{ width: '20rem' , height: '18rem' }}
     className="mb-2 bgc"
   >
@@ -94,7 +92,7 @@ function SelftrainSidebar(props) {
 
   <Col>
   <Card
-    text='white'
+    text='black'
     style={{ width: '20rem' , height: '18rem' }}
     className="mb-2 bgc"
   >
@@ -107,7 +105,7 @@ function SelftrainSidebar(props) {
 
 <Col>
   <Card
-    text='white'
+    text='black'
     style={{ width: '20rem' , height: '18rem'}}
     className="mb-2 bgc"
     
@@ -119,24 +117,19 @@ function SelftrainSidebar(props) {
   </Card>
   </Col>
   </Row>
-  <Row>
-  <div style={{overflowX: 'scroll'}}>
-  <Drawer
-          title={props.categoryname}
-          placement='bottom'
-          closable={false}
+  {/* <Row>
+
+          
+            <SelftrainCardlist  title={props.categoryname}
+         
+          
           onClose={onClose}
           visible={Vis}
-          height='350px'
-        >
-          
-            <SelftrainCardlist/>
+          height='350px'/>
           
       
-        </Drawer>
-        </div>
-
-  </Row>
+       
+  </Row> */}
 
 
 {/* 

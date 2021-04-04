@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Articledetail } from "../../_actions/index"
 // import { API_BASE_URL } from "../../constants";
 
-// function ArticleDetail(props) {
+function ArticleDetail(props) {
 
     const dispatch = useDispatch();    
     const [Article, setArticle] = useState({})
