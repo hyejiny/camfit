@@ -26,7 +26,6 @@ function Community() {
     }
 
     const renderLists = Articles.map((article, index) => {
-
         return <ListGroup 
                 horizontal
             >

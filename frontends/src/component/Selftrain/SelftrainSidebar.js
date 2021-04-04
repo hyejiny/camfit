@@ -5,7 +5,7 @@ import { selftrainlist } from "../../_actions/index";
 import { ListGroup, Card, Button, Row, Col } from "react-bootstrap";
 import { Drawer } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SelftrainCardlist from "./SelftrainCardlist";
+
 
 function SelftrainSidebar(props) {
   // const category_list = useState([

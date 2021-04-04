@@ -6,9 +6,13 @@ import React, { useEffect, useState } from "react";
 import { selftraindetail } from "../_actions/index";
 import { useDispatch } from "react-redux";
 import { API_BASE_URL } from "../constants";
+import { Layout } from 'antd';
+import SelftrainCardlist from "../component/Selftrain/SelftrainCardlist";
+
 
 // import img1 from "../media/logo512.png";
 function SelftrainDetail(props) {
+  const { Header, Footer, Sider, Content } = Layout;
   const dispatch = useDispatch();
   const [TrainInfo, setTrainInfo] = useState([]);
   useEffect(() => {
@@ -22,8 +26,13 @@ function SelftrainDetail(props) {
   }, [dispatch]);
 
   return (
-    <div className="row">
-      <SelftrainSidebar className="col"></SelftrainSidebar>
+
+    <Layout>
+        <Sider>
+          운동 리스트 넣을까,,
+        </Sider>
+        <Content>
+    <div className="Selftrain row">
       <div className="col SelftrainCarousel">
         <div className="row">
           <Carousel
@@ -76,11 +85,14 @@ function SelftrainDetail(props) {
           <div className="col text-align-center">
             <h1>{TrainInfo.title}</h1>
             <h2>{TrainInfo.content}</h2>
-            <Button href="/selftrain/exercise">sfad</Button>
+            <h3> 운동 관련 설명</h3>
+            <Button href="/selftrain/exercise">운동 시작 하기</Button>
           </div>
         </div>
       </div>
     </div>
+    </Content>
+      </Layout>
   );
 }
 
