@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
-import { createComment, editComment, deleteComment } from "../../_actions/index";
+import { createComment } from "../../_actions/index";
 
 
 function CommentCreate(props) {
