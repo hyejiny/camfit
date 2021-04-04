@@ -166,7 +166,7 @@ export function deleteArticle(id) {
   };
 }
 
-export function createComment(id, data) {
+export function createComment(data, id) {
   const request = axios.post(`${API_BASE_URL}/community/${id}/comments/`, data, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.COMMENT,

@@ -16,6 +16,7 @@ import Signup from './component/Account/Signup';
 import ArticleCreate from './component/Community/ArticleCreate';
 import ArticleDetail from './component/Community/ArticleDetail';
 import ArticleEdit from './component/Community/ArticleEdit';
+import Commente from './component/Community/Comment';
 import UploadClassPage from './component/VideoClass/UploadClassPage';
 import ClassDetailPage from './component/VideoClass/ClassDetailPage';
 
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/Community/create" component={ArticleCreate}></Route>
           <Route exact path="/Community/:articleId/detail" component={ArticleDetail}></Route>
           <Route exact path="/Community/:articleId" component={ArticleEdit}></Route>
+          <Route exact path="/Community/:articleId/comments" component={Comment}></Route>
           <Route path="/selftrain/exercise" component={Exercise}></Route>
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
