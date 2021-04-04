@@ -8,7 +8,7 @@ import { Row, Col } from 'antd';
 import Jandi from "./Jandi";
 function SelfMain(props) {
   const [Category, setCategory] = useState("팔");
-  const [Vis, setVis] = useState(false);
+  // const [Vis, setVis] = useState(false);
 
   const popover = (
     <Popover id="popover-basic">

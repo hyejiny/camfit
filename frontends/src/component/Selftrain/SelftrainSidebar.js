@@ -19,20 +19,25 @@ function SelftrainSidebar(props) {
   const [Vis, setVis] = useState(false);
   const dispatch = useDispatch();
   const all = () => {
-    dispatch(selftrainlist(0));
-    props.setCategory("모두");
-    setVis(true);
+    window.location.replace("/selftrain/detail/1")
+    // dispatch(selftrainlist(0));
+    // props.setCategory("모두");
+    // setVis(true);
   };
   const shoulder = () => {
-    dispatch(selftrainlist(1));
-    props.setCategory("어깨");
-    console.log("어깨");
-    setVis(true);
+    window.location.replace("/selftrain/detail/1")
+
+    // dispatch(selftrainlist(1));
+    // props.setCategory("어깨");
+    // console.log("어깨");
+    // setVis(true);
   };
   const arm = () => {
-    dispatch(selftrainlist(2));
-    props.setCategory("팔");
-    setVis(true);
+    window.location.replace("/selftrain/detail/2")
+
+    // dispatch(selftrainlist(2));
+    // props.setCategory("팔");
+    // setVis(true);
   };
 
   const onClose = () => {
