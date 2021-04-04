@@ -62,7 +62,7 @@ function ArticleDetail(props) {
             <a href="/community/">삭제하기</a>
           </button>
           {/* 댓글 CRUD */}
-          <Comment/>
+          <Comment article={Article.id}/>
         </div>
     )
 }

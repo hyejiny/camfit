@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
 import { createComment, CommentList, editComment, deleteComment } from "../../_actions/index";
 import { useHistory, useLocation } from "react-router";
-
 function Comment(props) {
   
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const [Article, setArticle] = useState({})
   const [Comment, setComment] = useState("")
+
+  console.log(props.article,'11');
+  useEffect(() => {
+
+  }, [dispatch]);
 
   
   const commentChangeHandler = (e) => {
@@ -28,10 +31,10 @@ function Comment(props) {
       content: Comment
     }
 
-    dispatch(createComment(body, Article.id))
+    dispatch(createComment(body, props.article))
     .then((res) => {
       console.log(res.payload);
-      props.history.push(`/Community/${Article.id}/detail/`)
+      // props.history.push(`/Community/${props.article}/detail/`)
     });
   }
 

@@ -8,7 +8,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer';
 import { Editor } from '@toast-ui/react-editor';
-import { Viewer } from '@toast-ui/react-editor';
+// import { Viewer } from '@toast-ui/react-editor';
 
 function ClassDetailPage(props) {
 
