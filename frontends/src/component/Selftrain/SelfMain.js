@@ -30,7 +30,6 @@ function SelfMain(props) {
           height: "900px",
           backgroundSize: "100%, cover",
           backgroundPosition: "center, center",
-
           width: "100%",
           position: "relative",
         }}
