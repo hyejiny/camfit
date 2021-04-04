@@ -7,7 +7,7 @@ import { OverlayTrigger, Button, Popover, Row, Col } from "react-bootstrap";
 
 function SelfMain(props) {
   const [Category, setCategory] = useState("팔");
-  const [Vis, setVis] = useState(false);
+  // const [Vis, setVis] = useState(false);
 
   const popover = (
     <Popover id="popover-basic">
@@ -35,7 +35,7 @@ function SelfMain(props) {
         categoryname={Category}
       ></SelftrainSidebar>
 
-      <SelftrainCardlist visible={Vis} />
+      {/* <SelftrainCardlist visible={Vis} /> */}
     </div>
   );
 }
