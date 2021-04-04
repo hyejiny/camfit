@@ -1,68 +1,78 @@
-import React, {useState} from 'react'
+import React, {useState,useRef} from 'react'
+import { useDispatch } from "react-redux";
 import {Typography, Button, Form, Input} from 'antd'
 import FileUpload from '../utils/FileUpload'
-import Axios from 'axios'
+import { videoclasscreate } from "../../_actions/index";
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@toast-ui/react-editor';
 
 
 const {Title} = Typography;
 const {TextArea} = Input;
 
 
-const Categories = [
-  {key:1, value:"등"},
-  {key:2, value:"가슴"},
-  {key:3, value:"팔"},
-  {key:4, value:"복근"},
-  {key:5, value:"하체"},
-]
-
 function UploadClassPage(props) {
-  
+  const dispatch = useDispatch()
   const [Name, setName] = useState("")
   const [Description, setDescription] = useState("")
   const [Price, setPrice] = useState(0)
-  const [Category, setCategory] = useState(1)
+  const [StartDay, setStartDay] = useState(0)
+  const [EndDay, setEndDay] = useState(0)
+  const [UserLimit, setUserLimit] = useState(0)
+
   
-  const [Image, setImage] = useState([])
+  // const [Image, setImage] = useState([])
+  const editorRef = useRef()
   
   const nameChageHandler = (event) => {
     setName(event.currentTarget.value)
   }
 
-  const discriptionChageHandler = (event) => {
-    setDescription(event.currentTarget.value)
+  const discriptionChageHandler = () => {
+    const editorInstance = editorRef.current.getInstance()
+    console.log(editorInstance);
+    console.log('마크다운', editorInstance.getMarkdown());
+    console.log('html',editorInstance.getHtml());
+    setDescription(editorInstance.getHtml())
+    console.log(Description);
+    // setDescription(event.currentTarget.value)
   }
 
   const priceChageHandler = (event) => {
     setPrice(event.currentTarget.value)
   }
-  const categoryChageHandler = (event) => {
-    setCategory(event.currentTarget.value)
+  const StartDayChageHandler = (event) => {
+    setStartDay(event.currentTarget.value)
+  }
+  const EndDayChageHandler = (event) => {
+    setEndDay(event.currentTarget.value)
+  }
+  const UserLimitChageHandler = (event) => {
+    setUserLimit(event.currentTarget.value)
   }
 
-  const updateImages = (newImages) => {
-    setImage(newImages)
-  }
 
   const submitHandler = (event) => {
     event.preventDefault();
-
-    if(!Name || !Description || !Price || !Category ||Image) {
+    if(!Name || !Description || !Price) {
       return alert("모든 값을 넣어주셔야 합니다.")
     }
-
-
     const body = {
       // user: , 
       title: Name,
       content: Description,
-      // start_day: StartDay,
-      // end_day: EndDay,
-      // user_limit : UserLimit,
+      start_day: StartDay,
+      end_day: EndDay,
+      user_limit : UserLimit,
       price: Price,
-      image: Image
+      // image: Image
     }
     // 서버에 채운 값들을 request로 보낸다
+    dispatch(videoclasscreate(body))
+    .then((res) => {
+      console.log(res.payload);
+    })
     
   }
     return (
@@ -70,13 +80,13 @@ function UploadClassPage(props) {
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
               <Title level={2}>클래스 업로드</Title>
             </div>
-            <Form onSubmit={submitHandler}>
+            <Form >
               {/* drop zone */}
 
               <div>       
                 </div>
 
-              <FileUpload  />
+              {/* <FileUpload  /> */}
 
               <br/>
               <br/>
@@ -86,31 +96,31 @@ function UploadClassPage(props) {
               <br/>
               <br/>
               <label>설명</label>
-              <TextArea onChange={discriptionChageHandler} value={Description}/>
+              <Editor
+                // onChange={descriptionChangeHandler}
+                initialValue="내용을 입력해주세요."
+                height="600px"
+                width="300px"
+                // plugins={[chart, codeSyntaxHighlight,colorSyntax,tableMergedCell,uml]}
+                usageStatistics={false}
+                ref={editorRef}
+                onChange={discriptionChageHandler}
+                value={Description}
+              />
               <br/><br/>
               <br/>
               <br/>
               <label>가격</label>
               <Input type="number" onChange={priceChageHandler} value={Price}/>
               <label>시작일</label>
-              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <Input value="MMDD" onChange={StartDayChageHandler} value={StartDay}/>
               <label>종료일</label>
-              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <Input value="MMDD" onChange={EndDayChageHandler} value={EndDay}/>
               <label>수강생 수</label>
-              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <Input type="number" onChange={UserLimitChageHandler} value={UserLimit}/>
               <br/><br/>
-              <select onChange={categoryChageHandler} value={Category}>
-                {Categories.map(item => (
-                  <option key={item.key} value={item.key}>{item.value}</option>
-                ))}
-
-
-
-
-                
-              </select>
               <br/><br/>
-              <Button type="submit">확인</Button>
+              <Button type="submit" onClick={submitHandler}>확인</Button>
 
             </Form>
 
