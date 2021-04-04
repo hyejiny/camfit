@@ -19,3 +19,7 @@ export const VIDEOCLASSDETAIL = "VIDEOCLASSDETAIL";
 export const ARTICLE = "ARTICLE";
 export const ARTICLELIST = "ARTICLELIST";
 export const ARTICLEDETAIL = "ARTICLEDETAIL";
+
+export const COMMENT = "COMMENT";
+export const COMMENTLIST = "COMMENTLIST";
+

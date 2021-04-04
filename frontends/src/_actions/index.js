@@ -126,8 +126,8 @@ export function createArticle(data) {
   };
 }
 
-export function editArticle(id) {
-  const request = axios.put(`${API_BASE_URL}/community/${id}`, '',{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+export function editArticle(body, id) {
+  const request = axios.put(`${API_BASE_URL}/community/${id}/`, body,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.ARTICLE,
     payload: request,
@@ -154,6 +154,46 @@ export function getuserinfo(email) {
   const request = axios.post(`${API_BASE_URL}/accounts/userinfo/`, email,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.GETUSERINFO,
+    payload: request,
+  };
+}
+
+export function deleteArticle(id) {
+  const request = axios.delete(`${API_BASE_URL}/community/${id}/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.ARTICLELIST,
+    payload: request,
+  };
+}
+
+export function createComment(id, data) {
+  const request = axios.post(`${API_BASE_URL}/community/${id}/comments/`, data, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.COMMENT,
+    payload: request,
+  };
+}
+
+export function CommentList(id) {
+  const request = axios.get(`${API_BASE_URL}/community/${id}/comments/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.COMMENTLIST,
+    payload: request,
+  };
+}
+
+export function editComment(body, id) {
+  const request = axios.put(`${API_BASE_URL}/community/comments/${id}/`, body, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.COMMENT,
+    payload: request,
+  };
+}
+
+export function deleteComment(id) {
+  const request = axios.delete(`${API_BASE_URL}/community/comments/${id}/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.COMMENTLIST,
     payload: request,
   };
 }

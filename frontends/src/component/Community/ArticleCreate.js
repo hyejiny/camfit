@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import FileCreate from './FileCreate';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from "react-redux";
 import { createArticle } from "../../_actions/index";
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
+
+// import { Viewer } from '@toast-ui/editor/dist/toastui-editor-viewer';
 
 
 function ArticleCreate(props) {
@@ -12,7 +13,8 @@ function ArticleCreate(props) {
 
   const [Title, setTitle] = useState("")
   const [Description, setDescription] = useState("")
-  const [Images, setImages] = useState([])
+  const [Category, setCategory] = useState(1)
+  // const [Images, setImages] = useState([])
 
   const titleChangeHandler = (e) => {
     setTitle(e.currentTarget.value)
@@ -20,6 +22,7 @@ function ArticleCreate(props) {
 
   const descriptionChangeHandler = (e) => {
     setDescription(e.currentTarget.value)
+    console.log('바뀜')
   }
 
   // const updateImages = (newImages) => {
@@ -30,16 +33,14 @@ function ArticleCreate(props) {
     e.preventDefault();
 
     if (!Title) {
-        return alert("값을 입력해주셔야 합니다.")
+      return alert("값을 입력해주셔야 합니다.")
     }
 
     //서버에 채운 값들을 request로 보낸다.
-
     const body = {
-        //로그인 된 사람의 ID 
-        // writer: props.user.userData._id,
         title: Title,
-        // content: Description,
+        content: Description,
+        category: Category
         // images: Images
       }
 
@@ -57,7 +58,19 @@ function ArticleCreate(props) {
       //               alert('상품 업로드에 실패 했습니다.')
       //           }
       //       })
-          }
+    }
+    
+  const editorRef = useRef();
+
+  const btnClickListener = () => {
+    const editorInstance = editorRef.current.getInstance();
+    const getContent_md = editorInstance.getMarkdown();
+    console.log('마크다운')
+    const getContent_html = editorInstance.getHtml();
+    console.log('HTML')
+    setDescription(getContent_md)
+  }
+
 
 
   return (
@@ -69,16 +82,17 @@ function ArticleCreate(props) {
         <label>Desc</label>
         <Editor
           // onChange={descriptionChangeHandler}
-          initialValue="내용을 입력해주세요."
+          // initialValue={Description}
           height="600px"
           width="300px"
-          // value={Description}
           usageStatistics={false}
+          ref={editorRef}
+          // getValue={Description}
         />
-        {/* <textarea onChange={descriptionChangeHandler} value={Description}/> */}
         <br/>
+
         {/* <FileCreate refreshFunction={updateImages}/> */}
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={btnClickListener}>Submit</button>
       </form>
     </div>
   )

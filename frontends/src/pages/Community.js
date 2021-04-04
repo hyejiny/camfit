@@ -9,7 +9,7 @@ function Community() {
 
     const dispatch = useDispatch();
     const [Articles, setArticles] = useState([])
-
+    
     useEffect(() => {
         dispatch(ArticleList())
         .then((res) => {
