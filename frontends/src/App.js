@@ -16,7 +16,7 @@ import Signup from './component/Account/Signup';
 import ArticleCreate from './component/Community/ArticleCreate';
 import ArticleDetail from './component/Community/ArticleDetail';
 import ArticleEdit from './component/Community/ArticleEdit';
-import Commente from './component/Community/Comment';
+import CommentCreate from './component/Community/CommentCreate';
 import UploadClassPage from './component/VideoClass/UploadClassPage';
 import ClassDetailPage from './component/VideoClass/ClassDetailPage';
 
