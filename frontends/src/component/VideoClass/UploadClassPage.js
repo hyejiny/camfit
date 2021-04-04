@@ -56,6 +56,9 @@ function UploadClassPage(props) {
       // user: , 
       title: Name,
       content: Description,
+      // start_day: StartDay,
+      // end_day: EndDay,
+      // user_limit : UserLimit,
       price: Price,
       image: Image
     }
@@ -70,12 +73,10 @@ function UploadClassPage(props) {
             <Form onSubmit={submitHandler}>
               {/* drop zone */}
 
-
+              <div>       
+                </div>
 
               <FileUpload  />
-
-
-
 
               <br/>
               <br/>
@@ -90,6 +91,12 @@ function UploadClassPage(props) {
               <br/>
               <br/>
               <label>가격</label>
+              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <label>시작일</label>
+              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <label>종료일</label>
+              <Input type="number" onChange={priceChageHandler} value={Price}/>
+              <label>수강생 수</label>
               <Input type="number" onChange={priceChageHandler} value={Price}/>
               <br/><br/>
               <select onChange={categoryChageHandler} value={Category}>

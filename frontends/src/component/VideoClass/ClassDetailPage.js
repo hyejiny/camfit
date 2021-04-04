@@ -3,6 +3,13 @@ import { useDispatch } from "react-redux";
 import {videoclassdetail} from "../../_actions/index"
 import { API_BASE_URL } from "../../constants";
 
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer';
+import { Editor } from '@toast-ui/react-editor';
+import { Viewer } from '@toast-ui/react-editor';
+
 function ClassDetailPage(props) {
 
     const dispatch = useDispatch();
@@ -10,6 +17,8 @@ function ClassDetailPage(props) {
     const classId = props.match.params.classId
 
     const [Classs, setClasss] = useState({})
+
+    
 
     const clickHandler = () => {}
 
@@ -32,8 +41,11 @@ function ClassDetailPage(props) {
             <div>
                 <h1>강의명 : {Classs.title}</h1>
                 <hr/>
-                <h2>강의 설명 : {Classs.content}</h2>
-                <hr/>
+                <Viewer
+                height="500px"
+                initialValue={Classs.content} />
+
+
                 <h2>강의 가격 : {Classs.price}</h2>
                 <img 
                 height='240px'
