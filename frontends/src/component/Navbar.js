@@ -50,7 +50,7 @@ class NavBar extends Component {
       console.log("no token");
       button = (
         <>
-          <Nav.Link onClick={this.showModal} className="nav-links">로그인</Nav.Link>
+          <button onClick={this.showModal} className="login-btn-links">로그인</button>
           <Modal
             visible={this.state.visible}
             title="로그인 하시겠습니까?"
@@ -84,7 +84,7 @@ class NavBar extends Component {
           </Nav>
           <Nav className="ml-auto">
             {button}
-            <Nav.Link className="nav-links" href="/signup">회원가입</Nav.Link>
+            <Nav.Link className="signup-btn-links" href="/signup">회원가입</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
