@@ -41,7 +41,7 @@ function App() {
           <Route exact path="/Community/:articleId/detail" component={ArticleDetail}></Route>
           <Route exact path="/Community/:articleId" component={ArticleEdit}></Route>
           <Route exact path="/Community/:articleId/comments" component={Comment}></Route>
-          <Route path="/selftrain/exercise" component={Exercise}></Route>
+          <Route path="/selftrain/exercise/:category" component={Exercise}></Route>
           <Route path="/selftrain/detail/:id" component={SelftrainDetail}></Route>
           <Route path="/selftrain" component={Selftrain}></Route>
           <Route exact path="/videoclass" component={VideoClass}></Route>
