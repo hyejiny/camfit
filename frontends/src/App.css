@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "sandol";
 }
 
 .App-logo {
@@ -36,3 +37,16 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: "paybooc";        
+  src: url("./fonts/payboocMedium.ttf");
+}
+
+
+/* @font-face {
+  font-family: 'sandol';
+  src: url('./fonts/sandol.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+} */

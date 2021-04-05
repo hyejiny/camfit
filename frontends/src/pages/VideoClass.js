@@ -26,7 +26,7 @@ function VideoClass() {
 
 
     const renderMyClasses = Classes.map((product, index) => {
-
+            if (product.person===username)
             return <Col lg={6} md={8} xs={24} key={index}>
                 <Card
                     cover={<a href={'/videoclass/detail/'+ product.id }></a>}>
@@ -37,7 +37,6 @@ function VideoClass() {
                     />
                 </Card>
             </Col>
-
     })
 
 

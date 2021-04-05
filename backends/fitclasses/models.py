@@ -6,6 +6,7 @@ class Fitclass(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     image = models.ImageField(blank=True)
+    desc_image = models.ImageField(blank=True)
     start_day = models.CharField(max_length=50)
     end_day = models.CharField(max_length=50)
     user_limit = models.IntegerField()
