@@ -53,7 +53,7 @@ function App() {
           <Route path="/signup" component={Signup}></Route>
           <Route render={() => <div className='error'>에러 페이지</div>} />
         </Switch>
-        <br></br>
+        
         <Footer></Footer>
       
     </BrowserRouter>
