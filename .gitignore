@@ -16,6 +16,7 @@ db.sqlite3
 db.sqlite3-journal
 media
 speak_image/TTS/ljs_dataset_folder/
+*.pt
 
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/

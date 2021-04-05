@@ -5,10 +5,11 @@ import './page.css';
 import './Exercise.css';
 import * as tf from '@tensorflow/tfjs';
 import * as tmPose from '@teachablemachine/pose';
-const Exercise = () => {
+const Exercise = (props) => {
     
     // const URL = "https://teachablemachine.withgoogle.com/models/ZefWtwqSL/";
-    const URL = "/teachable/";
+    const name = props.match.params.category;
+    const URL = "/teachable/" + name + "/";
 
     let model, webcam, ctx, labelContainer, maxPredictions;
 
@@ -57,7 +58,7 @@ const Exercise = () => {
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
         if(prediction[0].probability.toFixed(2)>0.9) {
-            if(status == 'sit') {
+            if(status == 'armdown') {
                 cnt++
                 console.log(cnt,'정상카운트')
                 setCount(cnt)
@@ -65,21 +66,21 @@ const Exercise = () => {
                 // console.log(Count,'정상카운트');
                 // 음성 넣을 부분
             }
-            if (status != 'stand') {
-                status = "stand"
+            if (status != 'armup') {
+                status = "armup"
                 setStatus(status)
                 console.log('일어남')
             }
         } else if(prediction[1].probability.toFixed(2) >0.9) {
-            if (status != "sit") {
-                status = "sit"
+            if (status != "unbalance") {
+                status = "unbalance"
                 setStatus(status)
                 console.log('앉음')
             }
         } else if(prediction[2].probability.toFixed(2) >0.9) {
-            if (status != "허리") {
-                status = "허리"
-                status = 'status'
+            if (status != "armdown") {
+                status = "armdown"
+                setStatus(status)
                 console.log('허리가 굽었음')
                 // 음성 넣을 부분
             }
@@ -103,7 +104,9 @@ const Exercise = () => {
             }
         }
     }
-    
+    const backButton = () => {
+        window.location.replace("/selftrain");
+    }
     
     return (
         <Container className="container">
@@ -137,68 +140,10 @@ const Exercise = () => {
             <div style={{textAlign:'right', marginRight:'40px'}}>
 
                 <h2 style={{color:'green'}}>{Count}회</h2>
-                <button type="btn" href="/selftrain" style={{width:'100px', height:'30px'}}>뒤로</button>
+                <button type="btn" onClick={backButton} style={{width:'100px', height:'30px'}}>뒤로</button>
             </div>
         </Container>
     );
-    // const [playing,setPlaying] =useState(false);
-
-    // const HIGHT = 500;
-    // const WIDTH = 500;
-
-    // const startVideo = () => {
-    //     setPlaying(true)
-    //     navigator.getUserMedia(
-    //         {
-    //             video: true,
-    //         },
-    //         (stream) => {
-    //             let video = document.getElementsByClassName('app__videoFeed')[0];
-    //             if (video) {
-    //                 video.srcObject =stream;
-    //             }
-    //         },
-    //         (err) => console.error(err)
-    //         );
-    //     };
-    //     const stopVideo = () => {
-    //         setPlaying(false)
-    //         let video = document.getElementsByClassName('app__videoFeed')[0];
-    //         video.srcObject.getTracks()[0].stop();
-    // };
-    // return (
-    //     <Container className="container">
-    //         <Row>
-    //             <Col lg="3" className="youtube mt-5">
-    //                 <Iframe url="https://www.youtube.com/embed/zmRRuvNAKGo"
-    //                         width="500px"
-    //                         height="400px"
-    //                         id="myId"
-    //                         className="myClassname"
-    //                         display="initial"
-    //                         position="relative"/>    
-    //             </Col>
-    //             <Col lg="3"></Col>
-    //             <Col lg="3" className='app__container'>
-    //                 <video
-    //                     height={HIGHT}
-    //                     width={WIDTH}
-    //                     muted
-    //                     autoPlay
-    //                     className="app__videoFeed">
-    //                 </video>    
-    //                 <div className="app__target">
-    //                     {playing ? (
-    //                         <button onClick={stopVideo}>Stop</button>
-    //                         ):(
-    //                             <button onClick={startVideo}>Start</button>
-                                
-    //                             )}
-    //                 </div>
-    //             </Col>    
-    //         </Row>
-    //     </Container>
-    // );
 };
 
 export default Exercise;
