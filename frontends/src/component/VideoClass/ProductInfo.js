@@ -14,7 +14,7 @@ function ProductInfo(props) {
 
     }
     return (
-        <div>
+        <div className="chart">
             <Descriptions title="Product Info">
                 <Descriptions.Item label="Price">{props.detail.price}</Descriptions.Item>
                 <hr/>
@@ -34,7 +34,7 @@ function ProductInfo(props) {
             <br />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Button size="large" shape="round" type="danger" onClick={clickHandler}>
-                    Add to Cart
+                    수강하기
                 </Button>
             </div>
 
