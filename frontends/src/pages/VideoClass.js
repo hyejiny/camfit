@@ -21,7 +21,6 @@ function VideoClass() {
             console.log(class_list);
             setClasses(class_list)
         })
-
     }, [dispatch])
 
 
