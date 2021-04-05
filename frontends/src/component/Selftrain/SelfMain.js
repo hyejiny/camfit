@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SelftrainSidebar from "./SelftrainSidebar";
-
+import Jandi from "./Jandi"
 import "./train.css";
 
 import { OverlayTrigger, Button, Popover } from "react-bootstrap";
