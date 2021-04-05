@@ -88,8 +88,8 @@ class TTS_Model:
 if __name__ == '__main__':
     
     tts = TTS_Model()
-    text = "Hello everyone, nice to meet you."
-    text = "Put your knees in."
+    # text = "Hello everyone, nice to meet you."
+    text = "Correct!"
     output = tts.inference(text, "output.wav")
 
     # pass

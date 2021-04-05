@@ -26,7 +26,7 @@ function SelftrainDetail(props) {
         </div>
       
       </Sider>
-          <SelfDetail id={id}></SelfDetail>
+          <SelfDetail id={id} trainId={props.match.params}></SelfDetail>
     
     </Layout>
   );

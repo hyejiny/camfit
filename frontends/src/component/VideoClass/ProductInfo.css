@@ -1,0 +1,19 @@
+.chart-board {
+    display: inline-block;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    /* margin-top: -100px;
+    padding-bottom: 100px */
+}
+
+.chart-title {
+    border-style : none;
+    font-weight: bold;
+    font-size : 40px;
+}
+
+.chart-item {
+    border-style : none;
+    font-size : 30px;
+}

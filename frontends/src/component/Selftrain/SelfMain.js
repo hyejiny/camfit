@@ -4,7 +4,7 @@ import Jandi from "./Jandi"
 import "./train.css";
 
 import { OverlayTrigger, Button, Popover } from "react-bootstrap";
-// import Jandi from "./Jandi";
+import Jandi from "./Jandi";
 function SelfMain(props) {
   const [Category, setCategory] = useState("팔");
   // const [Vis, setVis] = useState(false);

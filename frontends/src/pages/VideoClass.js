@@ -11,7 +11,7 @@ import {HighlightOutlined} from '@ant-design/icons'
 function VideoClass() {
 
     const dispatch = useDispatch();
-    const username = localStorage.setItem('userid')
+    const username = window.localStorage.getItem('userid')
 
     const [Classes, setClasses] = useState([])
     // const [MyClasses, setMyClasses] = useState([])
@@ -26,8 +26,7 @@ function VideoClass() {
 
 
     const renderMyClasses = Classes.map((product, index) => {
-        product.guest.map((person, index) => {
-            if (person)
+            if (product.person===username)
             return <Col lg={6} md={8} xs={24} key={index}>
                 <Card
                     cover={<a href={'/videoclass/detail/'+ product.id }></a>}>
@@ -38,7 +37,6 @@ function VideoClass() {
                     />
                 </Card>
             </Col>
-        })
     })
 
 
