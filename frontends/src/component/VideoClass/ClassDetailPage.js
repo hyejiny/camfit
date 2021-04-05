@@ -1,15 +1,14 @@
 import React,{useEffect, useState} from 'react'
 import { useDispatch } from "react-redux";
 import {videoclassdetail} from "../../_actions/index"
-import { API_BASE_URL } from "../../constants";
+
 
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Viewer } from '@toast-ui/react-editor';
+
 import PayButton from './PayButton';
 import ClassButton from './ClassButton';
-
-// import { Viewer } from '@toast-ui/react-editor';
 
 function ClassDetailPage(props) {
 
@@ -18,8 +17,7 @@ function ClassDetailPage(props) {
     const classId = props.match.params.classId
     const [Classs, setClasss] = useState({})
 
-
-    const clickHandler = () => {}
+    
 
     let Button;
     let isLoggedIn = false;
@@ -47,10 +45,11 @@ function ClassDetailPage(props) {
                 <h1>강의명 : {Classs.title}</h1>
                 <hr/>
                 <h2>강의 내용 : </h2>
+
                 <textarea value={Classs.content} readOnly="readOnly" style={{display:"none"}}></textarea>
                 <Viewer
                 height="500px"
-                initialValue={Classs.content}/>
+                Value={Classs.content}/>
                 <h2>강의 가격 : {Classs.price}</h2>
 
                 <hr/>
