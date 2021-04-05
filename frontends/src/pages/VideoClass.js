@@ -11,7 +11,7 @@ import {HighlightOutlined} from '@ant-design/icons'
 function VideoClass() {
 
     const dispatch = useDispatch();
-    const username = localStorage.setItem('userid')
+    // const username = localStorage.setItem('userid')
 
     const [Classes, setClasses] = useState([])
     // const [MyClasses, setMyClasses] = useState([])
