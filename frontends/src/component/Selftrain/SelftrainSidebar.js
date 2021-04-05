@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../component.css";
 import { useDispatch } from "react-redux";
-import { selftrainlist } from "../../_actions/index";
-import { ListGroup, Card, Button, Row, Col } from "react-bootstrap";
+import {  Button, Row, Col } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -52,11 +51,11 @@ function SelftrainSidebar(props) {
         <Col>
           <Reveal animated="rotate">
             <Reveal.Content visible>
-              어깨
+              <h3>어깨</h3>
               <Image circular size="medium" src="https://ifh.cc/g/b70G9w.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-3">시작하기</Button>
+              <Button onClick={arm} className="mt-5">시작하기</Button>
             </Reveal.Content>
           </Reveal>
         </Col>
@@ -64,11 +63,11 @@ function SelftrainSidebar(props) {
         <Col>
         <Reveal animated="rotate">
             <Reveal.Content visible>
-              코어
+              <h3>코어</h3>
               <Image circular size="medium" src="https://ifh.cc/g/uKNRvB.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-3">시작하기</Button>
+              <Button onClick={arm} className="mt-5">시작하기</Button>
             </Reveal.Content>
             </Reveal>
         </Col>
@@ -76,11 +75,11 @@ function SelftrainSidebar(props) {
         <Col>
         <Reveal animated="rotate">
         <Reveal.Content visible>
-              팔
+              <h3>팔</h3>
               <Image circular size="medium" src="https://ifh.cc/g/z85Vm7.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-3">시작하기</Button>
+              <Button onClick={arm} className="mt-5">시작하기</Button>
             </Reveal.Content>
             </Reveal>
         </Col>
@@ -88,11 +87,11 @@ function SelftrainSidebar(props) {
         <Col>
         <Reveal animated="rotate">
         <Reveal.Content visible>
-              하체
+              <h3>하체</h3>
               <Image circular size="medium" src="https://ifh.cc/g/Q7zSHG.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-3">시작하기</Button>
+              <Button onClick={arm} className="mt-5">시작하기</Button>
             </Reveal.Content>
             </Reveal>
         </Col>

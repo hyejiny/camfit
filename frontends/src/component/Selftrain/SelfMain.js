@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import SelftrainSidebar from "./SelftrainSidebar";
-import SelftrainCardlist from "./SelftrainCardlist";
+
 import "./train.css";
 
 import { OverlayTrigger, Button, Popover } from "react-bootstrap";
-import { Row, Col } from 'antd';
-import Jandi from "./Jandi";
+// import Jandi from "./Jandi";
 function SelfMain(props) {
   const [Category, setCategory] = useState("팔");
   // const [Vis, setVis] = useState(false);
