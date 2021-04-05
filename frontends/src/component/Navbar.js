@@ -57,6 +57,11 @@ class NavBar extends Component {
             onOk={this.handleOk}
             onCancel={this.handleCancel}
             show={this.visible}
+            footer={[
+              <Button key="back" onClick={this.handleCancel}>
+                취소
+              </Button>,
+            ]}
             >
             <LoginModal />
           </Modal>

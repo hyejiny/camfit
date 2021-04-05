@@ -8,7 +8,7 @@ class TrainListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=SelfTrain
-        fields= ('id','title','thumbnail','category')
+        fields= ('id','title','thumbnail','thumbnail2','thumbnail3','category','content')
 
 class TrainDetailSerializer(serializers.ModelSerializer):
 

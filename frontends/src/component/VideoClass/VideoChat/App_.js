@@ -5,8 +5,8 @@ import VideoChatContainer from './VideoChatContainer'
 function App_ () {
   return (
     <div className='app_ body'>
-      <h1 className='h1'>React Video Chat App</h1>
-      <h2>WebRTC + Firebase</h2>
+      <h1 className='h1'>캠피트</h1>
+      <h2>화상 Personal Training</h2>
       <VideoChatContainer/>
     </div>
   )

@@ -71,7 +71,7 @@ function LoginModal(props) {
         비밀번호 찾기
       </Button> */}
       <Button variant="primary" type="submit">
-        진짜로그인
+        로그인
       </Button>
     </Form>
   );
