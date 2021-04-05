@@ -17,8 +17,7 @@ function ClassDetailPage(props) {
     const classId = props.match.params.classId
     const [Classs, setClasss] = useState({})
 
-
-    const clickHandler = () => {}
+    
 
     let Button;
     let isLoggedIn = false;
