@@ -81,9 +81,7 @@ body {
  }
 
 .bgc {
-
   border-radius: 20px;
-
 }
 
 .arrow_next {
@@ -109,6 +107,21 @@ body {
   padding-top: 50px;
 }
 
+/* 카테고리  */
+.catecol {
+  border-radius: 5px;
+  background-color: #263238;
+}
+
+/* 운동 설명 */
+.exborder {
+  border: 2px solid #61D6C1;
+}
+
+/* 셀프 트레인 디테일 배경*/
+.trainbgr {
+  background: #E0ECEA;
+}
 
 /* 위치 이후 첫번째 줄 */
 .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-tail::after {

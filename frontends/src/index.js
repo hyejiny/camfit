@@ -12,27 +12,27 @@ import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 
 import Reducers from './_reducers';
-
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore)
+
 const theme = createMuiTheme({
   typography: {
-    fontFamily: 'PayboocMedium',
+    fontFamily: 'sandol',
   },
 });
 
 ReactDOM.render(
-  <MuiThemeProvider theme={theme}>
   <Provider
     store={createStoreWithMiddleware(Reducers,
     window.__REDUX_DEVTOOLS_EXTENSION__ && 
     window.__REDUX_DEVTOOLS_EXTENSION__()
     )}
   >
+    <MuiThemeProvider theme={theme}>
     <App />
-  </Provider>
-  </MuiThemeProvider>,
+    </MuiThemeProvider>
+  </Provider>,
   document.getElementById('root')
 );
 
