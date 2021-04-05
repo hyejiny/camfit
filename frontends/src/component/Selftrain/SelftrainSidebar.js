@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../component.css";
 import { useDispatch } from "react-redux";
-import {  Button, Row, Col } from "react-bootstrap";
+import { selftrainlist } from "../../_actions/index";
+import { ListGroup, Card, Button, Row, Col } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -17,27 +18,24 @@ function SelftrainSidebar(props) {
 
   const [Vis, setVis] = useState(false);
   const dispatch = useDispatch();
-  const all = () => {
-    window.location.replace("/selftrain/detail/1")
-    // dispatch(selftrainlist(0));
-    // props.setCategory("모두");
-    // setVis(true);
-  };
   const shoulder = () => {
     window.location.replace("/selftrain/detail/1")
-
+    
     // dispatch(selftrainlist(1));
     // props.setCategory("어깨");
     // console.log("어깨");
     // setVis(true);
   };
-  const arm = () => {
+  const core = () => {
     window.location.replace("/selftrain/detail/2")
-
-    // dispatch(selftrainlist(2));
-    // props.setCategory("팔");
-    // setVis(true);
   };
+  const arm = () => {
+    window.location.replace("/selftrain/detail/3")
+  };
+  const leg = () => {
+    window.location.replace("/selftrain/detail/4")
+  };
+
 
   const onClose = () => {
     setVis(false);
@@ -51,11 +49,11 @@ function SelftrainSidebar(props) {
         <Col>
           <Reveal animated="rotate">
             <Reveal.Content visible>
-              <h3>어깨</h3>
+              어깨
               <Image circular size="medium" src="https://ifh.cc/g/b70G9w.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-5">시작하기</Button>
+              <Button onClick={shoulder} className="mt-3">시작하기</Button>
             </Reveal.Content>
           </Reveal>
         </Col>
@@ -63,11 +61,11 @@ function SelftrainSidebar(props) {
         <Col>
         <Reveal animated="rotate">
             <Reveal.Content visible>
-              <h3>코어</h3>
+              코어
               <Image circular size="medium" src="https://ifh.cc/g/uKNRvB.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-5">시작하기</Button>
+              <Button onClick={core} className="mt-3">시작하기</Button>
             </Reveal.Content>
             </Reveal>
         </Col>
@@ -75,11 +73,11 @@ function SelftrainSidebar(props) {
         <Col>
         <Reveal animated="rotate">
         <Reveal.Content visible>
-              <h3>팔</h3>
+              팔
               <Image circular size="medium" src="https://ifh.cc/g/z85Vm7.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-5">시작하기</Button>
+              <Button onClick={arm} className="mt-3">시작하기</Button>
             </Reveal.Content>
             </Reveal>
         </Col>
@@ -87,11 +85,11 @@ function SelftrainSidebar(props) {
         <Col>
         <Reveal animated="rotate">
         <Reveal.Content visible>
-              <h3>하체</h3>
+              하체
               <Image circular size="medium" src="https://ifh.cc/g/Q7zSHG.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-5">시작하기</Button>
+              <Button onClick={leg} className="mt-3">시작하기</Button>
             </Reveal.Content>
             </Reveal>
         </Col>
