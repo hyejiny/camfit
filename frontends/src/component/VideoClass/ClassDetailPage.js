@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import {videoclassdetail} from "../../_actions/index"
 import ProductInfo from './ProductInfo';
 import { Row, Col } from 'antd';
-import ReactDOM from 'react-dom';
+import { API_BASE_URL } from "../../constants";
+import './ClassDetailPage.css';
 
 
 import 'codemirror/lib/codemirror.css';
@@ -22,6 +23,7 @@ function ClassDetailPage(props) {
     
     const classId = props.match.params.classId
     const [Classs, setClasss] = useState({})
+    console.log(Classs.desc_image);
 
     useEffect(() => {
 
@@ -43,14 +45,18 @@ function ClassDetailPage(props) {
 
                 <textarea value={Classs.content} readOnly="readOnly" style={{display:"none"}}></textarea>
                 <div >
-                <Viewer
+                {/* <Viewer
             viewer="true"
             // el= {document.querySelector('#viewer')}
             height="500px"
-            initialValue={Classs.content}/>
+            initialValue={Classs.content}/> */}
                 </div>
                 <Row gutter={[16, 16]} >
                 <Col lg={18} sm={24}>
+                    <div className="imagespace">
+
+                        <img src={API_BASE_URL+Classs.desc_image} alt=""/>
+                    </div>
                 </Col>
                 <Col lg={6} sm={24}>
                     {/* ProductInfo */}
