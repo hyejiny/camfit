@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
 import { useDispatch } from "react-redux";
 import { videoclasslist } from "../_actions/index";
 import { API_BASE_URL } from "../constants";
-
-import {Col, Card, Row} from 'antd'
-import Meta from 'antd/lib/card/Meta'
-import {HighlightOutlined} from '@ant-design/icons'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import {HighlightOutlined} from '@ant-design/icons';
+import './VideoClass.css';
+// import ReactCardCarousel from "react-card-carousel";
 
 // import SearchFeature from '../component/utils/SearchFeature'
 function VideoClass() {
@@ -26,39 +28,37 @@ function VideoClass() {
 
 
     const renderMyClasses = Classes.map((product, index) => {
-            if (product.person===username)
-            return <Col lg={6} md={8} xs={24} key={index}>
-                <Card
-                    cover={<a href={'/videoclass/detail/'+ product.id }></a>}>
-                        
-                    <Meta
-                        title={product.title}
-                        description={`${product.price}원`}
-                    />
+        if (product.person===username)
+        return <Col lg={3} md={6} xs={12} key={index}>
+            <a className="MyClasses-Wrapper" href={'/videoclass/detail/'+ product.id}>
+                <Card className="MyClasses-Card">
+                    <Card.Img className="Classes-Img" src={API_BASE_URL+product.image}/>              
+                    <Card.Body>
+                        <Card.Title className="Classes-Trainer">{product.title}</Card.Title>
+                        <Card.Text className="Classes-Title">{product.user.username}</Card.Text>
+                    </Card.Body>
                 </Card>
-            </Col>
-    })
-
-
-    const renderCards = Classes.map((product, index) => {
-
-
-        return <Col lg={6} md={8} xs={24} key={index}>
-            <Card
-                cover={<a href={'/videoclass/detail/'+ product.id }>
-                   <img 
-                height='240px'
-                src={API_BASE_URL+product.image} /></a>}>
-                     
-                <Meta
-                    title={product.title}
-                    description={`${product.price}원`}
-                />
-            </Card>
+            </a>
         </Col>
     })
 
 
+    const renderCards = Classes.map((product, index) => {
+        return <Col lg={3} md={6} xs={12} key={index}>
+            <a className="Classes-Wrapper" href={'/videoclass/detail/'+ product.id}>
+                <Card className="Classes-Card">
+                    <Card.Img className="Classes-Img" src={API_BASE_URL+product.image}/>              
+                    <Card.Body>
+                        <Card.Title className="Classes-Trainer">{product.title}</Card.Title>
+                        <Card.Text className="Classes-Title">{product.user.username}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer >
+                        <medium className="Classes-Price">{product.price}원</medium>
+                    </Card.Footer>
+                </Card>
+            </a>
+        </Col>
+    })
 
     
     return (
@@ -81,16 +81,15 @@ function VideoClass() {
 
 
             {/* cards */}
-            <h2>myclass</h2>
+            <h1 style={{ textAlign: 'center'}}>Myclass</h1>
             <Row gutter= {16, 16}>
                 {renderMyClasses}
             </Row>
 
-            <h2>classes</h2>
+            <h1 style={{ textAlign: 'center'}}>Classes</h1>
             <Row gutter= {16, 16}>
                 {renderCards}
             </Row>
-
         </div>
     )
 }
