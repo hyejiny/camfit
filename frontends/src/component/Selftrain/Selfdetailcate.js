@@ -3,12 +3,20 @@ import {  ListGroup } from "react-bootstrap";
 import { selftrainlist } from "../../_actions/index";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useStore } from "react-redux";
+import './train.css'
+
+import { Menu, Button } from 'antd';
 
 function Selfdetailcate(props) {
 
   const dispatch = useDispatch();
   const store = useStore();
   const [TrainInfo, setTrainInfo] = useState([]);
+  const [State,setState] = useState(false);
+  const toggleCollapsed = () => {
+    setState(true)
+  };
+
 
   useEffect(() => {
     let trainId = props.trainId['id'];
@@ -21,20 +29,34 @@ function Selfdetailcate(props) {
   }, [dispatch]);
  
   const category = TrainInfo.map((cate, index) => (
-    <ListGroup>
+        
     <ListGroup.Item
-      style={{ height: "100px" }}
+      style={{ height: "80px" }}
       action
-      variant='dark'
+      variant="info"
       key={index}
       onClick={() => props.setId(index)}
+      className="bgc"
       >
       {cate.title}
     </ListGroup.Item>
-  </ListGroup>
+  
+    
+
 ));
 
-  return  category;
+  return (
+<ListGroup variant="flush">
+{category}
+</ListGroup>
+
+  )
+  
+  
+
 }
 
 export default Selfdetailcate;
+
+
+
