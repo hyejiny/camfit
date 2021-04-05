@@ -19,20 +19,17 @@ function SelfDetail(props) {
   const [tmp, setTmp] = useState('');
   const changeStore = () => {setTmp(1)};
   const unsubscribe = store.subscribe(changeStore);
-<<<<<<< HEAD
   const { Header, Content, Footer, Sider } = Layout;
-=======
   let trainId = null;
   if (props.trainId['id'] === '1') {
     trainId = 'shoulder'
   } else if (props.trainId['id'] === '2') {
-    trainId = 'core'
+    trainId = 'core-'
   } else if (props.trainId['id'] === '3') {
     trainId = 'arm'
   } else {
     trainId = 'leg'
   }
->>>>>>> f53081a85a978fea36f28024ee1618c9502a309a
   var detail = null;
   if (TrainInfo) {
     detail = (

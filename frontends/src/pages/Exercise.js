@@ -5,8 +5,12 @@ import "./page.css";
 import "./Exercise.css";
 import * as tf from "@tensorflow/tfjs";
 import * as tmPose from "@teachablemachine/pose";
+import { WindowsOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import {createjandi} from "../_actions/index"
 const Exercise = (props) => {
   // const URL = "https://teachablemachine.withgoogle.com/models/ZefWtwqSL/";
+  const dispatch = useDispatch();
   const name = props.match.params.category;
   const URL = "/teachable/" + name + "/";
 
@@ -16,10 +20,6 @@ const Exercise = (props) => {
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
-    // load the model and metadata
-    // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-    // or files from your local hard drive
-    // Note: the pose library adds "tmImage" object to your window (window.tmImage)
     model = await tmPose.load(modelURL, metadataURL);
     maxPredictions = model.getTotalClasses();
 
@@ -41,6 +41,8 @@ const Exercise = (props) => {
       // and class labels
       labelContainer.appendChild(document.createElement("div"));
     }
+    var audio = new Audio("/wavfolder/0.wav");
+    audio.play();
   }
 
   async function loop(timestamp) {
@@ -58,44 +60,53 @@ const Exercise = (props) => {
     const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
-    if (prediction[0].probability.toFixed(2) > 0.9) {
+    
+    if (prediction[2].probability.toFixed(2) > 0.9) {
       if (status == "armdown") {
         cnt++;
+        if (cnt===10) {
+          var audio = new Audio("/wavfolder/11_train_finish.wav");
+          audio.play();
+          dispatch(createjandi());
+          // props.history.push('/selftrain')
+          setTimeout(function() {
+            alert('운동을 마칩니다.')
+            window.location.replace('/selftrain')
+          },5000)
+        }
         console.log(cnt, "정상카운트");
         setCount(cnt);
-        // setCount(Count + 1);
-        // console.log(Count,'정상카운트');
         // 음성 넣을 부분
-        var audio = new Audio("/wavfolder/" + { cnt } + ".wav");
+        const wavPath = "/wavfolder/" + cnt + ".wav";
+        var audio = new Audio(wavPath);
         audio.play();
-
-        if (status != "armup") {
-          status = "armup";
-          setStatus(status);
-          console.log("일어남");
-        }
-      } else if (prediction[1].probability.toFixed(2) > 0.9) {
-        if (status != "unbalance") {
-          status = "unbalance";
-          setStatus(status);
-          console.log("앉음");
-        }
-      } else if (prediction[2].probability.toFixed(2) > 0.9) {
-        if (status != "armdown") {
-          status = "armdown";
-          setStatus(status);
-          console.log("허리가 굽었음");
-          // 음성 넣을 부분
-        }
       }
-      for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction =
-          prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;
+      if (status != "armup") {
+        status = "armup";
+        setStatus(status);
+        console.log("일어남");
       }
-      // finally draw the poses
-      drawPose(pose);
+    } else if (prediction[1].probability.toFixed(2) > 0.9) {
+      if (status != "wrongpose") {
+        status = "wrongpose";
+        setStatus(status);
+        console.log("wrongpose");
+        var audio = new Audio("/wavfolder/12_check_your_pose.wav");
+        audio.play();
+      }
+    } else if (prediction[0].probability.toFixed(2) > 0.9) {
+      if (status != "armdown") {
+        status = "armdown";
+        setStatus(status);
+        console.log("armdown");      }
     }
+    for (let i = 0; i < maxPredictions; i++) {
+      const classPrediction =
+        prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+      labelContainer.childNodes[i].innerHTML = classPrediction;
+    }
+    // finally draw the poses
+    drawPose(pose);
   }
   function drawPose(pose) {
     if (webcam.canvas) {
@@ -108,9 +119,6 @@ const Exercise = (props) => {
       }
     }
   }
-  const backButton = () => {
-    window.location.replace("/selftrain");
-  };
 
   return (
     <Container className="container">
@@ -156,7 +164,7 @@ const Exercise = (props) => {
         <h2 style={{ color: "green" }}>{Count}회</h2>
         <button
           type="btn"
-          onClick={backButton}
+          href="/selftrain"
           style={{ width: "100px", height: "30px" }}
         >
           뒤로

@@ -212,3 +212,10 @@ export function getjandi(id) {
     payload: request,
   };
 }
+export function createjandi() {
+  const request = axios.post(`${API_BASE_URL}/grasses/`, '',{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.JANDI,
+    payload: request,
+  };
+}

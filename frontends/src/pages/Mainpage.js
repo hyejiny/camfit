@@ -40,18 +40,22 @@ function Mainpage() {
         </Segment>
       </div>
 
-      <div class="row">
-        <div class="col-lg-6">
+      <div className="row">
+
+        <div className="col">
           <img src={main3} style={{ width: "100%" }}></img>
         </div>
-        <div class="col-lg-6">
-          <div class="row">
+
+        <div className="col" style={{margin:"auto"}}>
+
+          <div className="row" style={{alignItems:'center', justifyContent:'center'}}>
             <Header as="h3" style={{ fontSize: "2.5rem", color: "white" }}>
               전문가의 도움이 필요한 "헬린이" 라면
             </Header>
           </div>
+
           <div>
-            <Button size='big' animated inverted color="green" style={{width:"200px",height:"50px"}}>
+            <Button size='big' href="/selftrain" animated inverted color="green" style={{margin:"25px",width:"200px",height:"50px"}}>
               <Button.Content visible >
                 AI Coaching
               </Button.Content>
@@ -60,13 +64,18 @@ function Mainpage() {
               </Button.Content>
             </Button>
           </div>
-          <div class="row">
+          <br></br>
+          <br></br>
+          <br></br>
+
+          <div class="row" style={{alignItems:'center', justifyContent:'center'}}>
             <Header as="h3" style={{ fontSize: "2.5rem", color: "white" }}>
-              우리는 Online Class를 제공합니다.
+              온라인 Class가 필요한 "트레이너" 라면
             </Header>
           </div>
+
           <div>
-            <Button size='big' animated inverted color="green" style={{width:"200px",height:"50px"}}>
+            <Button size='big' href="/videoclass" animated inverted color="green" style={{margin:"25px",width:"200px",height:"50px"}}>
               <Button.Content visible >
                 Class Open
               </Button.Content>
@@ -75,6 +84,7 @@ function Mainpage() {
               </Button.Content>
             </Button>
           </div>
+
         </div>
       </div>
 

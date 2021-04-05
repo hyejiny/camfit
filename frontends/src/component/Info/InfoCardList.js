@@ -23,7 +23,7 @@ function InfoCardList(props) {
       <Card
         className="bg-dark text-white"
       >
-        <Card.Img src={API_BASE_URL+props.imgg} alt="Card image" class="image-container contrast" />
+        <Card.Img src={API_BASE_URL+props.imgg} height="500px" alt="Card image" class="image-container contrast" />
         <Card.ImgOverlay>
             <div class="inner">
           <h1>

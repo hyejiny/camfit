@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import "antd/dist/antd.css";
-import './Navbar.css';
+import "./Navbar.css";
 import { Modal, Button } from "antd";
 // import { Modal } from "antd";
 import LoginModal from "./Account/LoginModal";
@@ -50,7 +50,9 @@ class NavBar extends Component {
       console.log("no token");
       button = (
         <>
-          <button onClick={this.showModal} className="signin-btn-links">로그인</button>
+          <button onClick={this.showModal} className="login-btn-links">
+            로그인
+          </button>
           <Modal
             visible={this.state.visible}
             title="로그인 하시겠습니까?"
@@ -62,29 +64,52 @@ class NavBar extends Component {
                 취소
               </Button>,
             ]}
-            >
+          >
             <LoginModal />
           </Modal>
         </>
       );
-    } else {   
-      button = <><Nav.Link className="login-nav-links" href='/'>{window.localStorage.getItem('usernickname')}님 환영합니다.</Nav.Link>
-      <Nav.Link className="logout-nav-links" onClick={this.logout}>로그아웃</Nav.Link></>
+    } else {
+      button = (
+        <Fragment>
+          <Nav.Link className="nav-links" style={{marginTop:'6px'}} href="/">
+            {window.localStorage.getItem("usernickname")}님 환영합니다.
+          </Nav.Link>
+          <Nav.Link className="nav-links" style={{marginTop:'6px'}} onClick={this.logout}>
+            로그아웃
+          </Nav.Link>
+        </Fragment>
+      );
     }
     return (
       <Navbar className="Nav" collapseOnSelect expand="lg" variant="dark">
-        <Navbar.Brand className="NavLogo" href="/">CamFit</Navbar.Brand>
-        <Navbar.Toggle className="fabar" aria-controls="responsive-navbar-nav" />
+        <Navbar.Brand className="NavLogo" href="/">
+          CamFit
+        </Navbar.Brand>
+        <Navbar.Toggle
+          className="fabar"
+          aria-controls="responsive-navbar-nav"
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="NavbarMenu" as="ul">
-            <Nav.Link className="nav-links" href="/selftrain">AI트레이닝</Nav.Link>
-            <Nav.Link className="nav-links" href="/info">캠핏꿀팁</Nav.Link>
-            <Nav.Link className="nav-links" href="/videoclass">클래스</Nav.Link>
-            <Nav.Link className="nav-links" href="/community">커뮤니티</Nav.Link>
+            <Nav.Link className="nav-links" href="/selftrain">
+              AI트레이닝
+            </Nav.Link>
+            <Nav.Link className="nav-links" href="/info">
+              캠핏꿀팁
+            </Nav.Link>
+            <Nav.Link className="nav-links" href="/videoclass">
+              클래스
+            </Nav.Link>
+            <Nav.Link className="nav-links" href="/community">
+              커뮤니티
+            </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
             {button}
-            <Nav.Link className="signup-btn-links" href="/signup">회원가입</Nav.Link>
+            <Nav.Link className="signup-btn-links" href="/signup">
+              회원가입
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
