@@ -16,6 +16,16 @@ function SelfDetail(props) {
   const [tmp, setTmp] = useState('');
   const changeStore = () => {setTmp(1)};
   const unsubscribe = store.subscribe(changeStore);
+  let trainId = null;
+  if (props.trainId['id'] === '1') {
+    trainId = 'shoulder'
+  } else if (props.trainId['id'] === '2') {
+    trainId = 'core'
+  } else if (props.trainId['id'] === '3') {
+    trainId = 'arm'
+  } else {
+    trainId = 'leg'
+  }
   var detail = null;
   if (TrainInfo) {
     detail = (
@@ -70,7 +80,7 @@ function SelfDetail(props) {
               <h1>{TrainInfo[props.id].title}</h1>
               <h2>{TrainInfo[props.id].content}</h2>
               <h3> 운동 관련 설명</h3>
-              <Button href="/selftrain/exercise">운동 시작 하기</Button>
+              <Button href={'/selftrain/exercise/'+trainId}>운동 시작 하기</Button>
             </div>
           </Col>
         </Row>

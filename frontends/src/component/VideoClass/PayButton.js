@@ -1,9 +1,12 @@
 import React from 'react'
+import { useDispatch } from "react-redux";
 
 function PayButton() {
+
+
     return (
         <div>
-            <button>
+            <button onclick>
                 수강신청하기
             </button>
         </div>
