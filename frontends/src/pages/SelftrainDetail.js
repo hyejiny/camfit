@@ -18,7 +18,7 @@ function SelftrainDetail(props) {
           <Selfdetailcate setId={setId} trainId={props.match.params}></Selfdetailcate>
         </div>
       </Col>
-          <SelfDetail id={id}></SelfDetail>
+          <SelfDetail id={id} trainId={props.match.params}></SelfDetail>
     </Row>
   );
 }
