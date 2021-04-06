@@ -1,7 +1,7 @@
 import React, {useState,useRef} from 'react'
 import { useDispatch } from "react-redux";
 import {Typography, Button, Form, Input} from 'antd'
-import FileUpload from '../utils/FileUpload'
+// import FileUpload from '../utils/FileUpload'
 import { videoclasscreate } from "../../_actions/index";
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
@@ -9,7 +9,7 @@ import { Editor } from '@toast-ui/react-editor';
 
 
 const {Title} = Typography;
-const {TextArea} = Input;
+// const {TextArea} = Input;
 
 
 function UploadClassPage(props) {

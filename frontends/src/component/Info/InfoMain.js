@@ -2,11 +2,9 @@ import React from "react";
 import { API_BASE_URL } from "../../constants";
 import "./info.css";
 import { Layout, Divider } from "antd";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import infolike from "../../_actions/index";
-import { useDispatch } from "react-redux";
+
 function InfoMain(props) {
-  const dispatch = useDispatch();
+  
   const { Content } = Layout;
   var dat = props.updated;
   var st = String(dat);

@@ -1,8 +1,8 @@
 import React, { useState,useRef  } from 'react'
 import { useDispatch } from "react-redux";
 
-import { imageshow, imageget } from "../../_actions/index";
-import { API_BASE_URL } from "../../constants";
+// import { imageshow, imageget } from "../../_actions/index";
+// import { API_BASE_URL } from "../../constants";
 
 // TOAST UI Editor import
 import 'codemirror/lib/codemirror.css';
