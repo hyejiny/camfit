@@ -79,9 +79,6 @@ function ProductInfo(props) {
                     {renderCards}
                 </div>
             </div>
-
-            
-            
             </div>  
         </div>
     )
