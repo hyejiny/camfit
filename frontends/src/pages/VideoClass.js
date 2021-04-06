@@ -5,6 +5,7 @@ import { API_BASE_URL } from "../constants";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
 import {HighlightOutlined} from '@ant-design/icons';
 import './VideoClass.css';
 // import ReactCardCarousel from "react-card-carousel";
@@ -34,7 +35,7 @@ function VideoClass() {
                     <Card.Img className="Classes-Img" src={API_BASE_URL+product.image}/>  
                     <Card.Title className="Classes-Title">{product.title}</Card.Title>
                     <Card.Text className="Classes-Trainer">{product.nickname}</Card.Text>
-                    <Card.Text className="Classes-Price">월 {product.price}원</Card.Text>            
+                    <Card.Text className="Classes-Price">월 {product.price}원 <Badge variant="warning">Free</Badge></Card.Text>            
                 </Card>
             </a>
         </Col>
@@ -43,7 +44,7 @@ function VideoClass() {
     
     return (
         <div>
-            <div class="classmain" style={{ textAlign: 'center'}}>
+            <div className="classmain" style={{ textAlign: 'center'}}>
                 <h1>유료 클래스<HighlightOutlined /></h1>
             </div>
             <br/>

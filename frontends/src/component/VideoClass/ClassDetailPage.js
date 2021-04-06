@@ -1,15 +1,23 @@
-import React,{useEffect,useLayoutEffect, useState,useRef} from 'react'
+import React,{useEffect, useLayoutEffect, useState, useRef} from 'react'
 import { useDispatch } from "react-redux";
-import {videoclassdetail} from "../../_actions/index"
+import { videoclassdetail, videoclasslist } from "../../_actions/index"
 import ProductInfo from './ProductInfo';
-import { Row, Col } from 'antd';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
 import { API_BASE_URL } from "../../constants";
 import './ClassDetailPage.css';
+import Image from 'react-bootstrap/Image';
+// import OtherclassesBackground from './images/Abract01.png';
 
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
-import 'codemirror/lib/codemirror.css';
-import '@toast-ui/editor/dist/toastui-editor.css';
-import { Viewer } from '@toast-ui/react-editor';
+// import 'codemirror/lib/codemirror.css';
+// import '@toast-ui/editor/dist/toastui-editor.css';
+// import { Viewer } from '@toast-ui/react-editor';
 
 
 import PayButton from './PayButton';
@@ -17,72 +25,68 @@ import ClassButton from './ClassButton';
 
 
 function ClassDetailPage(props) {
-    const editorRef = useRef()
-    const dispatch = useDispatch();
-    
-    
+
+    const dispatch = useDispatch();        
     const classId = props.match.params.classId
     const [Classs, setClasss] = useState({})
+    const [Classes, setClasses] = useState([])
     console.log(Classs.desc_image);
-
+    
     useEffect(() => {
-
-            dispatch(videoclassdetail(classId))
-            .then((res) => {
-                console.log(res.payload);
-                setClasss(res.payload)            
-                console.log(res.payload.content);  
+        dispatch(videoclasslist())
+        .then((res) => {
+            const class_list = res.payload
+            console.log(class_list,'123');
+            setClasses(class_list)
         })
-
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(videoclassdetail(classId))
+        .then((res) => {
+            console.log(res.payload);
+            setClasss(res.payload)            
+            console.log(res.payload.content);  
+        })
+    }, [dispatch])
+
+
     
 
-    return (
+
+    const renderCards = Classes.map((product, index) => {
+        return <a href={'/videoclass/detail/'+ product.id } key={index}>
         
-        <div style={{ width: '100%', padding: '3rem 4rem'}}>
-            <div >
-
-                <textarea value={Classs.content} readOnly="readOnly" style={{display:"none"}}></textarea>
-                <div >
-                {/* <Viewer
-            viewer="true"
-            // el= {document.querySelector('#viewer')}
-            height="500px"
-            initialValue={Classs.content}/> */}
-                </div>
-                <Row gutter={[16, 16]} >
-                <Col lg={18} sm={24}>
-                    <div className="imagespace">
-
-                        <img src={API_BASE_URL+Classs.desc_image} alt=""/>
-                    </div>
+            <Card className="owl-theme Other-Class">
+                <Card.Img className="Other-Class-Image" src={API_BASE_URL+product.image}/>  
+                <Card.Title className="Other-Class-Title">{product.title}</Card.Title>
+                <Card.Text className="Other-Class-Trainer">{product.nickname}</Card.Text>
+                <Card.Text className="Other-Class-Price">월 {product.price}원 <Badge variant="warning">Free</Badge></Card.Text>            
+            </Card>
+            
+        </a>
+    })
+    
+    return (    
+        <div className="detail-board">
+            <Row>
+                <Col className="imagespace" lg={6} xs={12}>
+                    <Image className="img-fluid" src={API_BASE_URL + Classs.desc_image}/>
                 </Col>
-                <Col lg={6} sm={24}>
+                <Col lg={6} xs={12}>
                     {/* ProductInfo */}
                     <ProductInfo detail={Classs} />
-                </Col>
+                </Col>                            
             </Row>
-            </div>
+            <h2> 다른 클래스들</h2>
+            <Row className="Other-Classes-Row">
+                <OwlCarousel className="Other-Classes" loop items={3} autoplay ={true}>
+                    { renderCards }
+                </OwlCarousel>
+            </Row>
             <br/>
-
-
-            <div>
-                {/* {Button} */}
-                {/* <button onClick={clickHandler}>add to cart</button> */}
-            </div>
-
-
-
-            {/* info */}
-            
-
-
-
-        </div>
-        
-    )
-    
+        </div>       
+    )   
 }
 
 
