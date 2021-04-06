@@ -60,7 +60,7 @@
     position:relative;
     text-align:center;
     width:100%;
-    height:150px; /*  Any height is allowed, also in %. */
+    /* height:150px; */
   }
 .outer .inner {
     position: absolute;
@@ -75,7 +75,7 @@
 .multi {
     display: block;
     top: 50%;
-    margin-top: 50px;
+    margin-top: -140px;
  }
 
 .innerleft {
@@ -86,4 +86,9 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+  }
+
+  .infodetail {
+    width: 100%;
+    margin: 0;
   }

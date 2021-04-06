@@ -147,3 +147,13 @@ body {
 .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
   background-color: red;
 }
+/* 전체 박스 */
+.ant-steps {
+  /* background-color: aliceblue; */
+  font-weight: bold;
+  font-style:oblique;
+}
+/* 글자 박스 */
+/* .ant-steps-item-content {
+  background-color: aliceblue;
+} */

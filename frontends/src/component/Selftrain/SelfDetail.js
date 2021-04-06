@@ -24,7 +24,7 @@ function SelfDetail(props) {
   if (props.trainId['id'] === '1') {
     trainId = 'shoulder'
   } else if (props.trainId['id'] === '2') {
-    trainId = 'core'
+    trainId = 'core-'
   } else if (props.trainId['id'] === '3') {
     trainId = 'arm'
   } else {

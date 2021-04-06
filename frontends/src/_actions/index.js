@@ -100,6 +100,14 @@ export function videoclassdetail(id) {
   };
 }
 
+export function classReg(id) {
+  const request = axios.put(`${API_BASE_URL}/fitclasses/${id}/pl/`,'',{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.VIDEOCLASSREGISTER,
+    payload: request,
+  };
+}
+
 export function imageshow(category) {
   const request = axios.post(`${API_BASE_URL}/gallaries/`,category,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}})
       .then((res) => 
@@ -207,6 +215,13 @@ export function deleteComment(id) {
 
 export function getjandi(id) {
   const request = axios.get(`${API_BASE_URL}/grasses/`, {headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
+  return {
+    type: types.JANDI,
+    payload: request,
+  };
+}
+export function createjandi() {
+  const request = axios.post(`${API_BASE_URL}/grasses/`, '',{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
   return {
     type: types.JANDI,
     payload: request,

@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import { Button, Descriptions } from 'antd';
+import { Button } from 'antd';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './ProductInfo.css';
 
-import {Col, Card, Row} from 'antd'
-import Meta from 'antd/lib/card/Meta'
+import {Col, Row} from 'antd'
+import { Card } from 'react-bootstrap';
 import { videoclasslist } from "../../_actions/index";
 import { API_BASE_URL } from "../../constants";
-// import { addToCart } from '../../../../_actions/user_actions';
+import { classReg } from '../../_actions/index';
 
 function ProductInfo(props) {
 
@@ -24,21 +24,31 @@ function ProductInfo(props) {
             setClasses(class_list)
         })
     }, [dispatch])
+    const classID = props.detail.id
+
+    const gotoCart = () => {
+        dispatch(classReg(classID))
+    }
 
     const renderCards = Classes.map((product, index) => {
 
 
         return <Col key={index}>
+            <br/>
             <Card
                 cover={<a href={'/videoclass/detail/'+ product.id }>
                    <img 
                 height='240px'
                 src={API_BASE_URL+product.image} /></a>}>
                      
-                <Meta
-                    title={product.title}
-                    description={`${product.price}원`}
-                />
+                <Card.Body>
+                    <Card.Title>
+                        {product.title}
+                    </Card.Title>
+                    <Card.Text>
+                        {product.price}원
+                    </Card.Text>
+                </Card.Body>
             </Card>
         </Col>
     })
@@ -55,17 +65,22 @@ function ProductInfo(props) {
                 <br />
                 <br />
                 <br />
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'center' }} onClick={gotoCart}>
                     <Button size="large" shape="round" type="danger" onClick={() => {history.push({
                         pathname: `/videochat`})}}>
                         수강하기
                     </Button>
                 </div>
+                <br/><br/><br/>
+
+                <h2> 다른 클래스들</h2>
+
+                <div className="card-list">
+                    {renderCards}
+                </div>
             </div>
 
-            <div >
-                {renderCards}
-            </div>
+            
             
             </div>  
         </div>
