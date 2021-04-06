@@ -20,6 +20,7 @@ function UploadClassPage(props) {
   const [StartDay, setStartDay] = useState(0)
   const [EndDay, setEndDay] = useState(0)
   const [UserLimit, setUserLimit] = useState(0)
+  const [NickName, setNickName] = useState("")
 
   
   // const [Image, setImage] = useState([])
@@ -51,6 +52,9 @@ function UploadClassPage(props) {
   const UserLimitChageHandler = (event) => {
     setUserLimit(event.currentTarget.value)
   }
+  const NickNameChageHandler = (event) => {
+    setNickName(event.currentTarget.value)
+  }
 
 
   const submitHandler = (event) => {
@@ -61,6 +65,7 @@ function UploadClassPage(props) {
     const body = {
       // user: , 
       title: Name,
+      nickname: NickName,
       content: Description,
       start_day: StartDay,
       end_day: EndDay,
@@ -92,6 +97,8 @@ function UploadClassPage(props) {
               <br/>
               <label>이름</label>
               <Input onChange={nameChageHandler} value={Name}/>
+              <label>트레이너 이름</label>
+              <Input onChange={NickNameChageHandler} value={NickName}/>
               <br/><br/>
               <br/>
               <br/>

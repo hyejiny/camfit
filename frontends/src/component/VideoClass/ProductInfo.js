@@ -25,6 +25,10 @@ function ProductInfo(props) {
         })
     }, [dispatch])
 
+    // const gotoCart () => {
+    //     dispatch(classReg(props.detail.id))
+    // }
+
     const renderCards = Classes.map((product, index) => {
 
 
@@ -55,7 +59,7 @@ function ProductInfo(props) {
                 <br />
                 <br />
                 <br />
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'center' }} >
                     <Button size="large" shape="round" type="danger" onClick={() => {history.push({
                         pathname: `/videochat`})}}>
                         수강하기

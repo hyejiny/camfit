@@ -28,7 +28,7 @@ function VideoClass() {
 
 
     const renderMyClasses = Classes.map((product, index) => {
-        if (product.person===username)
+        // if (product.person===username)
         return <Col lg={3} md={6} xs={12} key={index}>
             <a className="MyClasses-Wrapper" href={'/videoclass/detail/'+ product.id}>
                 <Card className="MyClasses-Card">
@@ -44,13 +44,14 @@ function VideoClass() {
 
 
     const renderCards = Classes.map((product, index) => {
+        console.log(product.user);
         return <Col lg={3} md={6} xs={12} key={index}>
             <a className="Classes-Wrapper" href={'/videoclass/detail/'+ product.id}>
                 <Card className="Classes-Card">
                     <Card.Img className="Classes-Img" src={API_BASE_URL+product.image}/>              
                     <Card.Body>
                         <Card.Title className="Classes-Trainer">{product.title}</Card.Title>
-                        <Card.Text className="Classes-Title">{product.user.username}</Card.Text>
+                        <Card.Text className="Classes-Title">{product.nickname}</Card.Text>
                     </Card.Body>
                     <Card.Footer >
                         <medium className="Classes-Price">{product.price}원</medium>
