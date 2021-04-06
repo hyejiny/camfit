@@ -67,3 +67,15 @@
     color: black;
     font-size: 2.3rem;
 }
+
+.detail-board {
+    margin-top: 70px;
+    /* margin-left: 100px; */
+    /* margin-right: 100px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
