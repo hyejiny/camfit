@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import styled from 'styled-components';
 import "antd/dist/antd.css";
 import "./Navbar.css";
 import { Modal, Button } from "antd";
-// import { Modal } from "antd";
+import { gray } from '@ant-design/colors';
 import LoginModal from "./Account/LoginModal";
 import { ACCESS_TOKEN } from "../constants";
 
@@ -54,15 +55,15 @@ class NavBar extends Component {
             로그인
           </button>
           <Modal
+            className="Login-Modal"
             visible={this.state.visible}
-            title="로그인 하시겠습니까?"
+            title="Sign in to your account"
             onOk={this.handleOk}
             onCancel={this.handleCancel}
             show={this.visible}
             footer={[
-              <Button key="back" onClick={this.handleCancel}>
-                취소
-              </Button>,
+              <p className="Cancel-Button" key="back" onClick={this.handleCancel}>
+              </p>,
             ]}
           >
             <LoginModal />
