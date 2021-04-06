@@ -5,6 +5,7 @@ import ProductInfo from './ProductInfo';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
 import { API_BASE_URL } from "../../constants";
 import './ClassDetailPage.css';
 import Image from 'react-bootstrap/Image';
@@ -16,7 +17,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 // import 'codemirror/lib/codemirror.css';
 // import '@toast-ui/editor/dist/toastui-editor.css';
-import { Viewer } from '@toast-ui/react-editor';
+// import { Viewer } from '@toast-ui/react-editor';
 
 
 import PayButton from './PayButton';
@@ -24,7 +25,7 @@ import ClassButton from './ClassButton';
 
 
 function ClassDetailPage(props) {
-    const editorRef = useRef()
+
     const dispatch = useDispatch();        
     const classId = props.match.params.classId
     const [Classs, setClasss] = useState({})
@@ -54,18 +55,13 @@ function ClassDetailPage(props) {
 
     const renderCards = Classes.map((product, index) => {
         return <a href={'/videoclass/detail/'+ product.id } key={index}>
-            <Card
-                className="Other-Class">                     
-                <Card.Body>
-                    <Image className="Other-Class-Image" src={API_BASE_URL+product.image}/>
-                        <Card.Title className="Other-Class-Title">
-                            {product.title}
-                        </Card.Title>
-                        <Card.Text className="Other-Class-Price">
-                            {product.price}원
-                        </Card.Text>
-                </Card.Body>
+            <Card className="owl-theme Other-Class">
+                <Card.Img className="Other-Class-Image" src={API_BASE_URL+product.image}/>  
+                <Card.Title className="Other-Class-Title">{product.title}</Card.Title>
+                <Card.Text className="Other-Class-Trainer">{product.nickname}</Card.Text>
+                <Card.Text className="Other-Class-Price">월 {product.price}원 <Badge variant="warning">Free</Badge></Card.Text>            
             </Card>
+            
         </a>
     })
     
@@ -83,7 +79,7 @@ function ClassDetailPage(props) {
             </Row>
             <h2> 다른 클래스들</h2>
             <Row className="Other-Classes-Row">
-                <OwlCarousel className="Other-Classes">
+                <OwlCarousel className="Other-Classes" loop items={4} autoplay ={true}>
                     { renderCards }
                 </OwlCarousel>
             </Row>
