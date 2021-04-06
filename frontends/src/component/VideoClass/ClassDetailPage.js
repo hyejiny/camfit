@@ -31,6 +31,15 @@ function ClassDetailPage(props) {
     const [Classs, setClasss] = useState({})
     const [Classes, setClasses] = useState([])
     console.log(Classs.desc_image);
+    
+    useEffect(() => {
+        dispatch(videoclasslist())
+        .then((res) => {
+            const class_list = res.payload
+            console.log(class_list,'123');
+            setClasses(class_list)
+        })
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(videoclassdetail(classId))
@@ -41,20 +50,13 @@ function ClassDetailPage(props) {
         })
     }, [dispatch])
 
-    useEffect(() => {
-        dispatch(videoclasslist())
-        .then((res) => {
-            const class_list = res.payload
-            console.log(class_list,'123');
-            setClasses(class_list)
-        })
-    }, [dispatch])
 
     
 
 
     const renderCards = Classes.map((product, index) => {
         return <a href={'/videoclass/detail/'+ product.id } key={index}>
+        
             <Card className="owl-theme Other-Class">
                 <Card.Img className="Other-Class-Image" src={API_BASE_URL+product.image}/>  
                 <Card.Title className="Other-Class-Title">{product.title}</Card.Title>
@@ -66,11 +68,10 @@ function ClassDetailPage(props) {
     })
     
     return (    
-        <div>
-            <textarea value={Classs.content} readOnly="readOnly" style={{display:"none"}}></textarea>
+        <div className="detail-board">
             <Row>
                 <Col className="imagespace" lg={6} xs={12}>
-                    <Image src={API_BASE_URL + Classs.desc_image}/>
+                    <Image className="img-fluid" src={API_BASE_URL + Classs.desc_image}/>
                 </Col>
                 <Col lg={6} xs={12}>
                     {/* ProductInfo */}
@@ -79,7 +80,7 @@ function ClassDetailPage(props) {
             </Row>
             <h2> 다른 클래스들</h2>
             <Row className="Other-Classes-Row">
-                <OwlCarousel className="Other-Classes" loop items={4} autoplay ={true}>
+                <OwlCarousel className="Other-Classes" loop items={3} autoplay ={true}>
                     { renderCards }
                 </OwlCarousel>
             </Row>

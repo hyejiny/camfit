@@ -6,6 +6,7 @@ import './ProductInfo.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
+import Badge from 'react-bootstrap/Badge';
 import { videoclasslist } from "../../_actions/index";
 import { API_BASE_URL } from "../../constants";
 import { classReg } from '../../_actions/index';
@@ -35,7 +36,7 @@ function ProductInfo(props) {
             <div className="cardlist">           
                 <div className="chart-board" title="Product Info">
                     <p className="chart-title" label="title">{props.detail.title}</p>
-                    <p className="chart-item" label="Price">가격 : {props.detail.price}</p>
+                    <p className="chart-item-price" label="Price">가격 : <Badge variant="warning">Free</Badge> </p>
                     <p className="chart-item" label="start_day">시작일 : {props.detail.start_day}</p>
                     <p className="chart-item" label="end_day">마감일 : {props.detail.end_day}</p>
                     <br />
