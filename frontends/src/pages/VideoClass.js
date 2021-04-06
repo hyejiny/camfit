@@ -16,7 +16,6 @@ function VideoClass() {
     const username = window.localStorage.getItem('userid')
 
     const [Classes, setClasses] = useState([])
-    // const [MyClasses, setMyClasses] = useState([])
     useEffect(() => {
         dispatch(videoclasslist())
         .then((res) => {
@@ -27,35 +26,15 @@ function VideoClass() {
     }, [dispatch])
 
 
-    const renderMyClasses = Classes.map((product, index) => {
-        // if (product.person===username)
-        return <Col lg={3} md={6} xs={12} key={index}>
-            <a className="MyClasses-Wrapper" href={'/videoclass/detail/'+ product.id}>
-                <Card className="MyClasses-Card">
-                    <Card.Img className="Classes-Img" src={API_BASE_URL+product.image}/>              
-                    <Card.Body>
-                        <Card.Title className="Classes-Trainer">{product.title}</Card.Title>
-                        <Card.Text className="Classes-Title">{product.nickname}</Card.Text>
-                    </Card.Body>
-                </Card>
-            </a>
-        </Col>
-    })
-
-
     const renderCards = Classes.map((product, index) => {
         console.log(product.user);
         return <Col lg={3} md={6} xs={12} key={index}>
             <a className="Classes-Wrapper" href={'/videoclass/detail/'+ product.id}>
                 <Card className="Classes-Card">
-                    <Card.Img className="Classes-Img" src={API_BASE_URL+product.image}/>              
-                    <Card.Body>
-                        <Card.Title className="Classes-Trainer">{product.title}</Card.Title>
-                        <Card.Text className="Classes-Title">{product.nickname}</Card.Text>
-                    </Card.Body>
-                    <Card.Footer >
-                        <p className="Classes-Price">{product.price}원</p>
-                    </Card.Footer>
+                    <Card.Img className="Classes-Img" src={API_BASE_URL+product.image}/>  
+                    <Card.Title className="Classes-Title">{product.title}</Card.Title>
+                    <Card.Text className="Classes-Trainer">{product.nickname}</Card.Text>
+                    <Card.Text className="Classes-Price">월 {product.price}원</Card.Text>            
                 </Card>
             </a>
         </Col>
@@ -64,33 +43,20 @@ function VideoClass() {
     
     return (
         <div>
-            <button>
-              <a href="/videoclass/upload">upload</a>
-            </button>
-
             <div style={{ textAlign: 'center'}}>
-                <h2>유료 클래스<HighlightOutlined /></h2>
+                <h1>유료 클래스<HighlightOutlined /></h1>
             </div>
-
-
-            {/* filter */}
-
-
-
-            {/* search */}
-
-
-
-            {/* cards */}
-            <h1 style={{ textAlign: 'center'}}>Myclass</h1>
-            <Row gutter= {16, 16}>
-                {renderMyClasses}
-            </Row>
-
-            <h1 style={{ textAlign: 'center'}}>Classes</h1>
+            <br/>
+            <br/>
             <Row gutter= {16, 16}>
                 {renderCards}
             </Row>
+            <div className="upload">
+                <p>클래스를 등록하고 싶으세요? <button className="uploadButton btn btn-outline-dark">
+                    <a className="btntext" href="/videoclass/upload">등록</a>
+                </button></p>
+                
+            </div>
         </div>
     )
 }
