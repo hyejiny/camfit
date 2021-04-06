@@ -31,9 +31,9 @@ function SelfMain(props) {
     
     <div class="inner2 multi2">
       {nickname ? (
-        <h1>"{nickname}" 님 운동을 시작하시겠습니까?</h1>
+        <h1 style={{color:"white"}}>"{nickname}" 님 운동을 시작하시겠습니까?</h1>
       ) : (
-        <h1>로그인 후 사용해주세요</h1>
+        <h1 style={{color:"white"}}>로그인 후 사용해주세요</h1>
       )}
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
         <Button variant="success">AI 운동 가이드</Button>

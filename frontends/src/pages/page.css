@@ -21,11 +21,11 @@
 }
 .Selftrain::before{
   content: "";
-  background: url("./운동하기 배경.jpg");
+  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url("./운동하기 배경.jpg");
   background-size: cover;
-  -webkit-filter: contrast(50%) ;
-  filter: contrast(50%);
-  opacity: 0.8;
+  -webkit-filter: contrast(70%) ;
+  filter: contrast(70%);
+  
   position: absolute;
   top: 0px;
   left: 0px;
