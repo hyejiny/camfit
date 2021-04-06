@@ -4,6 +4,7 @@ from django.conf import settings
 # Create your models here.
 class Fitclass(models.Model):
     title = models.CharField(max_length=100)
+    nickname = models.CharField(max_length=100, default="camfit trainer")
     content = models.TextField()
     image = models.ImageField(blank=True)
     desc_image = models.ImageField(blank=True)
