@@ -1,3 +1,39 @@
-.imagespace {
+.Other-Classes-Row {
+    background-image: url(./images/Abract01.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.Other-Classes {
+    /* font-family: 'payboocMedium'; */
+    padding-top: 6rem;
+    width: 100%;
+}
+
+
+.Other-Class {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    width: 100%;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+}
+
+.Other-Class-Image {
+    width: 240px;
+}
+
+
+.Other-Class-Title {
+    padding: 2rem 0;
+}
+
+
+.Other-Class-Price {
+    padding: .7rem 2rem;
+    background: var(--sky);
+    margin: .5rem;
 }
