@@ -28,7 +28,7 @@ function Jandi() {
   
   return (
     <div
-      style={{ marginTop: "100px", marginRight: "200px", marginLeft: "80px", justifyContent:'center' }}
+      style={{ marginTop: "100px", marginRight: "200px", marginLeft: "80px", justifyContent:'center'}}
     >
       <Steps current={cnt} progressDot={customDot}>
         <Step title="시작" description="운동을 시작해보세요" />

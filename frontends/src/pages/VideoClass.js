@@ -43,7 +43,7 @@ function VideoClass() {
     
     return (
         <div>
-            <div style={{ textAlign: 'center'}}>
+            <div class="classmain" style={{ textAlign: 'center'}}>
                 <h1>유료 클래스<HighlightOutlined /></h1>
             </div>
             <br/>

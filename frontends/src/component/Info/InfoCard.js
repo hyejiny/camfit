@@ -47,6 +47,8 @@ function InfoCard(props) {
     arrows: true,
     slidesToShow: 3,
     slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 2000,
 
     responsive: [
       // 반응형 웹 구현 옵션
