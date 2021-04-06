@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import {login, getuserinfo} from '../../_actions/index';
-import { Form,Button } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
-// import axios from 'axios';
+import './login.css'
+
+
 function LoginModal(props) {
   const dispatch = useDispatch();
   const [Email,setEmail] = useState("");
@@ -46,34 +48,28 @@ function LoginModal(props) {
       });
   };
   return (
-    <Form onSubmit={onSubmitHandler}>
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" 
-        placeholder="Enter email" 
-        onChange={onEmailHandler} 
-        value={Email}
-        />
-      </Form.Group>
+      <Form className="Login-Form" onSubmit={onSubmitHandler}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label className="Login-Form-Label">Email address</Form.Label>
+          <Form.Control type="email" 
+          placeholder="Enter email" 
+          onChange={onEmailHandler} 
+          value={Email}
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label className="Login-Form-Label">Password</Form.Label>
+          <Form.Control type="password" 
+          placeholder="Password"
+          onChange={onPasswordHandler}
+          value={Password} 
+          />
+        </Form.Group>
+        <Button type="dark" className="Login-Button" type="submit">
+          Login
+        </Button>
+      </Form>
 
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" 
-        placeholder="Password"
-        onChange={onPasswordHandler}
-        value={Password} 
-        />
-      </Form.Group>
-      {/* <Form.Text className="text-muted">
-          비밀번호가 생각이 안나시나요? 그렇다면
-        </Form.Text>
-      <Button variant="primary" type="submit">
-        비밀번호 찾기
-      </Button> */}
-      <Button variant="primary" type="submit">
-        로그인
-      </Button>
-    </Form>
   );
   
 }
