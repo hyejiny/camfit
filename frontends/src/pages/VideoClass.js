@@ -13,7 +13,7 @@ import './VideoClass.css';
 function VideoClass() {
 
     const dispatch = useDispatch();
-    const username = window.localStorage.getItem('userid')
+    const username = window.localStorage.getItem('usernickname')
 
     const [Classes, setClasses] = useState([])
     // const [MyClasses, setMyClasses] = useState([])
@@ -53,7 +53,7 @@ function VideoClass() {
                         <Card.Text className="Classes-Title">{product.user.username}</Card.Text>
                     </Card.Body>
                     <Card.Footer >
-                        <medium className="Classes-Price">{product.price}원</medium>
+                        <p className="Classes-Price">{product.price}원</p>
                     </Card.Footer>
                 </Card>
             </a>
