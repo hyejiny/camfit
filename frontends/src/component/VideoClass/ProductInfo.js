@@ -36,18 +36,20 @@ function ProductInfo(props) {
         return <Col key={index}>
             <br/>
             <Card
-                cover={<a href={'/videoclass/detail/'+ product.id }>
+                cover={
                    <img 
                 height='240px'
-                src={API_BASE_URL+product.image} /></a>}>
+                src={API_BASE_URL+product.image} />}>
                      
                 <Card.Body>
+                <a href={'/videoclass/detail/'+ product.id }>
                     <Card.Title>
                         {product.title}
                     </Card.Title>
                     <Card.Text>
                         {product.price}원
                     </Card.Text>
+                </a>
                 </Card.Body>
             </Card>
         </Col>
@@ -79,9 +81,6 @@ function ProductInfo(props) {
                     {renderCards}
                 </div>
             </div>
-
-            
-            
             </div>  
         </div>
     )
