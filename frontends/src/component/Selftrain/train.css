@@ -78,6 +78,7 @@ body {
     top: 35%;
     margin-top: 100px;
     opacity: 1 !important; 
+    
  }
 
 .bgc {
@@ -152,8 +153,10 @@ body {
   /* background-color: aliceblue; */
   font-weight: bold;
   font-style:oblique;
+  
 }
 /* 글자 박스 */
-/* .ant-steps-item-content {
-  background-color: aliceblue;
-} */
+.ant-steps-item-title {
+  color: aliceblue;
+  background-color: #0091EA;
+}

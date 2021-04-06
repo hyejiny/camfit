@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../component.css";
 import { useDispatch } from "react-redux";
 import { selftrainlist } from "../../_actions/index";
-import { ListGroup, Card, Button, Row, Col } from "react-bootstrap";
-
+import { Row, Col } from "react-bootstrap";
+import { Button } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Image, Reveal } from "semantic-ui-react";
@@ -19,23 +19,22 @@ function SelftrainSidebar(props) {
   const [Vis, setVis] = useState(false);
   const dispatch = useDispatch();
   const shoulder = () => {
-    window.location.replace("/selftrain/detail/1")
-    
+    window.location.replace("/selftrain/detail/1");
+
     // dispatch(selftrainlist(1));
     // props.setCategory("어깨");
     // console.log("어깨");
     // setVis(true);
   };
   const core = () => {
-    window.location.replace("/selftrain/detail/2")
+    window.location.replace("/selftrain/detail/2");
   };
   const arm = () => {
-    window.location.replace("/selftrain/detail/3")
+    window.location.replace("/selftrain/detail/3");
   };
   const leg = () => {
-    window.location.replace("/selftrain/detail/4")
+    window.location.replace("/selftrain/detail/4");
   };
-
 
   const onClose = () => {
     setVis(false);
@@ -49,49 +48,62 @@ function SelftrainSidebar(props) {
         <Col>
           <Reveal animated="rotate">
             <Reveal.Content visible>
-              어깨
+              
               <Image circular size="medium" src="https://ifh.cc/g/b70G9w.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={shoulder} className="mt-3">시작하기</Button>
+              <Button type="dashed" danger onClick={shoulder} className="mt-5" shape="round" size={"large"} ghost>
+                어깨운동 시작하기
+              </Button>
             </Reveal.Content>
           </Reveal>
         </Col>
 
         <Col>
-        <Reveal animated="rotate">
+          <Reveal animated="rotate">
             <Reveal.Content visible>
-              코어
+              
               <Image circular size="medium" src="https://ifh.cc/g/uKNRvB.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={core} className="mt-3">시작하기</Button>
+            <Button type="dashed" danger onClick={core} className="mt-5" shape="round" size={"large"} ghost>
+                코어운동 시작하기
+              </Button>
+             
             </Reveal.Content>
-            </Reveal>
-        </Col>
-    
-        <Col>
-        <Reveal animated="rotate">
-        <Reveal.Content visible>
-              팔
-              <Image circular size="medium" src="https://ifh.cc/g/z85Vm7.jpg" />
-            </Reveal.Content>
-            <Reveal.Content hidden>
-              <Button onClick={arm} className="mt-3">시작하기</Button>
-            </Reveal.Content>
-            </Reveal>
+          </Reveal>
         </Col>
 
         <Col>
-        <Reveal animated="rotate">
-        <Reveal.Content visible>
-              하체
+          <Reveal animated="rotate">
+            <Reveal.Content visible>
+              
+              <Image circular size="medium" src="https://ifh.cc/g/z85Vm7.jpg" />
+            </Reveal.Content>
+            <Reveal.Content hidden>
+            <Button type="dashed" danger onClick={arm} className="mt-5" shape="round" size={"large"} ghost>
+                팔운동 시작하기
+              </Button>
+             
+        
+            </Reveal.Content>
+          </Reveal>
+        </Col>
+
+        <Col>
+          <Reveal animated="rotate">
+            <Reveal.Content visible>
+              
               <Image circular size="medium" src="https://ifh.cc/g/Q7zSHG.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button onClick={leg} className="mt-3">시작하기</Button>
+            <Button type="dashed" danger onClick={leg} className="mt-5" shape="round" size={"large"} ghost>
+                하체운동 시작하기
+              </Button>
+             
+             
             </Reveal.Content>
-            </Reveal>
+          </Reveal>
         </Col>
       </Row>
 

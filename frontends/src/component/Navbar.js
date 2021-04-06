@@ -50,7 +50,7 @@ class NavBar extends Component {
       console.log("no token");
       button = (
         <>
-          <button onClick={this.showModal} className="login-btn-links">
+          <button onClick={this.showModal} className="signin-btn-links">
             로그인
           </button>
           <Modal
