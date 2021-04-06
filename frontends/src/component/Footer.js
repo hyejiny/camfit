@@ -3,7 +3,7 @@ import './component.css'
 class Footer extends Component {
     render() {
         return (
-            <div className='footer'>
+            <div style={{zIndex:"2"}} className='footer'>
                 <div className="div">
                     <a >info º</a>
                     <a>Support º</a>
