@@ -22,6 +22,7 @@ const theme = createMuiTheme({
   },
 });
 
+
 ReactDOM.render(
   <Provider
     store={createStoreWithMiddleware(Reducers,

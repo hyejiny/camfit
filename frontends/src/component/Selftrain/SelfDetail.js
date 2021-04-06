@@ -4,14 +4,13 @@ import {
   Button,
   Row,
   Col,
-  Container,
-  ListGroup,
+
 } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { useDispatch, useStore } from "react-redux";
+import React, { useState } from "react";
+import { Layout} from 'antd';
+import { useStore } from "react-redux";
 import { API_BASE_URL } from "../../constants";
-import { FcStart } from "react-icons/fc";
+
 
 function SelfDetail(props) {
   const store = useStore();
@@ -19,7 +18,7 @@ function SelfDetail(props) {
   const [tmp, setTmp] = useState('');
   const changeStore = () => {setTmp(1)};
   const unsubscribe = store.subscribe(changeStore);
-  const { Header, Content, Footer, Sider } = Layout;
+  const {  Content} = Layout;
   let trainId = null;
   if (props.trainId['id'] === '1') {
     trainId = 'shoulder'

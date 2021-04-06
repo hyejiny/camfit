@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './ProductInfo.css';
 
-import {Col, Row} from 'antd'
+import {Col} from 'antd'
 import { Card } from 'react-bootstrap';
 import { videoclasslist } from "../../_actions/index";
 import { API_BASE_URL } from "../../constants";

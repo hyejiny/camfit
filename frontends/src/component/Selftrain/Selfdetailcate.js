@@ -5,11 +5,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useStore } from "react-redux";
 import "./train.css";
 
-import { Menu, Button } from "antd";
+
 
 function Selfdetailcate(props) {
   const dispatch = useDispatch();
-  const store = useStore();
+
   const [TrainInfo, setTrainInfo] = useState([]);
 
 
