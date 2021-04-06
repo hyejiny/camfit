@@ -13,7 +13,7 @@ import './VideoClass.css';
 function VideoClass() {
 
     const dispatch = useDispatch();
-    const username = window.localStorage.getItem('usernickname')
+    const username = window.localStorage.getItem('userid')
 
     const [Classes, setClasses] = useState([])
     // const [MyClasses, setMyClasses] = useState([])
