@@ -52,6 +52,7 @@ h1 {
 
 
 .Classes-Price {
+  text-decoration-line: line-through;
   /* text-align: left; */
   font-weight: bolder;
   font-family: 'payboocMedium';
@@ -63,7 +64,6 @@ h1 {
 
 p {
   font-size: 30px;
-  
 }
 
 .upload {
