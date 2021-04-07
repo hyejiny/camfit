@@ -30,7 +30,7 @@ def train_list_create(request):
             if category == 0 or category == '0':
                 trains = SelfTrain.objects.order_by('-pk')
             else:
-                trains = SelfTrain.objects.filter(category=category).order_by('-pk')
+                trains = SelfTrain.objects.filter(category=category)
             serializer = TrainListSerializer(trains, many = True)
             return Response(serializer.data)
 

@@ -91,7 +91,11 @@ function SelfDetail(props) {
               <h1 className='myttf'>{TrainInfo[props.id].title}</h1>
               <h2 className='myttf'>{TrainInfo[props.id].content}</h2>
               {/* <h3> 운동 관련 설명</h3> */}
+              {TrainInfo[props.id].id=='9' || TrainInfo[props.id].id=='12' || TrainInfo[props.id].id=='13' || TrainInfo[props.id].id=='14' ?
               <Button className='myttf' href={'/selftrain/exercise/'+trainId}>운동 시작 하기</Button>
+              :
+              <Button className='myttf'>준비중인 서비스 입니다!</Button>
+              }
             </div>
           </Col>
         </Row>
