@@ -1,11 +1,11 @@
-import Iframe from "react-iframe";
+
 import { Container, Col, Row } from "react-bootstrap";
 import React, { useState } from "react";
 import "./page.css";
 import "./Exercise.css";
-import * as tf from "@tensorflow/tfjs";
+
 import * as tmPose from "@teachablemachine/pose";
-import { WindowsOutlined } from "@ant-design/icons";
+
 import { useDispatch } from "react-redux";
 import {createjandi} from "../_actions/index"
 const Exercise = (props) => {
@@ -62,7 +62,7 @@ const Exercise = (props) => {
     const prediction = await model.predict(posenetOutput);
     
     if (prediction[2].probability.toFixed(2) > 0.9) {
-      if (status == "armdown") {
+      if (status === "armdown") {
         cnt++;
         if (cnt===10) {
           var audio = new Audio("/wavfolder/11_train_finish.wav");
@@ -81,13 +81,13 @@ const Exercise = (props) => {
         var audio = new Audio(wavPath);
         audio.play();
       }
-      if (status != "armup") {
+      if (status !== "armup") {
         status = "armup";
         setStatus(status);
         console.log("일어남");
       }
     } else if (prediction[1].probability.toFixed(2) > 0.9) {
-      if (status != "wrongpose") {
+      if (status !== "wrongpose") {
         status = "wrongpose";
         setStatus(status);
         console.log("wrongpose");
@@ -95,7 +95,7 @@ const Exercise = (props) => {
         audio.play();
       }
     } else if (prediction[0].probability.toFixed(2) > 0.9) {
-      if (status != "armdown") {
+      if (status !== "armdown") {
         status = "armdown";
         setStatus(status);
         console.log("armdown");      }

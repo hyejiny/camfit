@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./page.css";
-import CamFitWhat from "../component/Mainpage/CamFitWhat";
-import CamFitWhy from "../component/Mainpage/CamFitWhy";
-import CamFitHow from "../component/Mainpage/CamFitHow";
 import MainTop from "../component/Mainpage/MainTop";
 import mainvd from "../component/Mainpage/images/캠피트.mp4";
-import Flip from "react-reveal/Flip";
+
 import main3 from "./images/main3.jpg";
 
 import "semantic-ui-css/semantic.min.css";
-import { Button, Container, Divider, Grid, Header, Icon, Image, List, Menu, Segment, Sidebar, Visibility } from "semantic-ui-react";
+import { Button, Grid, Header, Icon, Segment, } from "semantic-ui-react";
 
 function Mainpage() {
   return (

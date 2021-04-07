@@ -28,7 +28,7 @@ export const createOffer = async (connection, localStream, userToCall, doOffer, 
     try {
       // using Google public stun server
       var configuration = {
-        iceServers: [{ urls: 'stun:stun2.1.google.com:19302' }]
+        iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
       }
       // RTCPeerConnetion : 피어간 오디오, 비디오 통신을 활성화, 신호처리,코덱관리, 피투피통신, 보안, 대역폭 관리 등을 수행
       const conn = new RTCPeerConnection(configuration)

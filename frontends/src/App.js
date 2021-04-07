@@ -21,15 +21,18 @@ import UploadClassPage from './component/VideoClass/UploadClassPage';
 import ClassDetailPage from './component/VideoClass/ClassDetailPage';
 
 import App_ from './component/VideoClass/VideoChat/App_'
+
+
 // import Payment from './component/Payment';
 // import PaymentResult from './component/PaymentResult';
 // import 'semantic-ui-css/semantic.min.css'
 // import { Navbar, NavDropdown,Nav } from 'react-bootstrap';
 
 function App() {
-  
+ 
   return (
     <BrowserRouter>
+  
         
         <NavBar></NavBar>
         <Switch>
