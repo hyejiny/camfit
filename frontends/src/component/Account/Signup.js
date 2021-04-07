@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {signup, emailcheck} from '../../_actions/index';
-
 import { Form, Button, Row, Col } from "react-bootstrap";
+import './Signup.css';
 
 function Signup(props) {
   
@@ -99,70 +99,57 @@ function Signup(props) {
 
   return (
     <div>
-      <Form.Group>
-        <Form.Group as={Row} controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Email
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control 
+      <div className="Signup-Ment">
+        <h2>전문 트레이너와 AI가 함께 당신의 홈트를 도와줍니다.</h2>
+        <h2>CamFit과 함께 하세요!</h2>
+      </div>
+      <Form className="Signup-Form">
+        {/* Email */}
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label className="Signup-Form-Label">Email</Form.Label>
+          <Form.Control 
             type="email" 
             placeholder="Email" 
             value={Email} 
             onChange={onEmailHandler}
-            />
-          </Col>
+          />
         </Form.Group>
-        <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
-            <Button type="submit" onClick={emailCheck}>이메일 중복 확인</Button>
-          </Col>
-        </Form.Group>
+        <Button className="Signup-Emailcheck-Button" type="submit" onClick={emailCheck}>Check for duplicate emails</Button>
 
-        <Form.Group as={Row} controlId="formHorizontalPassword">
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control 
+        {/* Password */}
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label className="Signup-Form-Label">Password</Form.Label>
+          <Form.Control 
             type="password" 
             placeholder="Password" 
             value={Password} 
             onChange={onPasswordHandler}
-            />
-          </Col>
+          />
         </Form.Group>
 
-        <Form.Group as={Row} controlId="formHorizontalPasswordCheck">
-          <Form.Label column sm={2}>
-            Confirm Password
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control 
+        <Form.Group controlId="formBasicPasswordCheck">
+          <Form.Label className="Signup-Form-Label">Confirm Password</Form.Label>
+          <Form.Control 
             type="password" 
             placeholder="PasswordCheck" 
             value={PasswordCheck} 
             onChange={onPasswordCheckHandler} 
+          />
+        </Form.Group>
+
+        {/* Nickname */}
+        <Form.Group controlId="formBasicNickname">
+          <Form.Label className="Signup-Form-Label">Nickname</Form.Label>
+            <Form.Control 
+              type="text" 
+              placeholder="Nickname" 
+              value={Nickname} 
+              onChange={onNicknameHandler}
             />
-          </Col>
         </Form.Group>
 
-        <Form.Group as={Row} controlId="formHorizontalNickname">
-          <Form.Label column sm={2}>
-            Nickname
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="text" placeholder="Nickname" value={Nickname} 
-            onChange={onNicknameHandler}  />
-          </Col>
-        </Form.Group>
-
-        <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
-            <Button type="submit" onClick={onSubmitHandler}>Sign up</Button>
-          </Col>
-        </Form.Group>
-      </Form.Group>
+        <Button className="Signup-Button" type="submit" onClick={onSubmitHandler}>Sign up</Button>
+      </Form>
     </div>
   );
 }
