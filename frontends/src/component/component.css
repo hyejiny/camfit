@@ -22,33 +22,5 @@
     border-color:black; */
   }
 
-.footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  padding: 3px;
-  margin: 0;
-  background-color: black;
-  text-align: center;
-}
-
-.div {
-  padding: 3px;
-  justify-content: center;
-  align-items: center;
-  color: aliceblue;
-}
-.divv {
-  padding: 3px;
-  justify-content: center;
-  align-items: center;
-  color: grey;
-}
-
-.div a {
-  
-  margin-right: 3px;
-  padding: 2px;
-}
 
 
