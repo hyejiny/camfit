@@ -3,12 +3,8 @@ import { Button } from 'antd';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './ProductInfo.css';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { videoclasslist } from "../../_actions/index";
-import { API_BASE_URL } from "../../constants";
 import { classReg } from '../../_actions/index';
 
 function ProductInfo(props) {

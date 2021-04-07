@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../component.css";
 import { useDispatch } from "react-redux";
 import { Row, Col } from "react-bootstrap";
