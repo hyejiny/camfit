@@ -10,14 +10,12 @@ import { API_BASE_URL } from "../../constants";
 import './ClassDetailPage.css';
 import Image from 'react-bootstrap/Image';
 // import OtherclassesBackground from './images/Abract01.png';
-
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
-import { Viewer } from '@toast-ui/react-editor';
 
 
 function ClassDetailPage(props) {
@@ -26,6 +24,7 @@ function ClassDetailPage(props) {
     const classId = props.match.params.classId
     const [Classs, setClasss] = useState({})
     const [Classes, setClasses] = useState(null)
+    const [MyClass, setMyClass] = useState(null)
     // console.log(Classs.desc_image);
     
     let renderCards = null;
@@ -45,7 +44,6 @@ function ClassDetailPage(props) {
         dispatch(videoclasslist())
         .then((res) => {
             const class_list = res.payload
-            // console.log(class_list,'123');
             setClasses(class_list)
         })
 
@@ -62,7 +60,14 @@ function ClassDetailPage(props) {
         .then((res) => {
             // console.log(res.payload);
             setClasss(res.payload)            
-            // console.log(res.payload.content);  
+            // console.log(res.payload.content);
+            
+            if (res.payload.guests.some(e=> e.username==window.localStorage.getItem('useremail'))) {
+                setMyClass(true);
+                console.log('나옴')
+            } else {
+                console.log('안나옴')
+            }
         })
     }, [dispatch])
 
@@ -85,7 +90,7 @@ function ClassDetailPage(props) {
                 </Col>
                 <Col className="imagespace" lg={5} xs={12}>
                     {/* ProductInfo */}
-                    <ProductInfo detail={Classs} />
+                    <ProductInfo detail={Classs} Myclass={MyClass} setMyclass={setMyClass} />
                 </Col>                            
             </Row>
             <br/><br/><br/>

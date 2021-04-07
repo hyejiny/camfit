@@ -43,7 +43,7 @@ def fitclass_detail(request, fitclass_pk):
     # print(len(fitclass.guests.all()))
     return Response(serializer.data)
 
-@api_view(['PUT'])
+@api_view(['PUT'])  
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
 def fitclass_participate_left(request,fitclass_pk):
@@ -57,7 +57,6 @@ def fitclass_participate_left(request,fitclass_pk):
             fitclass.guests.add(user)
         else:
             return Response('정원이 다 찼습니다')
-
 
     serializer = FitclassSerializer(fitclass)
     # if serializer.is_valid(raise_exception=True):

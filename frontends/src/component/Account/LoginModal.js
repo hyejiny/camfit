@@ -35,6 +35,7 @@ function LoginModal(props) {
             localStorage.setItem('userid',res.payload.id)
             localStorage.setItem('usernickname',res.payload.nickname)
             localStorage.setItem('usercategory',res.payload.category)
+            localStorage.setItem('useremail',res.payload.email)
           })
           setTimeout(function() {
             window.location.replace("/")
