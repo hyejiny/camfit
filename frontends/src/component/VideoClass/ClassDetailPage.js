@@ -88,7 +88,8 @@ function ClassDetailPage(props) {
                     <ProductInfo detail={Classs} />
                 </Col>                            
             </Row>
-                    <h2> 다른 클래스들</h2>
+            <br/><br/><br/>
+                    <h1> 다른 클래스들</h1>
             <Row className="Other-Classes-Row">
                 <OwlCarousel className="Other-Classes" margin={0} loop items={4} autoplay ={true}>
                     { renderCards }
