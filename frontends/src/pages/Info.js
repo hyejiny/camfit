@@ -12,7 +12,7 @@ class Info extends Component {
         <div
           style={{
             backgroundImage: `url("${honey}")`,
-            height: "300px",
+            height: "400px",
             backgroundSize: "100%, cover",
             backgroundPosition: "center, center",
             width: "100%",
@@ -21,10 +21,7 @@ class Info extends Component {
           }}
           className="Infoouter"
         >
-          <p className="Infomid" style={{ color: "white", fontSize:"40px" }}>
-            {" "}
-            꿀팁을 드려요{" "}
-          </p>
+      
         </div>
         <Infocard />
       </div>

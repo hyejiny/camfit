@@ -37,8 +37,8 @@ function InfoMain(props) {
           <h1 style={{ color: "white" }}>{props.title}</h1>
           <div style={{ color: "white" }}>발행일 : {shot_d}</div>
         </div>
-      <Content style={{ padding: "0 50px" }}>
-        <div className="site-layout-content">
+      <Content className="site-layout-content" style={{ padding: "0 50px" }}>
+        <div className="site-layout-content contenttext">
           {props.content}
           <Divider className="ant-divider" />
           {/* <AiOutlineHeart
