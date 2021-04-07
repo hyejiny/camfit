@@ -53,9 +53,12 @@ function VideoClass() {
                 {renderCards}
             </Row>
             <div className="upload">
+                {window.localStorage.getItem('usercategory')=== '2' ?
                 <p>클래스를 등록하고 싶으세요? <button className="uploadButton btn btn-outline-dark">
                     <a className="btntext" href="/videoclass/upload">등록</a>
                 </button></p>
+                : <p></p>
+                    }
                 
             </div>
         </div>
