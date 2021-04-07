@@ -109,8 +109,8 @@ function Signup(props) {
   return (
     <div>
       <div className="Signup-Ment">
-        <h2>전문 트레이너와 AI가 함께 당신의 홈트를 도와줍니다.</h2>
-        <h2>CamFit과 함께 하세요!</h2>
+        <h2 className="Signup-Ment">전문 트레이너와 AI가 함께 당신의 홈트를 도와줍니다.</h2>
+        <h2 className="Signup-Ment">CamFit과 함께 하세요!</h2>
       </div>
       <Form className="Signup-Form">
         {/* Email */}

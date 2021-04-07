@@ -38,6 +38,9 @@ function VideoClass() {
                     <Card.Text className="Classes-Price">월 {product.price}원 <Badge variant="warning">Free</Badge></Card.Text>            
                 </Card>
             </a>
+                <br/>
+                <br/>   
+                <br/>
         </Col>
     })
 
