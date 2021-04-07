@@ -23,6 +23,7 @@ def fitclass_list_create(request):
         serializer = FitclassSerializer(fitclasses, many=True)
         return Response(serializer.data)
     else:
+        print(request.user)
         if request.user.category == 1 or request.user.is_superuser:
             serializer = FitclassSerializer(data=request.data)
             if serializer.is_valid(raise_exception=True):
