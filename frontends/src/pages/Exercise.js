@@ -18,6 +18,7 @@ const Exercise = (props) => {
   const name = props.match.params.category;
   const URL = "/teachable/" + name + "/";
 
+
   let model, webcam, ctx, labelContainer, maxPredictions;
 
   async function init() {
@@ -135,21 +136,21 @@ const Exercise = (props) => {
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/dist/teachablemachine-pose.min.js"></script>
       <Row>
-        <Col className="mt-5">
+        <Col style={{marginTop:'150px', marginLeft:'30px'}}>
           <video
-            width="500"
-            height="500"
-            // controls
-            autoPlay
-            muted
+            width="800"
+            // height="500"
+            controls
+            // autoPlay
+            // muted
           >
-            <source src="/teachable/Woman.mp4" type="video/mp4" />
+            <source src={'/teachable/'+name +'.mp4'} type="video/mp4" />
           </video>
         </Col>
         <Col>
         <Button size='Big' onClick={init} animated inverted color="green" style={{margin:"25px"}}>
               <Button.Content visible >
-                Sratrt!
+                Start!
               </Button.Content>
               <Button.Content hidden>
                 {/* <Icon name="arrow right" /> */}
