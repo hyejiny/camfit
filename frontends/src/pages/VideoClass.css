@@ -6,7 +6,8 @@
   border-radius: 30px;
   border: none;
   max-width: 300px;
-  max-height: 450px;
+  /* max-height: 450px; */
+  height: 500px;
   /* padding: 30px; */
   /* box-shadow:  1px 3px rgba(0, 0, 0, 0.2); */
   transition-timing-function: all 0.2s ease-in-out;
@@ -33,14 +34,14 @@
 .Classes-Trainer {
   /* text-align: left; */
   font-family: 'payboocMedium';
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin-bottom: 10px;
   color: black;
 }
 
 
 .Classes-Title {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-family: 'payboocMedium';
   /* text-align: left; */
   margin-bottom: 10px;
@@ -92,8 +93,6 @@ p {
 content: "";
 background: url("./images/classmain.jpg");
 background-size: 100% 600px;
-
-
 position: absolute;
 top: 0px;
 left: 0px;
