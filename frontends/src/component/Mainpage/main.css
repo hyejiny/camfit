@@ -14,3 +14,14 @@
     left: 50px;
     font-size: 18px;
   }
+
+  .ttfex {
+    font-family: 'mainttf';
+  }
+
+.fontgra {
+    background: linear-gradient(to right, #33295A, #AA345A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
