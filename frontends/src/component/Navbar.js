@@ -73,10 +73,10 @@ class NavBar extends Component {
     } else {
       button = (
         <Fragment>
-          <Nav.Link className="nav-links" style={{marginTop:'6px'}} href="/">
+          <Nav.Link className="signup-btn-links" href="/">
             {window.localStorage.getItem("usernickname")}님 환영합니다.
           </Nav.Link>
-          <Nav.Link className="nav-links" style={{marginTop:'6px'}} onClick={this.logout}>
+          <Nav.Link className="signup-btn-links" onClick={this.logout}>
             로그아웃
           </Nav.Link>
         </Fragment>
