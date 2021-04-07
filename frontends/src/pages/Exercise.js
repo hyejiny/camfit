@@ -1,5 +1,5 @@
 
-import { Container, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import React, { useState } from "react";
 import "./page.css";
 import "./Exercise.css";
@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import {createjandi} from "../_actions/index"
 
 import { Button } from "semantic-ui-react";
-import { PoweroffOutlined } from '@ant-design/icons';
+// import { PoweroffOutlined } from '@ant-design/icons';
 
 const Exercise = (props) => {
   // const URL = "https://teachablemachine.withgoogle.com/models/ZefWtwqSL/";
@@ -86,14 +86,14 @@ const Exercise = (props) => {
         var audio = new Audio(wavPath);
         audio.play();
       }
-      if (status != "armup") {
+      if (status !== "armup") {
         //  status= "일어남";
         status = "armup";
         setStatus(status);
         console.log("일어남");
       }
     } else if (prediction[1].probability.toFixed(2) > 0.9) {
-      if (status != "wrongpose") {
+      if (status !== "wrongpose") {
         // status = "잘못된 자세"
         status = "wrongpose";
         setStatus(status);
@@ -102,7 +102,7 @@ const Exercise = (props) => {
         audio.play();
       }
     } else if (prediction[0].probability.toFixed(2) > 0.9) {
-      if (status != "armdown") {
+      if (status !== "armdown") {
         // status = "앉음"
         status = "armdown";
         setStatus(status);
