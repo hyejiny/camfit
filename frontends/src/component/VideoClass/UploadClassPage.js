@@ -1,5 +1,6 @@
 import React, {useState,useRef} from 'react'
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {Typography, Button, Form, Input} from 'antd'
 // import FileUpload from '../utils/FileUpload'
 import { videoclasscreate } from "../../_actions/index";
@@ -9,11 +10,13 @@ import { Editor } from '@toast-ui/react-editor';
 
 
 const {Title} = Typography;
+
 // const {TextArea} = Input;
 
 
 function UploadClassPage(props) {
   const dispatch = useDispatch()
+  const history = useHistory();
   const [Name, setName] = useState("")
   const [Description, setDescription] = useState("")
   const [Price, setPrice] = useState(0)
@@ -59,7 +62,7 @@ function UploadClassPage(props) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if(!Name || !Description || !Price) {
+    if(!Name || !Description || !Price || !NickName || !StartDay || !EndDay || !UserLimit) {
       return alert("모든 값을 넣어주셔야 합니다.")
     }
     const body = {
@@ -127,7 +130,9 @@ function UploadClassPage(props) {
               <Input type="number" onChange={UserLimitChageHandler} value={UserLimit}/>
               <br/><br/>
               <br/><br/>
-              <Button type="submit" onClick={submitHandler}>확인</Button>
+              <div >
+                <Button type="submit" onClick={submitHandler}>확인</Button>
+              </div>
 
             </Form>
 

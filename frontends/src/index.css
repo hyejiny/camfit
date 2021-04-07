@@ -19,6 +19,14 @@ code {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'mainttf';
+  src: url('./fonts/62570.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 @font-face {
   font-family: 'sandol';

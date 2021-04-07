@@ -21,10 +21,10 @@ function MainTop(props) {
           }}
       ></div>
 
-      <div className="bottomleft">
-        <h1 style={{ color: "white" }}>Make Your Wonderful Body</h1>
+      <div className="bottomleft ttfex fontgra">
+        <p style={{ fontSize:"40px" }}>Make Your Wonderful Body</p>
 
-        <h1 style={{ color: "white" }}>with "CamFit"</h1>
+        <p style={{ color: "white" ,fontSize:"60px" }}>with "CAMFIT"</p>
       </div>
       
     </div>

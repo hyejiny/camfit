@@ -12,7 +12,9 @@ function Signup(props) {
   const [Password, setPassword] = useState("");
   const [PasswordCheck, setPasswordCheck] = useState("");
   const [Nickname, setNickname] = useState("");
-  
+  const [Category, setCategory] = useState(1);
+
+
   const onEmailHandler = (event) => {
     setEmailCheck(false);
     setEmail(event.currentTarget.value);
@@ -27,6 +29,12 @@ function Signup(props) {
   }
   const onNicknameHandler = (event) => {
     setNickname(event.currentTarget.value);
+  }
+  const onCategoryFirstHandler = () => {
+    setCategory(1);
+  }
+  const onCategorySecondHandler = () => {
+    setCategory(2);
   }
 
   const emailCheck = (event) => {
@@ -74,8 +82,9 @@ function Signup(props) {
       username : Email,
       password : Password,
       passwordcheck : PasswordCheck,
-      category : 1,
+      category : Category,
       first_name : Nickname,
+
     };
     console.log(body);
     dispatch(signup(body))
@@ -147,7 +156,28 @@ function Signup(props) {
               onChange={onNicknameHandler}
             />
         </Form.Group>
-
+        <Col sm={10}>
+        {/* <Form.Label className="Signup-Form-Label">Identity</Form.Label> */}
+        <br/>
+        <Form.Check
+          type="radio"
+          label="트레이너"
+          name="formHorizontalRadios"
+          id="formHorizontalRadios1"
+          onClick={onCategoryFirstHandler}
+        />
+        <br/>
+        <br/>
+        <Form.Check
+          type="radio"
+          label="일반회원"
+          name="formHorizontalRadios"
+          id="formHorizontalRadios2"
+          onClick={onCategorySecondHandler}
+        />
+      </Col>
+      <br/>
+      <br/>
         <Button className="Signup-Button" type="submit" onClick={onSubmitHandler}>Sign up</Button>
       </Form>
     </div>
