@@ -26,7 +26,7 @@ function ClassDetailPage(props) {
     const classId = props.match.params.classId
     const [Classs, setClasss] = useState({})
     const [Classes, setClasses] = useState(null)
-    console.log(Classs.desc_image);
+    // console.log(Classs.desc_image);
     
     let renderCards = null;
     if(Classes) {
@@ -45,7 +45,7 @@ function ClassDetailPage(props) {
         dispatch(videoclasslist())
         .then((res) => {
             const class_list = res.payload
-            console.log(class_list,'123');
+            // console.log(class_list,'123');
             setClasses(class_list)
         })
 
@@ -60,9 +60,9 @@ function ClassDetailPage(props) {
     useEffect(() => {
         dispatch(videoclassdetail(classId))
         .then((res) => {
-            console.log(res.payload);
+            // console.log(res.payload);
             setClasss(res.payload)            
-            console.log(res.payload.content);  
+            // console.log(res.payload.content);  
         })
     }, [dispatch])
 

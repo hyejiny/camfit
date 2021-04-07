@@ -40,13 +40,13 @@ function LoginModal(props) {
             window.location.replace("/")
           },1000)
         } else {
-          console.log('login fail')
+          // console.log('login fail')
           alert(res.payload.message)
         }
       })
       .catch((err) => {
         alert('로그인실패')
-        console.log(err);
+        // console.log(err);
       });
   };
   return (

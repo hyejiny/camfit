@@ -17,11 +17,11 @@ function InfoCard(props) {
 
   useEffect(() => {
     dispatch(infolist()).then((res) => {
-      console.log(res.payload, "payload");
+      // console.log(res.payload, "payload");
       const infoinfo = res.payload;
       setFirstInfo(infoinfo);
-      console.log(FirstInfo, "firstinfo");
-      console.log(typeof FirstInfo);
+      // console.log(FirstInfo, "firstinfo");
+      // console.log(typeof FirstInfo);
     });
   }, []);
 

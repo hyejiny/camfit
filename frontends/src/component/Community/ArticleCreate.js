@@ -22,7 +22,7 @@ function ArticleCreate(props) {
 
   const descriptionChangeHandler = (e) => {
     setDescription(e.currentTarget.value)
-    console.log('바뀜')
+    // console.log('바뀜')
   }
 
   // const updateImages = (newImages) => {
@@ -47,7 +47,7 @@ function ArticleCreate(props) {
       dispatch(createArticle(body))
       .then((res) => {
         props.history.push('/Community')
-        console.log(res.payload);
+        // console.log(res.payload);
       });
       // Axios.post('/api/product', body)
       //       .then(response => {
@@ -65,9 +65,9 @@ function ArticleCreate(props) {
   const btnClickListener = () => {
     const editorInstance = editorRef.current.getInstance();
     const getContent_md = editorInstance.getMarkdown();
-    console.log('마크다운')
+    // console.log('마크다운')
     const getContent_html = editorInstance.getHtml();
-    console.log('HTML')
+    // console.log('HTML')
     setDescription(getContent_md)
   }
 

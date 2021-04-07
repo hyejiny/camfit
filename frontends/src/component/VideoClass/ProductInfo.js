@@ -18,7 +18,7 @@ function ProductInfo(props) {
         dispatch(videoclasslist())
         .then((res) => {
             const class_list = res.payload
-            console.log(class_list);
+            // console.log(class_list);
             setClasses(class_list)
         })
     }, [dispatch])
