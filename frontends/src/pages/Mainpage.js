@@ -13,7 +13,7 @@ function Mainpage() {
     <div className="Mainpage">
       <MainTop />
 
-      <div>
+      <div className="myttf">
         <Segment style={{ padding: "8em 0em" }} vertical>
           <Grid container stackable verticalAlign="middle">
             <Grid.Row>
@@ -21,13 +21,13 @@ function Mainpage() {
                 <Header as="h3" style={{ fontSize: "2em", color: "white" }}>
                   우리는 AI Traiging을 제공합니다.
                 </Header>
-                <p style={{ fontSize: "1.33em", color: "white" }}>'Un-Tact' 시대에도 여러분의 건강을 지킬 수 있도록 도와드립니다. 캠피트와 함께라면 홈 피트니스도 전문적으로 할 수 있습니다.</p>
+                <p style={{ fontSize: "1.33em", color: "white" }}>'Un-Tact' 시대에도 여러분의 건강을 지킬 수 있도록 <br></br>도와드립니다. 캠피트와 함께라면 홈 피트니스도 전문적으로 할 수 있습니다.</p>
                 <Header as="h3" style={{ fontSize: "2em", color: "white" }}>
                   우리는 Online Class를 제공합니다.
                 </Header>
-                <p style={{ fontSize: "1.33em", color: "white" }}>'On-Tact' 시대에 헬트 트레이너와 회원을 Online으로 연결시켜드립니다.</p>
+                <p style={{ fontSize: "1.33em", color: "white" }}>'On-Tact' 시대에 헬트 트레이너와 회원을 Online으로 <br></br>연결시켜드립니다.</p>
               </Grid.Column>
-              <Grid.Column floated="right" width={6}>
+              <Grid.Column floated="right" width={7}>
                 <video width="600px" height="100%" controls muted>
                   <source src={mainvd} type="video/mp4" />
                 </video>
@@ -37,7 +37,7 @@ function Mainpage() {
         </Segment>
       </div>
 
-      <div className="row">
+      <div className="row myttf">
 
         <div className="col">
           <img src={main3} style={{ width: "100%" }}></img>
@@ -46,7 +46,7 @@ function Mainpage() {
         <div className="col" style={{margin:"auto"}}>
 
           <div className="row" style={{alignItems:'center', justifyContent:'center'}}>
-            <Header as="h3" style={{ fontSize: "2.5rem", color: "white" }}>
+            <Header as="h3" style={{ fontSize: "2rem", color: "white" }}>
               전문가의 도움이 필요한 "헬린이" 라면
             </Header>
           </div>
@@ -65,8 +65,8 @@ function Mainpage() {
           <br></br>
           <br></br>
 
-          <div class="row" style={{alignItems:'center', justifyContent:'center'}}>
-            <Header as="h3" style={{ fontSize: "2.5rem", color: "white" }}>
+          <div class="row myttf" style={{alignItems:'center', justifyContent:'center'}}>
+            <Header as="h3" style={{ fontSize: "2rem", color: "white" }}>
               온라인 Class가 필요한 "트레이너" 라면
             </Header>
           </div>

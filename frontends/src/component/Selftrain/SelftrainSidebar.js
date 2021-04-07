@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Image, Reveal } from "semantic-ui-react";
 
+import "../../pages/page.css"
+
 function SelftrainSidebar(props) {
   // const category_list = useState([
   //   {id:1,name:'코어'},
@@ -42,7 +44,7 @@ function SelftrainSidebar(props) {
   console.log(props.categoryname);
 
   return (
-    <div className="site-content">
+    <div className="site-content myttf">
       <Row xs={1} md={4}>
         <Col>
           <Reveal animated="rotate">

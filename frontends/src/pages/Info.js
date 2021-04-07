@@ -3,10 +3,12 @@ import "./page.css";
 import honey from "../component/Info/images/honey.jpg";
 import Infocard from "../component/Info/InfoCard";
 
+
+
 class Info extends Component {
   render() {
     return (
-      <div className="Info">
+      <div className="Info myttf">
         <div
           style={{
             backgroundImage: `url("${honey}")`,
@@ -19,10 +21,10 @@ class Info extends Component {
           }}
           className="Infoouter"
         >
-          <h1 className="Infomid" style={{ color: "white" }}>
+          <p className="Infomid" style={{ color: "white", fontSize:"40px" }}>
             {" "}
             꿀팁을 드려요{" "}
-          </h1>
+          </p>
         </div>
         <Infocard />
       </div>

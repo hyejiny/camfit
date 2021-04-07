@@ -102,9 +102,6 @@ class NavBar extends Component {
             <Nav.Link className="nav-links" href="/videoclass">
               클래스
             </Nav.Link>
-            <Nav.Link className="nav-links" href="/community">
-              커뮤니티
-            </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
             {button}

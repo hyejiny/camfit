@@ -11,6 +11,8 @@ import { Layout} from 'antd';
 import { useStore } from "react-redux";
 import { API_BASE_URL } from "../../constants";
 
+import "../../pages/page.css"
+
 
 function SelfDetail(props) {
   const store = useStore();
@@ -84,7 +86,7 @@ function SelfDetail(props) {
           </Col>
           <Col>
           
-            <div className="col text-align-center exborder" style={{weight:"400px", height:"500px"}}>
+            <div className="col text-align-center exborder myttf" style={{weight:"400px", height:"500px"}}>
               <h1>{TrainInfo[props.id].title}</h1>
               <h2>{TrainInfo[props.id].content}</h2>
               <h3> 운동 관련 설명</h3>

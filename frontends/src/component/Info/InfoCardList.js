@@ -26,9 +26,9 @@ function InfoCardList(props) {
         <Card.Img src={API_BASE_URL+props.imgg} height="500px" alt="Card image" class="image-container contrast" />
         <Card.ImgOverlay>
             <div class="inner">
-          <h1>
-              <a href={`/info/detail/${props.id}`}>{props.title}</a>
-          </h1>
+          <p style={{fontSize:"40px"}}>
+              <a href={`/info/detail/${props.id}`} style={{color:"#32CD32", fontweight:"bold",}}>{props.title}</a>
+          </p>
           <Card.Title >발행일 : {shot_d}</Card.Title>
           </div>
         </Card.ImgOverlay>
