@@ -170,6 +170,14 @@ body {
   color: aliceblue;
 }
 
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: aliceblue;
+}
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: aliceblue;
+}
+
+
 /* 숨겨진 버튼 */
 .ant-btn-round.ant-btn-lg {
   padding: 67px 14px 112px 7px;
