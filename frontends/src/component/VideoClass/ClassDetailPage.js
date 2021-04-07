@@ -55,16 +55,11 @@ function ClassDetailPage(props) {
     let vuewer = null;
     if(Classs) {
         vuewer =       
-            <Viewer
-                // onChange={descriptionChangeHandler}
-                initialValue={Classs.content}
-                height="600px"
-                width="300px"
-                // plugins={[chart, codeSyntaxHighlight,colorSyntax,tableMergedCell,uml]}
-
-              />
-                
-            
+        <Viewer
+        initialValue = {Classs.content}
+        />
+        console.log(Viewer.initialValue,'123');
+        console.log(Classs.content,'321');
     } else {
         dispatch(videoclassdetail(classId))
         .then((res) => {
@@ -101,7 +96,9 @@ function ClassDetailPage(props) {
                     {/* desc-image */}
                     <Image className="img-fluid" src={API_BASE_URL + Classs.desc_image}/>
                     {/* editor로 쓴 내용(이미지도 됨) */}
-                    {vuewer}
+                    <div className="viewertext">
+                        {vuewer}
+                    </div>
                 </Col>
                 <Col lg={6} xs={12}>
                     {/* ProductInfo */}

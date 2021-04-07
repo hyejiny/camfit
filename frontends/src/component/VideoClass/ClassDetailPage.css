@@ -58,7 +58,10 @@
     color: black;
 }
 
-
+.viewertext {
+    font-family: 'payboocMedium';
+    height:max-content;
+}
 .Other-Class-Price {
     text-decoration-line: line-through;
     /* text-align: left; */
