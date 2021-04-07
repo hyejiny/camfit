@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SelftrainSidebar from "./SelftrainSidebar";
 import Jandi from "./Jandi"
 import "./train.css";
+import "../../pages/page.css"
 
 import { OverlayTrigger, Button, Popover } from "react-bootstrap";
 function SelfMain(props) {
@@ -29,11 +30,11 @@ function SelfMain(props) {
   const nickname = window.localStorage.getItem("usernickname");
   return (
     
-    <div class="inner2 multi2">
+    <div class="inner2 multi2 myttf">
       {nickname ? (
-        <h1 style={{color:"white"}}>"{nickname}" 님 운동을 시작하시겠습니까?</h1>
+        <p style={{color:"white"}}>"{nickname}" 님 운동을 시작하시겠습니까?</p>
       ) : (
-        <h1 style={{color:"white"}}>로그인 후 사용해주세요</h1>
+        <p style={{color:"white"}}>로그인 후 사용해주세요</p>
       )}
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
         <Button variant="success">AI 운동 가이드</Button>

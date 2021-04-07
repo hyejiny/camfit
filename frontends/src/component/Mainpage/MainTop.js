@@ -23,7 +23,6 @@ function MainTop(props) {
 
       <div className="bottomleft ttfex fontgra">
         <p style={{ fontSize:"40px" }}>Make Your Wonderful Body</p>
-
         <p style={{ color: "white" ,fontSize:"60px" }}>with "CAMFIT"</p>
       </div>
       

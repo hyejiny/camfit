@@ -4,6 +4,8 @@ import "./info.css"
 import { useDispatch } from "react-redux";
 import { infodetail } from "../../_actions/index";
 
+import "../../pages/page.css"
+
 function InfoDetail(props) {
   const dispatch = useDispatch();
   const [DetailInfo, setDetailInfo] = useState([]);
@@ -20,7 +22,7 @@ function InfoDetail(props) {
   }, []);
 
   return (
-    <div className="infodetail">
+    <div className="infodetail myttf">
       <InfoMain
         imgg={DetailInfo.image}
         content={DetailInfo.content}
