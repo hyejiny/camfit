@@ -65,8 +65,8 @@ function Mainpage() {
           <br></br>
           <br></br>
 
-          <div class="row myttf" style={{alignItems:'center', justifyContent:'center'}}>
-            <Header as="h3" style={{ fontSize: "2rem", color: "white" }}>
+          <div className="row drttf" style={{alignItems:'center', justifyContent:'center'}}>
+            <Header as=""  className="drttf" style={{ fontSize: "2rem", color: "white" }}>
               온라인 Class가 필요한 "트레이너" 라면
             </Header>
           </div>

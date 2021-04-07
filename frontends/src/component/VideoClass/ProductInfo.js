@@ -3,12 +3,9 @@ import { Button } from 'antd';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './ProductInfo.css';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import { videoclasslist } from "../../_actions/index";
-import { API_BASE_URL } from "../../constants";
+
 import { classReg } from '../../_actions/index';
 
 function ProductInfo(props) {
@@ -43,7 +40,7 @@ function ProductInfo(props) {
                     <br />
                     <br />
                     <div style={{ display: 'flex', justifyContent: 'center' }} onClick={gotoCart}>
-                        <Button size="large" shape="round" type="danger" onClick={() => {history.push({
+                        <Button shape="round" type="danger" style={{width:"130px",height:"50px"}} onClick={() => {history.push({
                             pathname: `/videochat`})}}>
                             수강하기
                         </Button>

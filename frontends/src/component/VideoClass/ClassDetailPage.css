@@ -8,7 +8,7 @@
 
 .Other-Classes {
     /* font-family: 'payboocMedium'; */
-
+    margin: auto;
     padding-top: 6rem;
     width: 100%;
 }
@@ -18,16 +18,19 @@
     background: #fff;
   display: flex;
   flex-direction: flex-start;
-  /* align-items: center; */
+  /* margin: auto; */
+  align-items: center;
+  /* text-align: center; */
   border-radius: 30px;
   border: none;
-  max-width: 370px;
+  /* max-width: 370px;   */
   max-height: 550px;
   /* padding: 30px; */
   /* box-shadow:  1px 3px rgba(0, 0, 0, 0.2); */
   transition-timing-function: all 0.2s ease-in-out;
   margin-bottom: 50px;
   margin-left: 30px;
+  margin-right: 30px;
 }
 .Other-Class:hover {
     transform: scale(1.02);
@@ -37,9 +40,9 @@
 
 .Other-Class-Image {
     margin-bottom: 15px;
-  border-radius: 30px;
-  height: 350px;
-  width: 370px;
+    border-radius: 30px;
+    height: 350px;
+    width: 370px;
 }
 
 
@@ -60,7 +63,7 @@
 
 .viewertext {
     font-family: 'payboocMedium';
-    height:max-content;
+    font-size: 1.5rem;
 }
 .Other-Class-Price {
     text-decoration-line: line-through;
@@ -82,3 +85,11 @@
     text-align: center;
     min-height: 100vh;
 }
+
+	
+.contenttext {
+    font-size: 20px;
+    letter-spacing:5px;
+    line-height:200%;
+    white-space:pre-line
+  }
