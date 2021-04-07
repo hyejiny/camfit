@@ -74,7 +74,7 @@ function ClassDetailPage(props) {
     return (    
         <div className="detail-board">
             <Row>
-                <Col className="imagespace" lg={6} xs={12}>
+                <Col className="imagespace" lg={5} xs={12}>
                     {/* desc-image */}
                     <Image className="img-fluid" src={API_BASE_URL + Classs.desc_image}/>
                     <br/>
@@ -83,7 +83,7 @@ function ClassDetailPage(props) {
                         {Classs.content}
                     </div>
                 </Col>
-                <Col lg={6} xs={12}>
+                <Col className="imagespace" lg={5} xs={12}>
                     {/* ProductInfo */}
                     <ProductInfo detail={Classs} />
                 </Col>                            
