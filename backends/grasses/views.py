@@ -24,10 +24,11 @@ def grass_create_read(request):
         serializer = GrassSerializer(grasses, many =True)
         return Response(serializer.data)
     else:
-        if Grass.objects.filter(Q(user=request.user) & Q(date=DateFormat(datetime.now()).format('Y-m-d'))).exists:
+        if Grass.objects.filter(Q(user=request.user) & Q(date=DateFormat(datetime.now()).format('Y-m-d'))).exists():
+           
             return Response(status=status.HTTP_200_OK)
 
         serializer = GrassSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(user= request.user)
+            serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)

@@ -15,22 +15,22 @@ from .models import Fitclass
 
 
 @api_view(['GET','POST'])
-# @authentication_classes([JSONWebTokenAuthentication])
-# @permission_classes([IsAuthenticated])
+@authentication_classes([JSONWebTokenAuthentication])
+@permission_classes([IsAuthenticated])
 def fitclass_list_create(request):
     if request.method == 'GET':
         fitclasses = Fitclass.objects.order_by('-pk')
         serializer = FitclassSerializer(fitclasses, many=True)
         return Response(serializer.data)
     else:
-        print(request.user)
-        if request.user.category == 1 or request.user.is_superuser:
-            serializer = FitclassSerializer(data=request.data)
-            if serializer.is_valid(raise_exception=True):
-                serializer.save(user=request.user)
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response('트레이너만 클래스 생성 가능합니다')
+        category = request.data.get('category')
+        # if request.user.is_superuser:
+        serializer = FitclassSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # else:
+        #     return Response('트레이너만 클래스 생성 가능합니다')
 
 @api_view(['GET'])
 @authentication_classes([JSONWebTokenAuthentication])
