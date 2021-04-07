@@ -48,7 +48,7 @@ class NavBar extends Component {
   render() {
     let button;
     if (!ACCESS_TOKEN) {
-      console.log("no token");
+      // console.log("no token");
       button = (
         <>
           <button onClick={this.showModal} className="signin-btn-links">

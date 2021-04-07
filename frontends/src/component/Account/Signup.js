@@ -86,23 +86,23 @@ function Signup(props) {
       first_name : Nickname,
 
     };
-    console.log(body);
+    // console.log(body);
     dispatch(signup(body))
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.payload.username) {
-          console.log('signup success')
+          // console.log('signup success')
           props.history.push('/')
           alert('가입성공')
 
         } else {
-          console.log('signup fail')
+          // console.log('signup fail')
           alert(res.payload.message)
         }
       })
       .catch((err) => {
         alert('가입실패')
-        console.log(err);
+        // console.log(err);
       });
   };
 

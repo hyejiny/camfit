@@ -49,7 +49,7 @@ function ArticleEdit(props) {
       
       dispatch(editArticle(body,Article.id))
       .then((res) => {
-        console.log(res.payload);
+        // console.log(res.payload);
         props.history.push(`/Community/${Article.id}/detail/`)
       });
     }
@@ -59,9 +59,9 @@ function ArticleEdit(props) {
   const btnClickListener = () => {
     const editorInstance = editorRef.current.getInstance();
     const getContent_md = editorInstance.getMarkdown();
-    console.log('마크다운')
+    // console.log('마크다운')
     const getContent_html = editorInstance.getHtml();
-    console.log('HTML')
+    // console.log('HTML')
     setDescription(getContent_md)
   }
 

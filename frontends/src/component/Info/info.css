@@ -64,7 +64,7 @@
   }
 .outer .inner {
     position: absolute;
-    top: 50%;
+    top: 272px;
     left: 50%;
     width: 100%;
     -webkit-transform: translate(-50%, -50%); 

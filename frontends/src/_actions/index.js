@@ -114,7 +114,7 @@ export function imageshow(category) {
       .then((res) => 
           res.data);
           for (let value of category.values()) {
-            console.log('imageshow ,' ,value);
+            // console.log('imageshow ,' ,value);
         }
   return {
       type: types.SHOWIMAGE,
@@ -133,9 +133,9 @@ export function imageget() {
 }
 
 export function createArticle(data) {
-  console.log('index : ', data);
+  // console.log('index : ', data);
   const request = axios.post(`${API_BASE_URL}/community/`, data,{headers:{Authorization: 'jwt ' + ACCESS_TOKEN}}).then(res => res.data);
-  console.log(request)
+  // console.log(request)
   return {
     type: types.ARTICLE,
     payload: request,

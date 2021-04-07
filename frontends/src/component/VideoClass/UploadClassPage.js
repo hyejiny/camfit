@@ -35,11 +35,11 @@ function UploadClassPage(props) {
 
   const discriptionChageHandler = () => {
     const editorInstance = editorRef.current.getInstance()
-    console.log(editorInstance);
-    console.log('마크다운', editorInstance.getMarkdown());
-    console.log('html',editorInstance.getHtml());
+    // console.log(editorInstance);
+    // console.log('마크다운', editorInstance.getMarkdown());
+    // console.log('html',editorInstance.getHtml());
     setDescription(editorInstance.getHtml())
-    console.log(Description);
+    // console.log(Description);
     // setDescription(event.currentTarget.value)
   }
 

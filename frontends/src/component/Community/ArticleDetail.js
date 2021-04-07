@@ -22,7 +22,7 @@ function ArticleDetail(props) {
     useEffect(() => {
       dispatch(Articledetail(articleId))
       .then((res) => {
-        console.log('11111');
+        // console.log('11111');
         setArticle(res.payload)           
       })
     }, [dispatch]);
@@ -56,7 +56,7 @@ function ArticleDetail(props) {
     })
 
     const removeComment = (commentId) => {
-      console.log(commentId);
+      // console.log(commentId);
       // const renderCommentLists = Comments.filter((Comment) => {
       //   return Comments[index] !== Comment
       // })

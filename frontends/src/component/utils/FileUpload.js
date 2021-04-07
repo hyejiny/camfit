@@ -36,11 +36,11 @@ function FileUpload() {
 
     const btnClickListener = () => {
         const editorInstance = editorRef.current.getInstance()
-        console.log(editorInstance);
-        console.log('마크다운', editorInstance.getMarkdown());
-        console.log('html',editorInstance.getHtml());
+        // console.log(editorInstance);
+        // console.log('마크다운', editorInstance.getMarkdown());
+        // console.log('html',editorInstance.getHtml());
         setContent(editorInstance.getHtml())
-        console.log(Content);
+        // console.log(Content);
 
 
     }

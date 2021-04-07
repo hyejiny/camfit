@@ -10,10 +10,10 @@ function InfoCardList(props) {
     var st = String(dat)
     var shot_d = st.substring(0,10)
     if (props.title) {
-        console.log(props.title)
-        console.log(props.content)
-        console.log(props)
-        console.log(props.id,'id')
+        // console.log(props.title)
+        // console.log(props.content)
+        // console.log(props)
+        // console.log(props.id,'id')
     }
   return (
       <div class="outer">
