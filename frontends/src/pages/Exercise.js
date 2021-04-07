@@ -82,12 +82,14 @@ const Exercise = (props) => {
         audio.play();
       }
       if (status != "armup") {
+        //  status= "일어남";
         status = "armup";
         setStatus(status);
         console.log("일어남");
       }
     } else if (prediction[1].probability.toFixed(2) > 0.9) {
       if (status != "wrongpose") {
+        // status = "잘못된 자세"
         status = "wrongpose";
         setStatus(status);
         console.log("wrongpose");
@@ -96,6 +98,7 @@ const Exercise = (props) => {
       }
     } else if (prediction[0].probability.toFixed(2) > 0.9) {
       if (status != "armdown") {
+        // status = "앉음"
         status = "armdown";
         setStatus(status);
         console.log("armdown");      }
@@ -119,7 +122,9 @@ const Exercise = (props) => {
       }
     }
   }
-
+  const exit = () => {
+    window.location.replace('/selftrain')
+  }
   return (
     <Container className="container">
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -133,7 +138,7 @@ const Exercise = (props) => {
             autoPlay
             muted
           >
-            <source src="/media/Woman.mp4" type="video/mp4" />
+            <source src="/teachable/Woman.mp4" type="video/mp4" />
           </video>
         </Col>
         <Col>
@@ -163,8 +168,8 @@ const Exercise = (props) => {
       <div style={{ textAlign: "right", marginRight: "40px" }}>
         <h2 style={{ color: "green" }}>{Count}회</h2>
         <button
-          type="btn"
-          href="/selftrain"
+          type="button"
+          onClick={exit}
           style={{ width: "100px", height: "30px" }}
         >
           뒤로

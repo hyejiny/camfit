@@ -52,7 +52,7 @@ function SelftrainSidebar(props) {
               <Image circular size="medium" src="https://ifh.cc/g/b70G9w.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Button type="dashed" danger onClick={shoulder} className="mt-5" shape="round" size={"large"} ghost>
+              <Button type="dashed" danger onClick={shoulder} className="mt-2" shape="round" size={"large"} ghost>
                 어깨운동 시작하기
               </Button>
             </Reveal.Content>
@@ -66,7 +66,7 @@ function SelftrainSidebar(props) {
               <Image circular size="medium" src="https://ifh.cc/g/uKNRvB.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-            <Button type="dashed" danger onClick={core} className="mt-5" shape="round" size={"large"} ghost>
+            <Button type="dashed" danger onClick={core} className="mt-2" shape="round" size={"large"} ghost>
                 코어운동 시작하기
               </Button>
              
@@ -81,7 +81,7 @@ function SelftrainSidebar(props) {
               <Image circular size="medium" src="https://ifh.cc/g/z85Vm7.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-            <Button type="dashed" danger onClick={arm} className="mt-5" shape="round" size={"large"} ghost>
+            <Button type="dashed" danger onClick={arm} className="mt-2" shape="round" size={"large"} ghost>
                 팔운동 시작하기
               </Button>
              
@@ -97,7 +97,7 @@ function SelftrainSidebar(props) {
               <Image circular size="medium" src="https://ifh.cc/g/Q7zSHG.jpg" />
             </Reveal.Content>
             <Reveal.Content hidden>
-            <Button type="dashed" danger onClick={leg} className="mt-5" shape="round" size={"large"} ghost>
+            <Button type="dashed" danger onClick={leg} className="mt-2" shape="round" size={"large"} ghost>
                 하체운동 시작하기
               </Button>
              
