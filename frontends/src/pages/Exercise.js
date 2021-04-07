@@ -85,13 +85,15 @@ const Exercise = (props) => {
         var audio = new Audio(wavPath);
         audio.play();
       }
-      if (status !== "armup") {
+      if (status != "armup") {
+        //  status= "일어남";
         status = "armup";
         setStatus(status);
         console.log("일어남");
       }
     } else if (prediction[1].probability.toFixed(2) > 0.9) {
-      if (status !== "wrongpose") {
+      if (status != "wrongpose") {
+        // status = "잘못된 자세"
         status = "wrongpose";
         setStatus(status);
         console.log("wrongpose");
@@ -99,7 +101,8 @@ const Exercise = (props) => {
         audio.play();
       }
     } else if (prediction[0].probability.toFixed(2) > 0.9) {
-      if (status !== "armdown") {
+      if (status != "armdown") {
+        // status = "앉음"
         status = "armdown";
         setStatus(status);
         console.log("armdown");      }
@@ -123,7 +126,9 @@ const Exercise = (props) => {
       }
     }
   }
-
+  const exit = () => {
+    window.location.replace('/selftrain')
+  }
   return (
     <div className="Excer ontainer">
     {/* <Container className="Excer ontainer"> */}
@@ -138,7 +143,7 @@ const Exercise = (props) => {
             autoPlay
             muted
           >
-            <source src="/media/Woman.mp4" type="video/mp4" />
+            <source src="/teachable/Woman.mp4" type="video/mp4" />
           </video>
         </Col>
         <Col>
@@ -176,7 +181,7 @@ const Exercise = (props) => {
         <h2 style={{ color: "white" }}>{Count}회</h2>
         <br></br>
         <Button size='Big' href="/selftrain" animated inverted color="" style={{margintop:"15px", width:"120px", height:"40px"}}>
-              <Button.Content visible >
+              <Button.Content onClick={exit} visible >
                 뒤로가기
               </Button.Content>
               <Button.Content hidden>

@@ -156,7 +156,26 @@ body {
   
 }
 /* 글자 박스 */
-.ant-steps-item-title {
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
   color: aliceblue;
-  background-color: #0091EA;
+  /* background-color: #0091EA; */
+}
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: aliceblue;
+}
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: aliceblue;
+}
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: aliceblue;
+}
+
+/* 숨겨진 버튼 */
+.ant-btn-round.ant-btn-lg {
+  padding: 67px 14px 112px 7px;
+  border-radius: 100px;
+  margin-right: 99px;
+  font-weight: bold;
+  font-size: 30px;
+  border-style: 50px;
 }
