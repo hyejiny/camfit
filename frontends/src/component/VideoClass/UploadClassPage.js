@@ -130,7 +130,7 @@ function UploadClassPage(props) {
               <Input type="number" onChange={UserLimitChageHandler} value={UserLimit}/>
               <br/><br/>
               <br/><br/>
-              <div onClick={() => {history.push({pathname: `/videoclass`})}}>
+              <div >
                 <Button type="submit" onClick={submitHandler}>확인</Button>
               </div>
 
