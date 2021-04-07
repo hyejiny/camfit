@@ -169,7 +169,7 @@ const Exercise = (props) => {
                   fontStyle: "yellow",
                 }}
               >
-                {Status}
+                {/* {Status} */}
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ import SelfMain from "../component/Selftrain/SelfMain";
 function Selftrain() {
 
   return (
-    <div className="Selftrain">
+    <div className="Selftrain myttf">
         <SelfMain></SelfMain>
     </div>
   );

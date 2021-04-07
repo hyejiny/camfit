@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux";
 import { infolist } from "../../_actions/index";
 // import {ACCESS_TOKEN} from '../../constants'
 
+import "../../pages/page.css"
+
 function InfoCard(props) {
   const dispatch = useDispatch();
   const [FirstInfo, setFirstInfo] = useState([]);
@@ -63,7 +65,7 @@ function InfoCard(props) {
   };
 
   return (
-    <div>
+    <div className="myttf">
       <Slider {...settings}>{infocard}</Slider>
     </div>
   );
