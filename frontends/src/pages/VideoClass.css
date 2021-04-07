@@ -52,6 +52,7 @@ h1 {
 
 
 .Classes-Price {
+  text-decoration-line: line-through;
   /* text-align: left; */
   font-weight: bolder;
   font-family: 'payboocMedium';
@@ -63,7 +64,6 @@ h1 {
 
 p {
   font-size: 30px;
-  
 }
 
 .upload {
@@ -76,4 +76,30 @@ p {
 .btntext {
   font-family: 'payboocMedium';
   color: black;
+}
+
+.classmain {
+    
+  height: 600px;
+ 
+  background-position: center, center;
+  /* background-color:rgba(255, 255, 255, 0.2); */
+  width: 100%;
+  position: relative;
+  text-align:center;
+  /* opacity: 0.5;
+  z-index: -1; */
+
+}
+.classmain::before{
+content: "";
+background: url("./images/classmain.jpg");
+background-size: 100% 600px;
+
+
+position: absolute;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
 }

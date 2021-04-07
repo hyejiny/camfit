@@ -1,13 +1,17 @@
-import Iframe from "react-iframe";
+
 import { Container, Col, Row } from "react-bootstrap";
 import React, { useState } from "react";
 import "./page.css";
 import "./Exercise.css";
-import * as tf from "@tensorflow/tfjs";
+
 import * as tmPose from "@teachablemachine/pose";
-import { WindowsOutlined } from "@ant-design/icons";
+
 import { useDispatch } from "react-redux";
 import {createjandi} from "../_actions/index"
+
+import { Button } from "semantic-ui-react";
+import { PoweroffOutlined } from '@ant-design/icons';
+
 const Exercise = (props) => {
   // const URL = "https://teachablemachine.withgoogle.com/models/ZefWtwqSL/";
   const dispatch = useDispatch();
@@ -62,7 +66,7 @@ const Exercise = (props) => {
     const prediction = await model.predict(posenetOutput);
     
     if (prediction[2].probability.toFixed(2) > 0.9) {
-      if (status == "armdown") {
+      if (status === "armdown") {
         cnt++;
         if (cnt===10) {
           var audio = new Audio("/wavfolder/11_train_finish.wav");
@@ -126,7 +130,8 @@ const Exercise = (props) => {
     window.location.replace('/selftrain')
   }
   return (
-    <Container className="container">
+    <div className="Excer ontainer">
+    {/* <Container className="Excer ontainer"> */}
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/dist/teachablemachine-pose.min.js"></script>
       <Row>
@@ -142,10 +147,17 @@ const Exercise = (props) => {
           </video>
         </Col>
         <Col>
-          <div>Teachable Machine Pose Model</div>
-          <button type="button" onClick={init}>
-            Start
-          </button>
+        <Button size='Big' onClick={init} animated inverted color="green" style={{margin:"25px"}}>
+              <Button.Content visible >
+                Sratrt!
+              </Button.Content>
+              <Button.Content hidden>
+                {/* <Icon name="arrow right" /> */}
+                화이팅!
+              </Button.Content>
+              </Button>
+  
+     
           <div>
             <div style={{ position: "relative" }}>
               <canvas style={{ position: "absolute" }} id="canvas"></canvas>
@@ -165,17 +177,22 @@ const Exercise = (props) => {
           <div style={{ position: "relative" }} id="label-container"></div>
         </Col>
       </Row>
-      <div style={{ textAlign: "right", marginRight: "40px" }}>
-        <h2 style={{ color: "green" }}>{Count}회</h2>
-        <button
-          type="button"
-          onClick={exit}
-          style={{ width: "100px", height: "30px" }}
-        >
-          뒤로
-        </button>
+      <div style={{ position:"absolute" ,left:"1200px",marginTop:"50px" }}>
+        <h2 style={{ color: "white" }}>{Count}회</h2>
+        <br></br>
+        <Button size='Big' href="/selftrain" animated inverted color="" style={{margintop:"15px", width:"120px", height:"40px"}}>
+              <Button.Content onClick={exit} visible >
+                뒤로가기
+              </Button.Content>
+              <Button.Content hidden>
+                {/* <Icon name="arrow right" /> */}
+                벌써??
+              </Button.Content>
+              </Button>
+       
       </div>
-    </Container>
+    {/* </Container> */}
+    </div>
   );
 };
 

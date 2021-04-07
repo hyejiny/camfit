@@ -15,8 +15,8 @@ from .models import Fitclass
 
 
 @api_view(['GET','POST'])
-@authentication_classes([JSONWebTokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([JSONWebTokenAuthentication])
+# @permission_classes([IsAuthenticated])
 def fitclass_list_create(request):
     if request.method == 'GET':
         fitclasses = Fitclass.objects.order_by('-pk')

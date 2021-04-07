@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../component.css";
 import { useDispatch } from "react-redux";
-import { selftrainlist } from "../../_actions/index";
 import { Row, Col } from "react-bootstrap";
 import { Button } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,7 +15,7 @@ function SelftrainSidebar(props) {
   //   {id:4,name:'어깨'}
   // ])
 
-  const [Vis, setVis] = useState(false);
+  // const [Vis, setVis] = useState(false);
   const dispatch = useDispatch();
   const shoulder = () => {
     window.location.replace("/selftrain/detail/1");
@@ -36,9 +35,9 @@ function SelftrainSidebar(props) {
     window.location.replace("/selftrain/detail/4");
   };
 
-  const onClose = () => {
-    setVis(false);
-  };
+  // const onClose = () => {
+  //   setVis(false);
+  // };
 
   console.log(props.categoryname);
 
