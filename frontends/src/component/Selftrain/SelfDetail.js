@@ -4,7 +4,6 @@ import {
   Button,
   Row,
   Col,
-
 } from "react-bootstrap";
 import React, { useState } from "react";
 import { Layout} from 'antd';
@@ -47,22 +46,24 @@ function SelfDetail(props) {
             }}>
           <Col>
             <Carousel
-              className=" my-auto"
-              style={{ background: "gray", marginLeft:'10px',marginRight:'10px' }}
+              className="my-auto"
+              style={{ background: "#E0ECEA", marginLeft:'10px',marginRight:'10px' }}
             >
-              <Carousel.Item>
+              <Carousel.Item 
+                  >
                 <img
                   className="d-block"
-                  width="500px"
+                  // width="500px"
                   height="500px"
                   src={API_BASE_URL + TrainInfo[props.id].thumbnail}
                   alt="First slide"
+                  style={{margin:'auto'}}
                 />
               </Carousel.Item>
               <Carousel.Item>
               <img
                   className="d-block"
-                  width="500px"
+                  // width="500px"
                   height="500px"
                   src={API_BASE_URL + TrainInfo[props.id].thumbnail2}
                   alt="First slide"
@@ -71,7 +72,7 @@ function SelfDetail(props) {
               <Carousel.Item>
               <img
                   className="d-block"
-                  width="500px"
+                  // width="500px"
                   height="500px"
                   src={API_BASE_URL + TrainInfo[props.id].thumbnail3}
                   alt="First slide"
@@ -87,10 +88,14 @@ function SelfDetail(props) {
           <Col>
           
             <div className="col text-align-center exborder myttf" style={{weight:"400px", height:"500px"}}>
-              <h1>{TrainInfo[props.id].title}</h1>
-              <h2>{TrainInfo[props.id].content}</h2>
-              <h3> 운동 관련 설명</h3>
-              <Button href={'/selftrain/exercise/'+trainId}>운동 시작 하기</Button>
+              <h1 className='myttf'>{TrainInfo[props.id].title}</h1>
+              <h2 className='myttf'>{TrainInfo[props.id].content}</h2>
+              {/* <h3> 운동 관련 설명</h3> */}
+              {TrainInfo[props.id].id=='9' || TrainInfo[props.id].id=='12' || TrainInfo[props.id].id=='13' || TrainInfo[props.id].id=='14' ?
+              <Button className='myttf' href={'/selftrain/exercise/'+trainId}>운동 시작 하기</Button>
+              :
+              <Button className='myttf'>준비중인 서비스 입니다!</Button>
+              }
             </div>
           </Col>
         </Row>

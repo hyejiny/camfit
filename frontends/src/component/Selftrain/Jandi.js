@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Steps, Popover } from "antd";
 import './train.css'
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import {getjandi} from "../../_actions/index"
 function Jandi() {
@@ -12,7 +11,7 @@ function Jandi() {
     <Popover
       content={ 
           <span>
-          step {index} status: {status}
+          힘내세요!
           </span>
   
       }
@@ -25,6 +24,7 @@ function Jandi() {
   const jandi = dispatch(getjandi()).then((res) => {
     setCnt(res.payload.length)
   })
+  
   
   return (
     <div

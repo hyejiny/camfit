@@ -179,7 +179,7 @@ const Exercise = (props) => {
         </Col>
       </Row>
       <div style={{ position:"absolute" ,left:"1200px",marginTop:"50px" }}>
-        <h2 style={{ color: "white" }}>{Count}회</h2>
+        <h2 className='myttf' style={{ color: "white" }}>{Count}회</h2>
         <br></br>
         <Button size='Big' href="/selftrain" animated inverted color="" style={{margintop:"15px", width:"120px", height:"40px"}}>
               <Button.Content onClick={exit} visible >

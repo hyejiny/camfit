@@ -31,16 +31,15 @@ function ClassDetailPage(props) {
     let renderCards = null;
     if(Classes) {
         renderCards = Classes.map((product, index) => {
-            return (<a href={'/videoclass/detail/'+ product.id } key={index}>
-            
+            return (<a className="Class-atag" href={'/videoclass/detail/'+ product.id } key={index}>
                 <Card className="owl-theme Other-Class">
                     <Card.Img className="Other-Class-Image" src={API_BASE_URL+product.image}/>  
                     <Card.Title className="Other-Class-Title">{product.title}</Card.Title>
                     <Card.Text className="Other-Class-Trainer">{product.nickname}</Card.Text>
                     <Card.Text className="Other-Class-Price">월 {product.price}원 <Badge variant="warning">Free</Badge></Card.Text>            
                 </Card>
-                
             </a>
+            
         );})
     } else {
         dispatch(videoclasslist())
@@ -52,23 +51,6 @@ function ClassDetailPage(props) {
 
     }
 
-    let vuewer = null;
-    if(Classs) {
-        vuewer =       
-        <Viewer
-        initialValue = {Classs.content}
-        />
-        console.log(Viewer.initialValue,'123');
-        console.log(Classs.content,'321');
-    } else {
-        dispatch(videoclassdetail(classId))
-        .then((res) => {
-            console.log(res.payload);
-            setClasss(res.payload)            
-            console.log(res.payload.content);  
-        })
-
-    }
     
 
     // useEffect(() => {
@@ -92,22 +74,24 @@ function ClassDetailPage(props) {
     return (    
         <div className="detail-board">
             <Row>
-                <Col className="imagespace" lg={6} xs={12}>
+                <Col className="imagespace" lg={5} xs={12}>
                     {/* desc-image */}
                     <Image className="img-fluid" src={API_BASE_URL + Classs.desc_image}/>
-                    {/* editor로 쓴 내용(이미지도 됨) */}
-                    <div className="viewertext">
-                        {vuewer}
+                    <br/>
+                    <br/>
+                    <div className="contenttext">
+                        {Classs.content}
                     </div>
                 </Col>
-                <Col lg={6} xs={12}>
+                <Col className="imagespace" lg={5} xs={12}>
                     {/* ProductInfo */}
                     <ProductInfo detail={Classs} />
                 </Col>                            
             </Row>
-                    <h2> 다른 클래스들</h2>
+            <br/><br/><br/>
+                    <h1> 다른 클래스들</h1>
             <Row className="Other-Classes-Row">
-                <OwlCarousel className="Other-Classes" loop items={3} autoplay ={true}>
+                <OwlCarousel className="Other-Classes" margin={0} loop items={4} autoplay ={true}>
                     { renderCards }
                 </OwlCarousel>
             </Row>
@@ -118,4 +102,3 @@ function ClassDetailPage(props) {
 
 
 export default ClassDetailPage
-

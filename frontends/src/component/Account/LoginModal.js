@@ -36,7 +36,9 @@ function LoginModal(props) {
             localStorage.setItem('usernickname',res.payload.nickname)
             localStorage.setItem('usercategory',res.payload.category)
           })
-          window.location.replace("/")
+          setTimeout(function() {
+            window.location.replace("/")
+          },1000)
         } else {
           console.log('login fail')
           alert(res.payload.message)
