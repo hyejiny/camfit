@@ -40,18 +40,16 @@ export default class VideoChat extends React.Component {
   
     renderForms = () => {
       return this.state.isLoggedIn
-        ? <div key='a' className='form'>
+        ? <div style={{alignItems: 'center'}} key='a' className='form' >
           <label>Call to</label>
           <input className="input" value={this.state.userToCall} type="text" onChange={e => this.setState({ userToCall: e.target.value })} />
-          <button className="button" onClick={this.onStartCallClicked} id="call-btn" className="btn btn-primary">Call</button>
+          <button style={{width: '400px'}} className="button" onClick={this.onStartCallClicked} id="call-btn" className="btn btn-primary">Call</button>
   
         </div>
         : <div key='b' className='form'>
           <div className="label-p">사용하실 이름을 입력하세요.</div>
           <input className="input" value={this.state.username} type="text" onChange={e => this.setState({ username: e.target.value })} />
-  
           <button className="button" onClick={this.onLoginClicked} id="login-btn" className="btn btn-primary">Login</button>
-  
         </div>
     }
   
