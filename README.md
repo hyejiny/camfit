@@ -306,8 +306,16 @@ back : https://j4d104.p.ssafy.io/api
       * waveglow라는 보코더를 사용하였다.
     * TTS 구현 후 상황에 따른 wav파일을 프론트엔드에서 빠르게 쓸 수 있게 미리 만들어놓고 재생하였다.
 * 온라인 화상 클래스
+  * 화상 미팅
+    * webRTC 패키지를 활용해 P2P통신을 구현하였다.
+      * getUserMedia() : 로컬 비디오와 오디오에 접근하여 미디어 데이터를 가져온다.
+      * RTCPeerConnection : 피어간 오디오, 비디오 통신을 활성화, 신호처리, 코덱관리, P2P 통신, 보안, 대역폭 관리 등을 수행
+      * Google의 공용 stun Server를 이용해 타 IP에 접근할 수 있도록 하였다. `'stun:stun.l.google.com:19302'`
+    * Firebase 를 활용해 실시간 데이터 통신을 구현하였다.
+
 * 정보 게시판
-* 커뮤니티
+
+
 
 
 
