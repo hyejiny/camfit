@@ -294,7 +294,7 @@ back : https://j4d104.p.ssafy.io/api
     * 티쳐블머신 웹 상에서 모델링 후 프론트엔드에서 적용하고 각각의 상태값을 조정하여 여러 상황에 대응하였다.
     * 시작, 갯수 세어주기, 자세 경고 등의 상황에서 각각에 맞는 wav파일을 재생하였다. 
   * TTS (음성합성)
-    * ![TTS](기획\TTS.JPG)
+    * ![TTS](./기획/TTS.JPG)
     * 인코더
       * 문자열을 캐릭터 임베딩으로 변환한 벡터를 입력으로 받는다.
       * Convolution Layer와 Bidirectional LSTM Layer를 거쳐 feature를 인코딩한다.
