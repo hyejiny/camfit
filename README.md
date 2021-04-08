@@ -281,6 +281,7 @@ back : https://j4d104.p.ssafy.io/api
 
 * [ERD](./기획/ERD.png) 
 * [Wire Frame](./기획/[인공눈물] 와이어프레임.pdf)
+  * 상세보기 : https://www.notion.so/9813c4963a3f4b9795a326e00f4bf9e9
 
 
 
