@@ -19,7 +19,7 @@ function Mainpage() {
             <Grid.Row>
               <Grid.Column width={8}>
                 <Header as="h3" style={{ fontSize: "2em", color: "white" }}>
-                  우리는 AI Traiging을 제공합니다.
+                  우리는 AI Training을 제공합니다.
                 </Header>
                 <p style={{ fontSize: "1.33em", color: "white" }}>'Un-Tact' 시대에도 여러분의 건강을 지킬 수 있도록 <br></br>도와드립니다. 캠피트와 함께라면 홈 피트니스도 전문적으로 할 수 있습니다.</p>
                 <Header as="h3" style={{ fontSize: "2em", color: "white" }}>

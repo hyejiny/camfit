@@ -2,7 +2,7 @@
 import { ListGroup } from "react-bootstrap";
 import { selftrainlist } from "../../_actions/index";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useStore } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./train.css";
 
 

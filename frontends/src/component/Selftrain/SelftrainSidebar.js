@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../component.css";
-import { useDispatch } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import { Button } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";

@@ -1,4 +1,4 @@
-import React,{useEffect, useLayoutEffect, useState, useRef} from 'react'
+import React,{useEffect, useState } from 'react'
 import { useDispatch } from "react-redux";
 import { videoclassdetail, videoclasslist } from "../../_actions/index"
 import ProductInfo from './ProductInfo';

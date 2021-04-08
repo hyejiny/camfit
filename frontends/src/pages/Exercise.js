@@ -89,7 +89,7 @@ const Exercise = (props) => {
       if (status !== "armup") {
         //  status= "일어남";
         status = "armup";
-        setStatus(status);
+        setStatus("good!");
         console.log("일어남");
       }
     } else if (prediction[1].probability.toFixed(2) > 0.9) {
@@ -105,7 +105,7 @@ const Exercise = (props) => {
       if (status !== "armdown") {
         // status = "앉음"
         status = "armdown";
-        setStatus(status);
+        setStatus("good!");
         console.log("armdown");      }
     }
     for (let i = 0; i < maxPredictions; i++) {
@@ -163,14 +163,15 @@ const Exercise = (props) => {
             <div style={{ position: "relative" }}>
               <canvas style={{ position: "absolute" }} id="canvas"></canvas>
               <div
+                className='myttf'
                 style={{
                   position: "absolute",
-                  marginLeft: "35%",
+                  color: "white",
                   fontSize: "100px",
                   fontStyle: "yellow",
                 }}
               >
-                {/* {Status} */}
+                {Status}
               </div>
             </div>
           </div>
