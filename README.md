@@ -279,10 +279,7 @@ back : https://j4d104.p.ssafy.io/api
 
 ## 📖 기술 설명
 
-* ERD 
-
-  ![image-20210408155302134](C:\Users\multicampus\Desktop\s04p23d104\README.assets\image-20210408155302134-1617865188178.png)
-
+* [ERD](./기획/ERD.png) 
 * [Wire Frame](./기획/[인공눈물] 와이어프레임.pdf)
 
 
