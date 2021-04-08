@@ -8,6 +8,7 @@ import main3 from "./images/main3.jpg";
 import "semantic-ui-css/semantic.min.css";
 import { Button, Grid, Header, Icon, Segment, } from "semantic-ui-react";
 
+
 function Mainpage() {
   return (
     <div className="Mainpage">
