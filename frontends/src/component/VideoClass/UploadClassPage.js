@@ -80,6 +80,7 @@ function UploadClassPage(props) {
     dispatch(videoclasscreate(body))
     .then((res) => {
       console.log(res.payload);
+      props.history.push('/videoclass')
     })
     
   }
