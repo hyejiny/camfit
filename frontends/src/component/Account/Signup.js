@@ -31,10 +31,10 @@ function Signup(props) {
     setNickname(event.currentTarget.value);
   }
   const onCategoryFirstHandler = () => {
-    setCategory(1);
+    setCategory(2);
   }
   const onCategorySecondHandler = () => {
-    setCategory(2);
+    setCategory(1);
   }
 
   const emailCheck = (event) => {
