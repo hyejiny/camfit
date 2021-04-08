@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import styled from 'styled-components';
 import "antd/dist/antd.css";
 import "./Navbar.css";
-import { Modal, Button } from "antd";
-import { gray } from '@ant-design/colors';
+import { Modal } from "antd";
 import LoginModal from "./Account/LoginModal";
 import { ACCESS_TOKEN } from "../constants";
 

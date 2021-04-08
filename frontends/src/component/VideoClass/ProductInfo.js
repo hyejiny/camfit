@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { Button } from 'antd';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './ProductInfo.css';
 import Badge from 'react-bootstrap/Badge';
-import { videoclasslist } from "../../_actions/index";
 
 import { classReg } from '../../_actions/index';
 
@@ -12,15 +11,6 @@ function ProductInfo(props) {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const [Classes, setClasses] = useState([])
-    // const [MyClasses, setMyClasses] = useState(false)
-    // useEffect(() => {
-    //     dispatch(videoclasslist())
-    //     .then((res) => {
-    //         const class_list = res.payload
-    //         setClasses(class_list)           
-    //     });
-    // }, [dispatch,props])
     
     const get_client = () => {
         dispatch(classReg(props.detail.id)).then((res) => {

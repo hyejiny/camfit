@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import "../Info/info.css";
 import "./main.css"
 import backgr from "./images/메인 이미지.jpg";
