@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { Button } from 'antd';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './ProductInfo.css';
 import Badge from 'react-bootstrap/Badge';
-import { videoclasslist } from "../../_actions/index";
 
 import { classReg } from '../../_actions/index';
 
@@ -12,21 +11,14 @@ function ProductInfo(props) {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const [Classes, setClasses] = useState([])
-    // const [MyClasses, setMyClasses] = useState([])
-    useEffect(() => {
-        dispatch(videoclasslist())
-        .then((res) => {
-            const class_list = res.payload
-            console.log(class_list);
-            setClasses(class_list)
+    
+    const get_client = () => {
+        dispatch(classReg(props.detail.id)).then((res) => {
+            alert('수강신청 되었습니다.')
+            props.setMyclass(true);
         })
-    }, [dispatch])
-    const classID = props.detail.id
-
-    const gotoCart = () => {
-        dispatch(classReg(classID))
     }
+
 
     return (
         <div >  
@@ -39,11 +31,22 @@ function ProductInfo(props) {
                     <br />
                     <br />
                     <br />
-                    <div style={{ display: 'flex', justifyContent: 'center' }} onClick={gotoCart}>
-                        <Button shape="round" type="danger" style={{width:"130px",height:"50px"}} onClick={() => {history.push({
+                    {/* <div style={{ display: 'flex', justifyContent: 'center' }} onClick={gotoCart}> */}
+                    <div style={{ display: 'flex', justifyContent: 'center' }} >
+                        {/* <Button shape="round" type="danger" style={{width:"130px",height:"50px"}} onClick={() => {history.push({
                             pathname: `/videochat`})}}>
                             수강하기
+                        </Button> */}
+                        {props.Myclass ? 
+                        <Button shape="round" type="primary" style={{width:"130px",height:"50px"}} onClick={() => {history.push({
+                            pathname: `/videochat`})}}>
+                            시작하기
                         </Button>
+                        :
+                        <Button shape="round" type="danger" style={{width:"130px",height:"50px"}} onClick={get_client}>
+                            수강하기
+                        </Button>
+                        }
                     </div>
                     <br/><br/><br/>
                 </div>

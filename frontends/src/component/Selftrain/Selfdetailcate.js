@@ -2,7 +2,7 @@
 import { ListGroup } from "react-bootstrap";
 import { selftrainlist } from "../../_actions/index";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useStore } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./train.css";
 
 
@@ -15,11 +15,11 @@ function Selfdetailcate(props) {
 
   useEffect(() => {
     let trainId = props.trainId["id"];
-    console.log(trainId, "카테고리");
+    // console.log(trainId, "카테고리");
     dispatch(selftrainlist(trainId)).then(res => {
       const tmp_list = res.payload;
       setTrainInfo(tmp_list);
-      console.log(TrainInfo);
+      // console.log(TrainInfo);
     });
   }, [dispatch]);
 

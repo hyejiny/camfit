@@ -10,7 +10,7 @@ function UploadClass() {
     const newBook = () => {
         const uploadData = new FormData();
         uploadData.append('cover', cover);
-        console.log(uploadData)
+        // console.log(uploadData)
         dispatch(imageshow(uploadData))
         .then((res) => {
             console.log(res.payload)

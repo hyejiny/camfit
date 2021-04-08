@@ -35,11 +35,11 @@ function UploadClassPage(props) {
 
   const discriptionChageHandler = () => {
     const editorInstance = editorRef.current.getInstance()
-    console.log(editorInstance);
-    console.log('마크다운', editorInstance.getMarkdown());
-    console.log('html',editorInstance.getHtml());
+    // console.log(editorInstance);
+    // console.log('마크다운', editorInstance.getMarkdown());
+    // console.log('html',editorInstance.getHtml());
     setDescription(editorInstance.getHtml())
-    console.log(Description);
+    // console.log(Description);
     // setDescription(event.currentTarget.value)
   }
 
@@ -80,6 +80,7 @@ function UploadClassPage(props) {
     dispatch(videoclasscreate(body))
     .then((res) => {
       console.log(res.payload);
+      props.history.push('/videoclass')
     })
     
   }
@@ -130,7 +131,8 @@ function UploadClassPage(props) {
               <Input type="number" onChange={UserLimitChageHandler} value={UserLimit}/>
               <br/><br/>
               <br/><br/>
-              <div >
+              <div onClick={() => {history.push({
+                            pathname: `/videoclass`})}}>
                 <Button type="submit" onClick={submitHandler}>확인</Button>
               </div>
 

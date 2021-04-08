@@ -35,18 +35,19 @@ function LoginModal(props) {
             localStorage.setItem('userid',res.payload.id)
             localStorage.setItem('usernickname',res.payload.nickname)
             localStorage.setItem('usercategory',res.payload.category)
+            localStorage.setItem('useremail',res.payload.email)
           })
           setTimeout(function() {
             window.location.replace("/")
           },1000)
         } else {
-          console.log('login fail')
+          // console.log('login fail')
           alert(res.payload.message)
         }
       })
       .catch((err) => {
         alert('로그인실패')
-        console.log(err);
+        // console.log(err);
       });
   };
   return (

@@ -8,9 +8,6 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import {HighlightOutlined} from '@ant-design/icons';
 import './VideoClass.css';
-// import ReactCardCarousel from "react-card-carousel";
-
-// import SearchFeature from '../component/utils/SearchFeature'
 function VideoClass() {
 
     const dispatch = useDispatch();
@@ -18,13 +15,17 @@ function VideoClass() {
 
     const [Classes, setClasses] = useState([])
     useEffect(() => {
-        dispatch(videoclasslist())
-        .then((res) => {
-            const class_list = res.payload
-            console.log(class_list);
-            setClasses(class_list)
-        })
+        if (username) {
+
+            dispatch(videoclasslist())
+            .then((res) => {
+                const class_list = res.payload
+                console.log(class_list);
+                setClasses(class_list)
+            })
+        }
     }, [dispatch])
+
 
 
     const renderCards = Classes.map((product, index) => {
@@ -43,6 +44,7 @@ function VideoClass() {
                 <br/>
         </Col>
     })
+    
 
     
     return (
@@ -52,9 +54,13 @@ function VideoClass() {
             </div>
             <br/>
             <br/>
+            {username ? 
             <Row gutter= {16, 16}>
                 {renderCards}
             </Row>
+            :
+            <h1 style={{textAlign:'center'}}>"로그인후 이용할 수 있습니다."</h1>
+            }
             <div className="upload">
                 {window.localStorage.getItem('usercategory')=== '2' ?
                 <p>클래스를 등록하고 싶으세요? <button className="uploadButton btn btn-outline-dark">

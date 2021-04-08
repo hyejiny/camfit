@@ -16,14 +16,14 @@ function CommentCreate(props) {
   const submitComment = (e) => {
     e.preventDefault();
     if (!Comment) {
-      return alert("내용을 입력해주셔야 합니다.")
+      return alert("내용을 입력해주셔야 합니다.") 
     }
     const body = {
       content: Comment
     }
     dispatch(createComment(body, props.article))
     .then((res) => {
-      console.log(res.payload);
+      // console.log(res.payload);
     });
     setComment("")
   }

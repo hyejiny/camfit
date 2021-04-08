@@ -12,12 +12,12 @@ function InfoDetail(props) {
 
   useEffect(() => {
     let infoId = props.match.params.id;
-    console.log(infoId, "아이디");
+    // console.log(infoId, "아이디");
     dispatch(infodetail(infoId)).then((res) => {
-      console.log(res.payload, "payload");
+      // console.log(res.payload, "payload");
       const infolist = res.payload;
       setDetailInfo(infolist);
-      console.log(DetailInfo);
+      // console.log(DetailInfo);
     });
   }, []);
 
